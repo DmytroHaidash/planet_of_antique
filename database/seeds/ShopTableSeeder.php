@@ -14,7 +14,7 @@ class ShopTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create('en_En');
         $users = User::where('role', 'seller')->get();
-        $users += User::where('role', 'admin')->first();
+        $users [] = User::where('role', 'admin')->first();
         foreach ($users as $user){
             $shop = $user->shop()->create(['title' => ucfirst($faker->sentence)]);
             $shop->addMediaFromUrl($this->robohash($faker->word, 1920, 900))->toMediaCollection('banner');
