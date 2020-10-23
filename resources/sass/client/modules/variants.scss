@@ -1,0 +1,16 @@
+.variants {
+  @apply border-2 rounded p-1 flex;
+
+  label {
+    @apply p-3 block rounded-sm bg-transparent transition duration-300;
+  }
+
+  [type="radio"] {
+    position: absolute;
+    left: -9999px;
+  }
+
+  [type="radio"]:checked + label {
+    @apply bg-gray-800 text-white font-semibold;
+  }
+}

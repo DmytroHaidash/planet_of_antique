@@ -1,0 +1,61 @@
+.title {
+    &-decoration {
+        @apply absolute;
+        border-top: 4px double;
+        border-bottom: 4px double;
+        z-index: -1;
+        transform: translateY(-50%);
+        border-color: rgba(228, 175, 33, 0.25);
+    }
+
+    &--decorated {
+        position: relative;
+
+        span {
+            position: relative;
+            //border-top: 4px solid;
+            //border-bottom: 4px solid;
+            //border-color: rgba(228, 175, 33, 0.25);
+
+            &::before, &::after {
+                @apply absolute font-serif italic;
+                top: 50%;
+                transform: translateY(-50%);
+                content: 'Antique Park';
+                white-space: nowrap;
+                font-size: 12px;
+                opacity: 0.3;
+                z-index: -1;
+                color: #8f6510;
+            }
+
+            &::before {
+                right: 115%;
+            }
+
+            &::after {
+                left: 115%;
+            }
+        }
+    }
+
+    span {
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: 0 100%;
+        background-position: 50% 0;
+        transition: 0.5s;
+    }
+
+    &--filled {
+        span {
+            background-position: 0 0;
+        }
+    }
+
+    &--striped {
+        span {
+            background-image: linear-gradient(transparent calc(100% - 1px), #daa520 1px);
+        }
+    }
+}

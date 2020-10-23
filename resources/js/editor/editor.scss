@@ -1,0 +1,17 @@
+@import '~froala-editor/css/froala_editor.pkgd.min.css';
+
+.fr-quick-insert a.fr-floating-btn svg {
+  margin: 0;
+}
+
+.fr-box {
+  .fr-floating-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 6px 10px !important;
+
+    svg {
+      width: 100%;
+    }
+  }
+}
