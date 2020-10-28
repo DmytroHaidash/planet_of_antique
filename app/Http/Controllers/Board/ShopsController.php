@@ -24,7 +24,6 @@ class ShopsController extends Controller
             'description' => $request->input('description'),
             'delivery' => $request->input('delivery'),
             'published' => $request->has('published'),
-            'partner' => $request->has('partner')
         ]);
         if ($request->hasFile('logo')) {
             $shop->clearMediaCollection('logo');

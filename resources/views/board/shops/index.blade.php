@@ -52,10 +52,6 @@
                                 <input type="checkbox" name="published" id="published" {{ $shop->published ? 'checked' : '' }}>
                                 <label for="published">Published</label>
                             </div>
-                            <div class="form-checkbox">
-                                <input type="checkbox" name="partner" id="partner" {{ $shop->partner ? 'checked' : '' }}>
-                                <label for="partner">Partner</label>
-                            </div>
                         </div>
                     </div>
                 </div>
