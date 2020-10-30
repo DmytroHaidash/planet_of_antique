@@ -22,22 +22,16 @@ class Navigation
     {
         return [
             (object)[
-                'name' => 'Categories',
-                'route' => route('admin.categories.index'),
-                'icon' => 'i-bullet-list',
-                'match' => app('router')->is('admin.categories.*'),
-            ],
-            (object)[
                 'name' => 'Shops',
                 'route' => route('admin.shops.index'),
                 'icon' => 'i-laptop',
                 'match' => app('router')->is('admin.shops.*'),
             ],
             (object)[
-                'name' => 'Articles',
-                'route' => route('admin.articles.index'),
-                'icon' => 'i-newspaper',
-                'match' => app('router')->is('admin.articles.*'),
+                'name' => 'Categories',
+                'route' => route('admin.categories.index'),
+                'icon' => 'i-bullet-list',
+                'match' => app('router')->is('admin.categories.*'),
             ],
             (object)[
                 'name' => 'Products',
@@ -50,7 +44,13 @@ class Navigation
                 'route' => route('admin.tags.index'),
                 'icon' => 'i-tag',
                 'match' => app('router')->is('admin.tags.*'),
-            ]
+            ],
+            (object)[
+                'name' => 'Articles',
+                'route' => route('admin.articles.index'),
+                'icon' => 'i-newspaper',
+                'match' => app('router')->is('admin.articles.*'),
+            ],
         ];
     }
 
