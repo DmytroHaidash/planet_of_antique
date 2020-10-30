@@ -17,7 +17,7 @@ class CategoriesController extends Controller
      */
     public function index():View
     {
-        $categories = Category::onlyParents()->paginate(20);
+        $categories = Category::paginate(20);
         return view('admin.categories.index' ,compact('categories'));
     }
 
@@ -26,9 +26,7 @@ class CategoriesController extends Controller
      */
     public function create(): View
     {
-        return view('admin.categories.create', [
-            'categories' => Category::onlyParents()->get()
-        ]);
+        return view('admin.categories.create');
     }
 
     /**
@@ -37,7 +35,7 @@ class CategoriesController extends Controller
      */
     public function store(CategorySavingRequest $request): RedirectResponse
     {
-        $category = Category::create($request->only('title', 'parent_id'));
+        $category = Category::create($request->only('title'));
 
         if ($request->hasFile('category')) {
             $category->addMediaFromRequest('category')
@@ -55,10 +53,7 @@ class CategoriesController extends Controller
      */
     public function edit(Category $category): View
     {
-        return view('admin.categories.edit', [
-            'category' => $category,
-            'categories' => Category::onlyParents()->where('id', '!=', $category->id)->get()
-        ]);
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -70,7 +65,7 @@ class CategoriesController extends Controller
      */
     public function update(CategorySavingRequest $request, Category $category): RedirectResponse
     {
-        $category->update($request->only('title', 'parent_id'));
+        $category->update($request->only('title'));
 
         if ($request->hasFile('category')) {
             $category->clearMediaCollection('category');

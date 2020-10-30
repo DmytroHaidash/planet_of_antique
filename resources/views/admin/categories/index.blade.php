@@ -42,30 +42,6 @@
                         </button>
                     </td>
                 </tr>
-                @if ($category->children->count())
-                    @foreach($category->children as $child)
-                        <tr>
-                            <td width="20">{{ $child->id }}</td>
-                            <td width="280">
-                                <span class="text-muted">&mdash;</span>
-                                <a href="{{ route('admin.categories.edit', $child) }}" class="underline">
-                                    {{ $child->title }}
-                                </a>
-                            </td>
-                            <td class="text-center small">{{ $child->products()->count() }}</td>
-                            <td width="100">
-                                <a href="{{ route('admin.categories.edit', $child) }}"
-                                   class="btn btn-warning btn-squire">
-                                    <i class="i-pencil"></i>
-                                </a>
-                                <button class="btn btn-danger btn-squire"
-                                        onclick="deleteItem('{{ route('admin.categories.destroy', $child) }}')">
-                                    <i class="i-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    @endforeach
-                @endif
             @empty
                 <tr>
                     <td colspan="5" class="text-center">

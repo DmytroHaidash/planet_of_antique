@@ -19,19 +19,6 @@
                             </div>
                         @endif
                     </div>
-                    @if ($categories->count())
-                        <div class="form-group">
-                            <label for="category">Parent Category</label>
-                            <select name="parent_id" id="category" class="form-control">
-                                <option value="">-----</option>
-                                @foreach($categories as $category)
-                                    <option value="{{ $category->id }}">
-                                        {{ $category->title }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                    @endif
                 </div>
 
                 <div class="col-lg-4">

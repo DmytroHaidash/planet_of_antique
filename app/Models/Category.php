@@ -29,21 +29,22 @@ class Category extends Model implements HasMedia
     {
         return $this->belongsToMany(Product::class, 'category_product', 'category_id', 'product_id');
     }
-    /**
-     * @return HasMany
-     */
-    public function children(): HasMany
-    {
-        return $this->hasMany(Category::class, 'parent_id');
-    }
 
-    /**
-     * @param  Builder  $query
-     * @return Builder
-     */
-    public function scopeOnlyParents(Builder $query): Builder
-    {
-        return $query->whereNull('parent_id');
-    }
+//    /**
+//     * @return HasMany
+//     */
+//    public function children(): HasMany
+//    {
+//        return $this->hasMany(Category::class, 'parent_id');
+//    }
+//
+//    /**
+//     * @param  Builder  $query
+//     * @return Builder
+//     */
+//    public function scopeOnlyParents(Builder $query): Builder
+//    {
+//        return $query->whereNull('parent_id');
+//    }
 
 }
