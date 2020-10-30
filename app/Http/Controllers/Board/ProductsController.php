@@ -21,7 +21,7 @@ class ProductsController extends Controller
 
     public function create():View
     {
-        $categories = Category::onlyParents()->get();
+        $categories = Category::all();
         return view('board.products.create', compact('categories'));
     }
 
@@ -43,7 +43,7 @@ class ProductsController extends Controller
     }
     public function edit(Product $product):View
     {
-        $categories = Category::onlyParents()->get();
+        $categories = Category::all();
         return view('board.products.edit', compact('categories', 'product'));
     }
 

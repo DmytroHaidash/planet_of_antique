@@ -45,6 +45,24 @@
                                 class="editor"
                         >{{ old('body') ?? $article->body }}</textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="section">Tags</label>
+                        <ul class="list-unstyled">
+                            @foreach($tags as $tag)
+                                <li class="ml-3">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input"
+                                               id="tag-{{$tag->id}}" name="tags[]"
+                                               {{ in_array($tag->id, $article->tags->pluck('id')->toArray()) ? 'checked' : '' }}
+                                               value="{{ $tag->id }}">
+                                        <label class="custom-control-label" for="tag-{{$tag->id}}">
+                                            {{ $tag->title }}
+                                        </label>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="col-lg-4">

@@ -12,6 +12,7 @@ Route::group([
     Route::resource('shops', 'ShopsController')->except('show', 'create', 'store');
     Route::resource('articles', 'ArticlesController')->except('show');
     Route::resource('products', 'ProductsController')->except('show');
+    Route::resource('tags', 'TagsController')->except('show');
 
    /* $sortable = [
         'categories' => 'CategoriesController',

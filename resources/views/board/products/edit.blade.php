@@ -70,27 +70,18 @@
                     <div class="form-group">
                         <label for="section">Category</label>
                         <ul class="list-unstyled">
-                            @foreach($categories as $section)
-                                <li>
+                            @foreach($categories as $category)
+                                <li class="ml-3">
                                     <div class="custom-control custom-checkbox">
-                                        {{ $section->title }}
+                                        <input type="checkbox" class="custom-control-input"
+                                               id="category-{{$category->id}}" name="categories[]"
+                                               {{ in_array($category->id, $product->categories->pluck('id')->toArray()) ? 'checked' : '' }}
+                                               value="{{ $category->id }}">
+                                        <label class="custom-control-label" for="category-{{$category->id}}">
+                                            {{ $category->title }}
+                                        </label>
                                     </div>
                                 </li>
-
-                                @if ($section->children->count())
-                                    @foreach($section->children as $child)
-                                        <li class="ml-3">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                       id="category-{{$child->id}}" name="categories[]"
-                                                       value="{{ $child->id }}">
-                                                <label class="custom-control-label" for="category-{{$child->id}}">
-                                                    {{ $child->title }}
-                                                </label>
-                                            </div>
-                                        </li>
-                                    @endforeach
-                                @endif
                             @endforeach
                         </ul>
                     </div>
@@ -105,7 +96,8 @@
                 </div>
                 <div class="custom-control custom-checkbox ml-3">
                     <input type="radio" class="custom-control-input"
-                           id="reserved" name="in_stock" value="reserved" {{$product->in_stock == 'reserved' ? 'checked' : ''}}>
+                           id="reserved" name="in_stock"
+                           value="reserved" {{$product->in_stock == 'reserved' ? 'checked' : ''}}>
                     <label class="custom-control-label" for="reserved">Reserved</label>
                 </div>
                 <div class="custom-control custom-checkbox ml-3">

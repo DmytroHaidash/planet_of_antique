@@ -37,7 +37,7 @@ class ProductsController extends Controller
             'publish_price' => $request->has('publish_price'),
             'is_published' => $request->has('is_published'),
         ]);
-        $product->categories()->attach($request->input('categories', []));
+        $product->categories()->attach($request->input('categories'));
         $this->handleMedia($request, $product);
         return redirect()->route('admin.products.index')->with('success', 'Product successfully created');
     }

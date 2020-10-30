@@ -45,6 +45,12 @@ class Navigation
                 'icon' => 'i-folder',
                 'match' => app('router')->is('admin.products'),
             ],
+            (object)[
+                'name' => 'Tags',
+                'route' => route('admin.tags.index'),
+                'icon' => 'i-tag',
+                'match' => app('router')->is('admin.tags.*'),
+            ]
         ];
     }
 

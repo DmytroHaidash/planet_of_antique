@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Tag;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,8 @@ class ArticlesController extends Controller
      */
     public function create():View
     {
-        return view('admin.articles.create');
+        $tags = Tag::all();
+        return view('admin.articles.create', compact('tags'));
     }
 
     /**
@@ -35,6 +37,7 @@ class ArticlesController extends Controller
     public function store(Request $request):RedirectResponse
     {
         $article = Auth::user()->article()->create($request->only('title', 'description', 'body'));
+        $article->tags()->attach($request->input('tags'));
         if($request->hasFile('article')) {
             $article->addMediaFromRequest('article')
                 ->sanitizingFileName(filenameSanitizer())
@@ -50,7 +53,8 @@ class ArticlesController extends Controller
      */
     public function edit(Article $article):View
     {
-        return view('admin.articles.edit', compact('article'));
+        $tags = Tag::all();
+        return view('admin.articles.edit', compact('article', 'tags'));
     }
 
     /**
@@ -63,6 +67,7 @@ class ArticlesController extends Controller
     public function update(Request $request, Article $article):RedirectResponse
     {
         $article->update($request->only('title', 'description', 'body'));
+        $article->tags()->sync($request->input('tags'));
         if($request->hasFile('article')) {
             $article->clearMediaCollection('article');
             $article->addMediaFromRequest('article')
