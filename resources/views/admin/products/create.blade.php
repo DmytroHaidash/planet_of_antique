@@ -8,7 +8,7 @@
 
     <section>
         <form action="{{ route('admin.products.store') }}" method="post" enctype="multipart/form-data">
-    @csrf
+            @csrf
             <div class="row">
                 <div class="col-lg-8">
                     <div class="form-group">
@@ -46,50 +46,40 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group{{ $errors->has('price') ? ' is-invalid' : '' }}">
-                    <label for="price">Price</label>
-                    <input type="number" min="1" step="1" class="form-control" id="price" name="price"
-                           value="{{ old('price') }}" required>
-                    @if($errors->has('price'))
-                        <div class="mt-1 text-danger">
-                            {{ $errors->first('price') }}
-                        </div>
-                    @endif
-                </div>
-                <div class="form-group my-4">
-                    <div class="custom-control custom-checkbox ml-3">
-                        <input type="checkbox" class="custom-control-input"
-                               id="publish_price" name="publish_price" checked>
-                        <label class="custom-control-label" for="publish_price">Published price</label>
+                        <label for="price">Price</label>
+                        <input type="number" min="1" step="1" class="form-control" id="price" name="price"
+                               value="{{ old('price') }}" required>
+                        @if($errors->has('price'))
+                            <div class="mt-1 text-danger">
+                                {{ $errors->first('price') }}
+                            </div>
+                        @endif
                     </div>
-                </div>
+                    <div class="form-group my-4">
+                        <div class="custom-control custom-checkbox ml-3">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="publish_price" name="publish_price" checked>
+                            <label class="custom-control-label" for="publish_price">Published price</label>
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label for="section">Category</label>
-                    <ul class="list-unstyled">
-                        @foreach($categories as $section)
-                            <li>
-                                <div class="custom-control custom-checkbox">
-                                    {{ $section->title }}
-                                </div>
-                            </li>
-
-                            @if ($section->children->count())
-                                @foreach($section->children as $child)
-                                    <li class="ml-3">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="category-{{$child->id}}" name="categories[]"
-                                                   value="{{ $child->id }}">
-                                            <label class="custom-control-label" for="category-{{$child->id}}">
-                                                {{ $child->title }}
-                                            </label>
-                                        </div>
-                                    </li>
-                                @endforeach
-                            @endif
-                        @endforeach
-                    </ul>
-                </div>
+                    <div class="form-group">
+                        <label for="section">Category</label>
+                        <ul class="list-unstyled">
+                            @foreach($categories as $category)
+                                <li class="ml-3">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input"
+                                               id="category-{{$category->id}}" name="categories[]"
+                                               value="{{ $category->id }}">
+                                        <label class="custom-control-label" for="category-{{$category->id}}">
+                                            {{ $category->title }}
+                                        </label>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="form-group d-flex my-4">
