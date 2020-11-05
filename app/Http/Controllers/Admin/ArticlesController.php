@@ -44,6 +44,16 @@ class ArticlesController extends Controller
                 ->toMediaCollection('article');
         }
 
+        if ($request->has('meta')) {
+            foreach ($request->get('meta') as $key => $meta) {
+                $article->meta()->updateOrCreate([
+                    'metable_id' => $article->id
+                ], [
+                    $key => $meta
+                ]);
+            }
+        }
+
         return redirect(route('admin.articles.index'))->with('success', 'Post successfully created');
     }
 
@@ -73,6 +83,16 @@ class ArticlesController extends Controller
             $article->addMediaFromRequest('article')
                 ->sanitizingFileName(filenameSanitizer())
                 ->toMediaCollection('article');
+        }
+
+        if ($request->has('meta')) {
+            foreach ($request->get('meta') as $key => $meta) {
+                $article->meta()->updateOrCreate([
+                    'metable_id' => $article->id
+                ], [
+                    $key => $meta
+                ]);
+            }
         }
 
         return redirect(route('admin.articles.index'))->with('success', 'Article successfully updated');

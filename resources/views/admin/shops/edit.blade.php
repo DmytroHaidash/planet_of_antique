@@ -44,7 +44,7 @@
                                 class="editor"
                         >{{ old('delivery') ?? $shop->delivery }}</textarea>
                     </div>
-
+                    @includeIf('partials.admin.meta', ['meta' => $shop->meta()->first()])
                     <div class="flex">
                         <div class="px-6 pt-3">
                             <div class="form-checkbox">

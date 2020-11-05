@@ -22,6 +22,7 @@ class CreateSettingsTable extends Migration
             $table->string('email')->nullable();
             $table->string('whatsapp')->nullable();
             $table->integer('ads_per_user');
+            $table->timestamps();
         });
     }
 

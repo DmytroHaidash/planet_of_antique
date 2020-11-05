@@ -13,19 +13,19 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ProductsController extends Controller
 {
-    public function index():View
+    public function index(): View
     {
         $products = Product::latest()->paginate(20);
         return view('admin.products.index', compact('products'));
     }
 
-    public function create():View
+    public function create(): View
     {
         $categories = Category::all();
         return view('admin.products.create', compact('categories'));
     }
 
-    public function store(Request $request):RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
         $product = Product::create([
             'shop_id' => Auth::user()->shop->id,
@@ -39,16 +39,25 @@ class ProductsController extends Controller
         ]);
         $product->categories()->attach($request->input('categories'));
         $this->handleMedia($request, $product);
+        if ($request->has('meta')) {
+            foreach ($request->get('meta') as $key => $meta) {
+                $product->meta()->updateOrCreate([
+                    'metable_id' => $product->id
+                ], [
+                    $key => $meta
+                ]);
+            }
+        }
         return redirect()->route('admin.products.index')->with('success', 'Product successfully created');
     }
 
-    public function edit(Product $product):View
+    public function edit(Product $product): View
     {
         $categories = Category::all();
         return view('admin.products.edit', compact('categories', 'product'));
     }
 
-    public function update(Product $product, Request $request):RedirectResponse
+    public function update(Product $product, Request $request): RedirectResponse
     {
         $product->update([
             'title' => $request->input('title'),
@@ -61,10 +70,19 @@ class ProductsController extends Controller
         ]);
         $product->categories()->sync($request->input('categories'));
         $this->handleMedia($request, $product);
+        if ($request->has('meta')) {
+            foreach ($request->get('meta') as $key => $meta) {
+                $product->meta()->updateOrCreate([
+                    'metable_id' => $product->id
+                ], [
+                    $key => $meta
+                ]);
+            }
+        }
         return redirect()->route('admin.products.index')->with('success', 'Product successfully updated');
     }
 
-    public function destroy(Product $product):RedirectResponse
+    public function destroy(Product $product): RedirectResponse
     {
         $product->delete();
         return redirect()->route('admin.products.index')->with('success', 'Product successfully deleted');

@@ -12,14 +12,13 @@ class PagesTableSeeder extends Seeder
      */
     public function run()
     {
-        $pages = [];
-        $pages += [ 'slug' => 'about', 'title' => 'About'];
-        $pages += [ 'slug' => 'sellers', 'title' => 'For Sellers'];
-        $pages += [ 'slug' => 'buyers', 'title' => 'For Buyers'];
-        $pages += [ 'slug' => 'contacts', 'title' => 'Contacts'];
+        $pages[] = [ 'slug' => 'about', 'title' => 'About'];
+        $pages[] = [ 'slug' => 'sellers', 'title' => 'For Sellers'];
+        $pages[] = [ 'slug' => 'buyers', 'title' => 'For Buyers'];
+        $pages[] = [ 'slug' => 'contacts', 'title' => 'Contacts'];
 
         foreach ($pages as $page) {
-            Page::create(['slug' => $page['slug'], 'title' => $page['slug']]);
+            Page::create(['slug'=> $page['slug'], 'title' => $page['title']]);
         }
     }
 }

@@ -42,6 +42,7 @@
                                 class="editor"
                         >{{ old('body') }}</textarea>
                     </div>
+                    @includeIf('partials.admin.meta', ['meta' => null])
                     <multi-uploader class="mt-4"></multi-uploader>
                 </div>
                 <div class="col-lg-4">

@@ -34,6 +34,7 @@
                                 class="editor"
                         >{{ old('description') ?? $page->description }}</textarea>
                     </div>
+                    @includeIf('partials.admin.meta', ['meta' => $page->meta()->first()])
                 </div>
 
                 <div class="col-lg-4">

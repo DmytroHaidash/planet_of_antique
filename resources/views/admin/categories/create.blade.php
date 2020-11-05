@@ -19,6 +19,7 @@
                             </div>
                         @endif
                     </div>
+                    @includeIf('partials.admin.meta', ['meta' => null])
                 </div>
 
                 <div class="col-lg-4">

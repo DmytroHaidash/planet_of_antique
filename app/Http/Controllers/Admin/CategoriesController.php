@@ -42,6 +42,15 @@ class CategoriesController extends Controller
                 ->sanitizingFileName(filenameSanitizer())
                 ->toMediaCollection('category');
         }
+        if ($request->has('meta')) {
+            foreach ($request->get('meta') as $key => $meta) {
+                $category->meta()->updateOrCreate([
+                    'metable_id' => $category->id
+                ], [
+                    $key => $meta
+                ]);
+            }
+        }
 
         return redirect(route('admin.categories.edit', $category))
             ->with('success', 'Category successfully created');
@@ -72,6 +81,15 @@ class CategoriesController extends Controller
             $category->addMediaFromRequest('category')
                 ->sanitizingFileName(filenameSanitizer())
                 ->toMediaCollection('category');
+        }
+        if ($request->has('meta')) {
+            foreach ($request->get('meta') as $key => $meta) {
+                $category->meta()->updateOrCreate([
+                    'metable_id' => $category->id
+                ], [
+                    $key => $meta
+                ]);
+            }
         }
 
         return back()->with('success', 'Category successfully updated');

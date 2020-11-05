@@ -39,6 +39,15 @@ class ProductsController extends Controller
         ]);
         $product->categories()->attach($request->input('categories', []));
         $this->handleMedia($request, $product);
+        if ($request->has('meta')) {
+            foreach ($request->get('meta') as $key => $meta) {
+                $product->meta()->updateOrCreate([
+                    'metable_id' => $product->id
+                ], [
+                    $key => $meta
+                ]);
+            }
+        }
         return redirect()->route('board.products.index')->with('success', 'Product successfully created');
     }
     public function edit(Product $product):View
@@ -60,6 +69,15 @@ class ProductsController extends Controller
         ]);
         $product->categories()->sync($request->input('categories'));
         $this->handleMedia($request, $product);
+        if ($request->has('meta')) {
+            foreach ($request->get('meta') as $key => $meta) {
+                $product->meta()->updateOrCreate([
+                    'metable_id' => $product->id
+                ], [
+                    $key => $meta
+                ]);
+            }
+        }
         return redirect()->route('board.products.index')->with('success', 'Product successfully updated');
     }
 

@@ -42,6 +42,17 @@ class ShopsController extends Controller
                 ->sanitizingFileName(filenameSanitizer())
                 ->toMediaCollection('banner');
         }
+
+        if ($request->has('meta')) {
+            foreach ($request->get('meta') as $key => $meta) {
+                $shop->meta()->updateOrCreate([
+                    'metable_id' => $shop->id
+                ], [
+                    $key => $meta
+                ]);
+            }
+        }
+
         return redirect(route('admin.shops.index'))->with('success',  'Shop successfully updated');
     }
 }

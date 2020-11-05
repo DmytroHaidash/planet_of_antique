@@ -44,6 +44,7 @@
                                 class="editor"
                         >{{ old('body') ?? $product->body }}</textarea>
                     </div>
+                    @includeIf('partials.admin.meta', ['meta' => $product->meta()->first()])
                     <multi-uploader class="mt-4"
                                     :src="{{ json_encode(\App\Http\Resources\MediaResource::collection($product->getMedia('uploads'))) }}"></multi-uploader>
                 </div>
