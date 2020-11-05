@@ -51,6 +51,24 @@ class Navigation
                 'icon' => 'i-newspaper',
                 'match' => app('router')->is('admin.articles.*'),
             ],
+            (object)[
+                'name' => 'Pages',
+                'route' => route('admin.pages.index'),
+                'icon' => 'i-template',
+                'match' => app('router')->is('admin.pages.*')
+            ],
+            (object)[
+                'name' => 'Banners',
+                'route' => route('admin.banners.index'),
+                'icon' => 'i-portfolio',
+                'match' => app('router')->is('admin.banners.*')
+            ],
+            (object)[
+                'name' => 'Settings',
+                'route' => route('admin.settings.index'),
+                'icon' => 'i-settings',
+                'match' => app('router')->is('admin.settings.*')
+            ]
         ];
     }
 

@@ -13,18 +13,9 @@ Route::group([
     Route::resource('articles', 'ArticlesController')->except('show');
     Route::resource('products', 'ProductsController')->except('show');
     Route::resource('tags', 'TagsController')->except('show');
+    Route::resource('pages', 'PagesController')->except('show', 'create', 'store');
+    Route::resource('banners', 'BannersController')->except('show');
 
-   /* $sortable = [
-        'categories' => 'CategoriesController',
-    ];
-
-    foreach ($sortable as $name => $controller) {
-        Route::group([
-            'as' => "sort.{$name}.",
-            'prefix' => "sort/{$name}"
-        ], function () use ($name, $controller) {
-            Route::post('{item}/up', "{$controller}@up")->name('up');
-            Route::post('{item}/down', "{$controller}@down")->name('down');
-        });
-    }*/
+    Route::get('\setting', 'SettingsController@index')->name('settings.index');
+    Route::post('settings', 'SettingsController@update')->name('settings.update');
 });
