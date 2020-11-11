@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Setting;
 use App\Services\Navigation;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -29,6 +30,10 @@ class AppServiceProvider extends ServiceProvider
 
         app()->singleton('nav', function () {
             return new Navigation();
+        });
+
+        app()->singleton('settings', function () {
+            return Setting::first();
         });
     }
 }

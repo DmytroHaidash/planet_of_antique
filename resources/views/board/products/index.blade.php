@@ -1,15 +1,18 @@
 @extends('layouts.board', ['page_title' => 'Products'])
 
 @section('content')
-
     <section id="content">
         <div class="d-flex align-items-center mb-5">
             <h1 class="h3 mb-0">Products</h1>
-            <div class="ml-4">
-                <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
-                    Create new product
-                </a>
-            </div>
+            @if(Auth::user()->shop->products->count() < app('settings')->ads_per_user ||
+            (Auth::user()->premium && Auth::user()->premium > Carbon\Carbon::now()->toDate())
+            )
+                <div class="ml-4">
+                    <a href="{{ route('board.products.create') }}" class="btn btn-primary">
+                        Create new product
+                    </a>
+                </div>
+            @endif
         </div>
 
         <form class="my-4 d-flex">
@@ -37,24 +40,24 @@
                 <tr>
                     <td width="20">{{ $product->id }}</td>
                     <td width="280">
-                        <a href="{{ route('admin.products.edit', $product) }}" class="underline">
+                        <a href="{{ route('board.products.edit', $product) }}" class="underline">
                             {{ $product->title }}
                         </a>
                     </td>
                     <td>
                         @forelse($product->categories as $category)
-                                {{ $category->title }}
+                            {{ $category->title }}
                         @empty
                             ---
                         @endforelse
                     </td>
                     <td width="100">
-                        <a href="{{ route('admin.products.edit', $product) }}"
+                        <a href="{{ route('board.products.edit', $product) }}"
                            class="btn btn-warning btn-squire">
                             <i class="i-pencil"></i>
                         </a>
                         <button class="btn btn-danger btn-squire"
-                                onclick="deleteItem('{{ route('admin.products.destroy', $product) }}')">
+                                onclick="deleteItem('{{ route('board.products.destroy', $product) }}')">
                             <i class="i-trash"></i>
                         </button>
                     </td>

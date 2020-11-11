@@ -9,7 +9,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group([
     'as' => 'client.',
-    'namespace' => 'Client'
+//    'namespace' => 'Client'
 ], function () {
     Route::get('/client', 'HomeController@index')->name('index');
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CanCreateProduct;
 use App\Http\Middleware\CheckAuthUserRole;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -63,6 +64,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'role' => CheckAuthUserRole::class
+        'role' => CheckAuthUserRole::class,
+        'canCreate' => CanCreateProduct::class,
     ];
 }
