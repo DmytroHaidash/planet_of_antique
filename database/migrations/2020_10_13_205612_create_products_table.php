@@ -17,9 +17,9 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('shop_id');
             $table->string('slug')->unique();
-            $table->string('title');
-            $table->string('description')->nullable();
-            $table->text('body')->nullable();
+            $table->json('title');
+            $table->json('description')->nullable();
+            $table->json('body')->nullable();
             $table->float('price');
             $table->string('in_stock');
             $table->boolean('is_published')->default(1);

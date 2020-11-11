@@ -64,6 +64,12 @@ class Navigation
                 'match' => app('router')->is('admin.banners.*')
             ],
             (object)[
+                'name' => 'Users',
+                'route' => route('admin.users.index'),
+                'icon' => 'i-user',
+                'match' => app('router')->is('admin.users.*')
+            ],
+            (object)[
                 'name' => 'Settings',
                 'route' => route('admin.settings.index'),
                 'icon' => 'i-settings',

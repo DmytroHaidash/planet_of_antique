@@ -5,6 +5,7 @@ import VModal from 'vue-js-modal'
 import MultiUploader from './components/MultiUploader'
 import SingleUploader from './components/SingleUploader'
 import PasswordChange from "./components/PasswordChange";
+import BlockEditor from "./components/BlockEditor";
 
 Vue.use(VModal);
 
@@ -13,7 +14,8 @@ new Vue({
   components: {
     SingleUploader,
     MultiUploader,
-    PasswordChange
+    PasswordChange,
+    BlockEditor
   },
   mounted() {
     require('./modules/notifications');

@@ -12,11 +12,17 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Translatable\HasTranslations;
 
 class Product extends Model implements HasMedia, Sortable
 {
-    use InteractsWithMedia, SortableTrait, SluggableTrait;
+    use InteractsWithMedia, HasTranslations, SortableTrait, SluggableTrait;
 
+    protected $translatable = [
+        'title',
+        'description',
+        'body'
+    ];
     protected $fillable = [
         'slug',
         'title',

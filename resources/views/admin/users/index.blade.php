@@ -1,41 +1,39 @@
-@extends('layouts.admin', ['page_title' => 'Banners'] )
+@extends('layouts.admin', ['page_title' => 'Users'])
 
 @section('content')
 
     <section id="content">
         <div class="d-flex align-items-center mb-5">
-            <h1 class="h3 mb-0">Banners</h1>
-            <div class="ml-4">
-                <a href="{{ route('admin.banners.create') }}" class="btn btn-primary">
-                    Create banner
-                </a>
-            </div>
+            <h1 class="h3 mb-0">Users</h1>
         </div>
-
         <table class="table">
             <thead>
             <tr class="small">
                 <th>#</th>
-                <th>Title</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th class="text-center">Role</th>
                 <th></th>
             </tr>
             </thead>
 
-            @forelse($banners as $banner)
+            @forelse($users as $user)
                 <tr>
-                    <td width="20">{{ $banner->id }}</td>
+                    <td width="20">{{ $user->id }}</td>
                     <td width="280">
-                        <a href="{{ route('admin.banners.edit', $banner) }}" class="underline">
-                            {{ $banner->title }}
+                        <a href="{{ route('admin.users.edit', $user) }}" class="underline">
+                            {{ $user->name }}
                         </a>
                     </td>
+                    <td>{{$user->email}}</td>
+                    <td class="text-center small">{{ $user->role }}</td>
                     <td width="100">
-                        <a href="{{ route('admin.banners.edit', $banner) }}"
+                        <a href="{{ route('admin.users.edit', $user) }}"
                            class="btn btn-warning btn-squire">
                             <i class="i-pencil"></i>
                         </a>
                         <button class="btn btn-danger btn-squire"
-                                onclick="deleteItem('{{ route('admin.banners.destroy', $banner) }}')">
+                                onclick="deleteItem('{{ route('admin.users.destroy', $user) }}')">
                             <i class="i-trash"></i>
                         </button>
                     </td>
@@ -43,13 +41,13 @@
             @empty
                 <tr>
                     <td colspan="5" class="text-center">
-                        Banners not added yet
+                        Users not added yet
                     </td>
                 </tr>
             @endforelse
         </table>
 
-        {{ $banners->appends(request()->except('page'))->links() }}
+        {{ $users->appends(request()->except('page'))->links() }}
     </section>
 
 @endsection

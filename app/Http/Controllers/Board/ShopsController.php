@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Board;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ShopSavingRequest;
 use App\Models\Shop;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class ShopsController extends Controller
         return view('board.shops.index', compact('shop'));
     }
 
-    public function update(Request $request, Shop $shop): RedirectResponse
+    public function update(ShopSavingRequest $request, Shop $shop): RedirectResponse
     {
         $shop->update([
             'title' => $request->input('title'),

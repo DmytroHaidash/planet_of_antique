@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TagSavingRequest;
 use App\Models\Tag;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class TagsController extends Controller
         return view('admin.tags.create');
     }
 
-    public function store(Request $request):RedirectResponse
+    public function store(TagSavingRequest $request):RedirectResponse
     {
         Tag::create($request->only('title'));
 
@@ -33,7 +34,7 @@ class TagsController extends Controller
         return view('admin.tags.index', compact('tag'));
     }
 
-    public function update(Tag $tag, Request $request):RedirectResponse
+    public function update(TagSavingRequest $tag, Request $request):RedirectResponse
     {
         $tag->update($request->only('title'));
         return redirect(route('admin.tags.index'))->with('success', 'Tag successfully updated');

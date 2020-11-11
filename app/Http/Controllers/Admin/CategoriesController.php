@@ -52,7 +52,7 @@ class CategoriesController extends Controller
             }
         }
 
-        return redirect(route('admin.categories.edit', $category))
+        return redirect(route('admin.categories.index'))
             ->with('success', 'Category successfully created');
     }
 
@@ -92,7 +92,8 @@ class CategoriesController extends Controller
             }
         }
 
-        return back()->with('success', 'Category successfully updated');
+        return redirect(route('admin.categories.index'))
+            ->with('success', 'Category successfully updated');
     }
 
     /**

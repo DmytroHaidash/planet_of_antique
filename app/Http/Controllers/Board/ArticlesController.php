@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Board;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ArticleSavingRequest;
 use App\Models\Article;
 use App\Models\Tag;
 use Illuminate\Http\RedirectResponse;
@@ -31,10 +32,10 @@ class ArticlesController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param ArticleSavingRequest $request
      * @return RedirectResponse
      */
-    public function store(Request $request):RedirectResponse
+    public function store(ArticleSavingRequest $request):RedirectResponse
     {
         $article = Auth::user()->article()->create($request->only('title', 'description', 'body'));
         $article->tags()->attach($request->input('tags'));
@@ -68,13 +69,13 @@ class ArticlesController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param ArticleSavingRequest $request
      * @param Article $article
      * @return RedirectResponse
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    public function update(Request $request, Article $article):RedirectResponse
+    public function update(ArticleSavingRequest $request, Article $article):RedirectResponse
     {
         $article->update($request->only('title', 'description', 'body'));
         $article->tags()->sync($request->input('tags'));

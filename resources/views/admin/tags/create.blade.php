@@ -5,19 +5,23 @@
     <section>
         <form action="{{ route('admin.tags.store') }}" method="post">
             @csrf
-
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input id="title" type="text" name="title"
-                       class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
-                       value="{{ old('title') }}" required>
-                @if($errors->has('title'))
-                    <div class="mt-1 text-danger">
-                        {{ $errors->first('title') }}
-                    </div>
-                @endif
-            </div>
-
+            <block-editor>
+                @foreach(config('app.locales') as $lang)
+                    <fieldset slot="{{ $lang }}">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input id="title" type="text" name="title[{{$lang}}]"
+                                   class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
+                                   value="{{ old('title.'.$lang) }}">
+                            @if($errors->has('title'))
+                                <div class="mt-1 text-danger">
+                                    {{ $errors->first('title') }}
+                                </div>
+                            @endif
+                        </div>
+                    </fieldset>
+                @endforeach
+            </block-editor>
             <div class="mt-4">
                 <button class="btn btn-primary">Save</button>
             </div>

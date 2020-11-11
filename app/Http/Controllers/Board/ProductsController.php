@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Board;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductSavingRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
@@ -25,7 +26,7 @@ class ProductsController extends Controller
         return view('board.products.create', compact('categories'));
     }
 
-    public function store(Request $request):RedirectResponse
+    public function store(ProductSavingRequest $request):RedirectResponse
     {
         $product = Product::create([
             'shop_id' => Auth::user()->shop->id,
@@ -56,7 +57,7 @@ class ProductsController extends Controller
         return view('board.products.edit', compact('categories', 'product'));
     }
 
-    public function update(Product $product, Request $request):RedirectResponse
+    public function update(ProductSavingRequest $request, Product $product):RedirectResponse
     {
         $product->update([
             'title' => $request->input('title'),

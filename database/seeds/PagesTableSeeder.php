@@ -12,10 +12,10 @@ class PagesTableSeeder extends Seeder
      */
     public function run()
     {
-        $pages[] = [ 'slug' => 'about', 'title' => 'About'];
-        $pages[] = [ 'slug' => 'sellers', 'title' => 'For Sellers'];
-        $pages[] = [ 'slug' => 'buyers', 'title' => 'For Buyers'];
-        $pages[] = [ 'slug' => 'contacts', 'title' => 'Contacts'];
+        $pages[] = [ 'slug' => 'about', 'title' => ['en' =>'About']];
+        $pages[] = [ 'slug' => 'sellers', 'title' => ['en' => 'For Sellers']];
+        $pages[] = [ 'slug' => 'buyers', 'title' => ['en' => 'For Buyers']];
+        $pages[] = [ 'slug' => 'contacts', 'title' => ['en' => 'Contacts']];
 
         foreach ($pages as $page) {
             Page::create(['slug'=> $page['slug'], 'title' => $page['title']]);

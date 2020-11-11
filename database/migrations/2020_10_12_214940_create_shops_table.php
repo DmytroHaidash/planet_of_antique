@@ -17,9 +17,9 @@ class CreateShopsTable extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->unsignedBigInteger('user_id');
-            $table->string('title');
-            $table->text('description')->nullable();
-            $table->text('delivery')->nullable();
+            $table->json('title');
+            $table->json('description')->nullable();
+            $table->json('delivery')->nullable();
             $table->boolean('published')->default(0);
             $table->boolean('partner')->default(0);
             $table->timestamps();

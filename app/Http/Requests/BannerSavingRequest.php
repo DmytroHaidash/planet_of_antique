@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategorySavingRequest extends FormRequest
+class BannerSavingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,6 +25,7 @@ class CategorySavingRequest extends FormRequest
     {
         return [
             'title.'. config('app.locale') => 'required',
+            'banner' => 'image|max:5000',
         ];
     }
 }

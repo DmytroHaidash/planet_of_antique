@@ -16,6 +16,7 @@
 <div id="app">
     @includeIf('partials.board.icons')
     @includeIf('partials.board.header')
+    @includeIf('partials.board.notifications')
     @includeIf('partials.board.aside')
 
     <main>

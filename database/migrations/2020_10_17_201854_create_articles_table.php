@@ -17,9 +17,9 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('slug');
-            $table->string('title');
-            $table->text('description')->nullable();
-            $table->mediumText('body')->nullable();
+            $table->json('title');
+            $table->json('description')->nullable();
+            $table->json('body')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

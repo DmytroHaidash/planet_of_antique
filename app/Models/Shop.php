@@ -12,13 +12,17 @@ use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\Translatable\HasTranslations;
 
 class Shop extends Model implements HasMedia
 {
-    use InteractsWithMedia, SluggableTrait;
+    use InteractsWithMedia, HasTranslations, SluggableTrait;
 
+    protected $translatable = [
+        'title', 'description', 'delivery'
+    ];
     protected $fillable = [
-        'user_id', 'title', 'description', 'delivery', 'published', 'partner'
+        'user_id', 'slug', 'title', 'description', 'delivery', 'published', 'partner'
     ];
 
 

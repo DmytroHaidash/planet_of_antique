@@ -7,10 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Translatable\HasTranslations;
 
 class Page extends Model implements HasMedia
 {
-    use InteractsWithMedia, SluggableTrait;
+    use InteractsWithMedia,HasTranslations, SluggableTrait;
+
+    protected $translatable = [
+        'title',
+        'description'
+    ];
 
     protected $fillable = [
         'slug',

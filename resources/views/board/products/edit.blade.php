@@ -13,37 +13,43 @@
 
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input id="title" type="text" name="title"
-                               class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
-                               value="{{ old('title') ?? $product->title}}" required>
-                        @if($errors->has('title'))
-                            <div class="mt-1 text-danger">
-                                {{ $errors->first('title') }}
-                            </div>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <input id="description" type="text" name="description"
-                               class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}"
-                               value="{{ old('description') ?? $product->description }}">
-                        @if($errors->has('description'))
-                            <div class="mt-1 text-danger">
-                                {{ $errors->first('description') }}
-                            </div>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="body">Body</label>
-                        <textarea
-                                id="body"
-                                name="body"
-                                rows="4"
-                                class="editor"
-                        >{{ old('body') ?? $product->body }}</textarea>
-                    </div>
+                    <block-editor>
+                        @foreach(config('app.locales') as $lang)
+                            <fieldset slot="{{ $lang }}">
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                    <input id="title" type="text" name="title[{{$lang}}]"
+                                           class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
+                                           value="{{ old('title.'.$lang) ?? $product->translate('title', $lang)}}" >
+                                    @if($errors->has('title'))
+                                        <div class="mt-1 text-danger">
+                                            {{ $errors->first('title') }}
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <input id="description" type="text" name="description[{{$lang}}]"
+                                           class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}"
+                                           value="{{ old('description.'.$lang) ?? $product->translate('description', $lang) }}">
+                                    @if($errors->has('description'))
+                                        <div class="mt-1 text-danger">
+                                            {{ $errors->first('description') }}
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="body">Body</label>
+                                    <textarea
+                                            id="body"
+                                            name="body[{{$lang}}]"
+                                            rows="4"
+                                            class="editor"
+                                    >{{ old('body.'.$lang) ?? $product->translate('body', $lang) }}</textarea>
+                                </div>
+                            </fieldset>
+                        @endforeach
+                    </block-editor>
                     @includeIf('partials.admin.meta', ['meta' => $product->meta()->first()])
                     <multi-uploader class="mt-4"
                                     :src="{{ json_encode(\App\Http\Resources\MediaResource::collection($product->getMedia('uploads'))) }}"></multi-uploader>

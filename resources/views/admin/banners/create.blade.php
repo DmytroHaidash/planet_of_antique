@@ -8,29 +8,37 @@
 
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input id="title" type="text" name="title"
-                               class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
-                               value="{{ old('title') }}" required>
-                        @if($errors->has('title'))
-                            <div class="mt-1 text-danger">
-                                {{ $errors->first('title') }}
-                            </div>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <input id="description" type="text" name="description"
-                               class="form-control"
-                               value="{{ old('description') }}">
-                    </div>
+                    <block-editor>
+                        @foreach(config('app.locales') as $lang)
+                            <fieldset slot="{{ $lang }}">
+
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                    <input id="title" type="text" name="title[{{$lang}}]"
+                                           class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
+                                           value="{{ old('title.'.$lang) }}">
+                                    @if($errors->has('title'))
+                                        <div class="mt-1 text-danger">
+                                            {{ $errors->first('title') }}
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <input id="description" type="text" name="description[{{$lang}}]"
+                                           class="form-control"
+                                           value="{{ old('description.'.$lang) }}">
+                                </div>
+                            </fieldset>
+                        @endforeach
+                    </block-editor>
                     <div class="form-group">
                         <label for="url">Url</label>
                         <input id="url" type="text" name="url"
                                class="form-control"
                                value="{{ old('url') }}">
                     </div>
+
                 </div>
 
                 <div class="col-lg-4">

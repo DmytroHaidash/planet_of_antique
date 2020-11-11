@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PageSavingRequest;
 use App\Models\Page;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class PagesController extends Controller
         return view('admin.pages.edit', compact('page'));
     }
 
-    public function update(Request $request, Page $page):RedirectResponse
+    public function update(PageSavingRequest $request, Page $page):RedirectResponse
     {
         $page->update($request->only('title', 'description'));
         if($request->hasFile('page')){

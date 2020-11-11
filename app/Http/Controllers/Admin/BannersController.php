@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BannerSavingRequest;
 use App\Models\Banner;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -28,10 +29,10 @@ class BannersController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param BannerSavingRequest $request
      * @return RedirectResponse
      */
-    public function store(Request $request):RedirectResponse
+    public function store(BannerSavingRequest $request):RedirectResponse
     {
         $banner = Banner::create($request->only('title', 'description', 'url'));
         if($request->hasFile('banner')){
@@ -53,13 +54,13 @@ class BannersController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param BannerSavingRequest $request
      * @param Banner $banner
      * @return RedirectResponse
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    public function update(Request $request, Banner $banner):RedirectResponse
+    public function update(BannerSavingRequest $request, Banner $banner):RedirectResponse
     {
         $banner->update($request->only('title', 'description', 'url'));
         if($request->hasFile('banner')){

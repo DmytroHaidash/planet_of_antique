@@ -12,10 +12,15 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Translatable\HasTranslations;
 
 class Category extends Model implements HasMedia
 {
-    use InteractsWithMedia, SluggableTrait;
+    use InteractsWithMedia, HasTranslations, SluggableTrait;
+
+    protected $translatable = [
+        'title'
+    ];
 
     protected $fillable = [
         'slug',

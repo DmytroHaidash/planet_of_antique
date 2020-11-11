@@ -14,26 +14,32 @@
 
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input id="title" type="text" name="title"
-                               class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
-                               value="{{ old('title') ?? $page->title }}" required>
-                        @if($errors->has('title'))
-                            <div class="mt-1 text-danger">
-                                {{ $errors->first('title') }}
-                            </div>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea
-                                id="description"
-                                name="description"
-                                rows="4"
-                                class="editor"
-                        >{{ old('description') ?? $page->description }}</textarea>
-                    </div>
+                    <block-editor>
+                        @foreach(config('app.locales') as $lang)
+                            <fieldset slot="{{ $lang }}">
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                    <input id="title" type="text" name="title[{{$lang}}]"
+                                           class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
+                                           value="{{ old('title.'.$lang) ?? $page->translate('title', $lang) }}">
+                                    @if($errors->has('title'))
+                                        <div class="mt-1 text-danger">
+                                            {{ $errors->first('title') }}
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea
+                                            id="description"
+                                            name="description[{{$lang}}]"
+                                            rows="4"
+                                            class="editor"
+                                    >{{ old('description.'. $lang) ?? $page->translate('description', $lang) }}</textarea>
+                                </div>
+                            </fieldset>
+                        @endforeach
+                    </block-editor>
                     @includeIf('partials.admin.meta', ['meta' => $page->meta()->first()])
                 </div>
 

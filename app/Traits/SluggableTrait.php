@@ -26,8 +26,14 @@ trait SluggableTrait
     {
         return [
             'slug' => [
-                'source' => 'title',
+                'source' => 'sluggable_title',
             ],
         ];
     }
+
+    public function getSluggableTitleAttribute()
+    {
+        return request('slug') ?? request('title.'.config('app.locale'));
+    }
+
 }

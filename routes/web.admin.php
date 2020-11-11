@@ -15,7 +15,8 @@ Route::group([
     Route::resource('tags', 'TagsController')->except('show');
     Route::resource('pages', 'PagesController')->except('show', 'create', 'store');
     Route::resource('banners', 'BannersController')->except('show');
+    Route::resource('users', 'UsersController')->except('show', 'create', 'store');
 
-    Route::get('\setting', 'SettingsController@index')->name('settings.index');
-    Route::post('settings', 'SettingsController@update')->name('settings.update');
+    Route::get('setting', 'SettingsController@index')->name('settings.index');
+    Route::post('setting', 'SettingsController@update')->name('settings.update');
 });
