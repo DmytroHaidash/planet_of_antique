@@ -12,6 +12,7 @@ class PagesTableSeeder extends Seeder
      */
     public function run()
     {
+        $pages[] = ['slug' =>'main', 'title'=> ['en' => 'Main']];
         $pages[] = [ 'slug' => 'about', 'title' => ['en' =>'About']];
         $pages[] = [ 'slug' => 'sellers', 'title' => ['en' => 'For Sellers']];
         $pages[] = [ 'slug' => 'buyers', 'title' => ['en' => 'For Buyers']];

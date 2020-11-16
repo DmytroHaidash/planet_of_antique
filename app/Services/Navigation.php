@@ -64,6 +64,12 @@ class Navigation
                 'match' => app('router')->is('admin.banners.*')
             ],
             (object)[
+                'name' => 'Benefits',
+                'route' => route('admin.benefits.index'),
+                'icon' => 'i-bullet-list',
+                'match' => app('router')->is('admin.benefits.*')
+            ],
+            (object)[
                 'name' => 'Users',
                 'route' => route('admin.users.index'),
                 'icon' => 'i-user',
@@ -78,7 +84,8 @@ class Navigation
         ];
     }
 
-    public function board(){
+    public function board()
+    {
         return [
             (object)[
                 'name' => 'Shops',
