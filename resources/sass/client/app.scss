@@ -1,30 +1,43 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
-
-@import "config/fonts";
-@import "config/utilities";
+//@import url('https://fonts.googleapis.com/css?family=Fira+Sans&display=swap');
+//@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
 
-@import "base/layout";
-@import "base/headings";
-@import "base/buttons";
-@import "base/forms";
+//@import "config/utilities";
+//
+//
+//@import "base/layout";
+//@import "base/headings";
+//@import "base/buttons";
+//@import "base/forms";
+//
+//@import "modules/titles";
+//@import "modules/teaser";
+//@import "modules/scroller";
+//@import "modules/slideshow";
+//@import "modules/pagination";
+//@import "modules/language-shitcher";
+//@import "modules/check";
+//@import "modules/nav";
+//@import "modules/messengers";
+//@import "modules/modal";
+//@import "modules/video";
+//@import "modules/variants";
+//
+//@import "layout/header";
+//@import "layout/blog";
+//@import "layout/collection";
+//@import "layout/page";
+//@import "layout/exhibits";
 
-@import "modules/titles";
-@import "modules/teaser";
-@import "modules/scroller";
-@import "modules/slideshow";
-@import "modules/pagination";
-@import "modules/language-shitcher";
-@import "modules/check";
-@import "modules/nav";
-@import "modules/messengers";
-@import "modules/modal";
-@import "modules/video";
-@import "modules/variants";
-
-@import "layout/header";
-@import "layout/blog";
-@import "layout/collection";
-@import "layout/page";
-@import "layout/exhibits";
+@import "front/_normalize";
+@import "front/_main-styles";
+@import "front/_icons";
+@import "front/_header";
+@import "front/_sections";
+@import "front/_main-slider";
+@import "front/_slider-sections";
+@import "front/section-information";
+@import "front/section-popular-items";
+@import "front/section-benefits";
+@import "front/section-articles";
+@import "front/_footer";

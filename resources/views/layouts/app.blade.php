@@ -7,21 +7,19 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap"
+            rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
 
-    <title>{!! config('app.name', 'Impression Admin') . (isset($page_title) ? ' | ' . $page_title : '') !!}</title>
+
+    <title>{!! config('app.name', 'Laravel') . (isset($page_title) ? ' | ' . $page_title : '') !!}</title>
 
     <link rel="stylesheet" href="{{ asset('css/client.css') }}">
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162605115-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-162605115-1');
-    </script>
     @yield('meta')
     @stack('styles')
 </head>
@@ -30,14 +28,15 @@
 
 <div id="app" class="flex flex-col min-h-screen">
     @includeIf('partials.client.layout.header')
-    {{--@includeIf('partials.client.layout.mesengers')--}}
+    @includeIf('partials.client.layout.icons')
     <main class="flex-1">
         @yield('content')
     </main>
     @includeIf('partials.client.layout.footer')
 </div>
-
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="{{ asset('js/client.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 @stack('scripts')
 </body>
 </html>

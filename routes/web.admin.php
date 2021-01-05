@@ -8,6 +8,10 @@ Route::group([
     'namespace' => 'Admin',
     'middleware' => ['auth', 'role:admin']
 ], function () {
+    Route::get('/', function () {
+        return redirect()->route('admin.shops.index');
+    });
+
     Route::resource('categories', 'CategoriesController')->except('show');
     Route::resource('shops', 'ShopsController')->except('show', 'create', 'store');
     Route::resource('articles', 'ArticlesController')->except('show');

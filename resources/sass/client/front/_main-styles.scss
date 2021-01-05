@@ -1,0 +1,58 @@
+:root {
+  --title-font-family: "Libre Baskerville", sans-serif;
+  --subtitle-font-family: "Open Sans", sans-serif;
+  --title-font-size: 30px;
+  --subtitle-font-size: 18px;
+  --primary-color: #333;
+  --white-color: #fff;
+  --secondary-color: rgb(198, 165, 87);
+  --hover-color: rgba(198, 165, 87, 0.85);
+  --background-primary-color: #fff;
+  --background-secondary-color: #f3f3f3;
+  --UI-background-color: rgba(207, 207, 207, 0.8);
+  --box-shadow-color: rgba(207, 207, 207, 0.8);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1920px;
+  font-size: var(--subtitle-font-size);
+}
+
+* {
+  color: var(--primary-color);
+  font-family: var(--subtitle-font-family);
+}
+
+h1,
+h2,
+h3 {
+  font-size: var(--title-font-size);
+  font-weight: 400;
+}
+
+.header {
+  --subtitle-font-size: 16px;
+}
+
+.footer {
+  --background-primary-color: #333;
+  --primary-color: #fff;
+  --subtitle-font-size: 14px;
+}
+
+.link-btn {
+  --subtitle-font-size: 14px;
+}
+
+@media (max-width: 575px) {
+  :root,
+  .header,
+  .footer,
+  .link-btn {
+    --subtitle-font-size: 12px;
+    --title-font-size: 24px;
+  }
+}

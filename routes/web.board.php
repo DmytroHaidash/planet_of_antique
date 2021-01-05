@@ -8,6 +8,9 @@ Route::group([
     'namespace' => 'Board',
     'middleware' => ['auth', 'role:admin|seller']
 ], function () {
+    Route::get('/', function () {
+        return redirect()->route('board.shops.index');
+    });
     Route::resource('shops', 'ShopsController')->only('index', 'update');
     Route::resource('articles', 'ArticlesController')->except('show');
 

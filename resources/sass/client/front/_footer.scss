@@ -1,0 +1,159 @@
+.footer {
+  flex: 0 0 auto;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 35px;
+  width: 100%;
+  background-color: var(--background-primary-color);
+
+  a,
+  p,
+  h2 {
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+
+  a {
+    font-size: var(--subtitle-font-size);
+    font-weight: 600;
+    text-transform: uppercase;
+
+    &:hover {
+      color: var(--secondary-color);
+      transition: 0.2s ease-in-out;
+    }
+  }
+
+  &__main-nav,
+  &__sub-nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  &__main-nav {
+    align-items: center;
+  }
+
+  &__sub-nav {
+    margin-top: 80px;
+    max-width: 600px;
+  }
+
+  .logo-link {
+    align-self: flex-end;
+    font-size: var(--title-font-size);
+    font-weight: 700;
+    text-transform: none;
+    margin: 0;
+  }
+
+  h2 {
+    align-self: flex-end;
+    margin-right: auto;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  li {
+    cursor: pointer;
+  }
+}
+
+.social-links-wrapper,
+.social-links-list,
+.sub-nav-list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.social-links-wrapper {
+  max-width: 620px;
+}
+
+.social-links-list {
+  max-width: 395px;
+}
+
+.sub-nav-list {
+  width: 100%;
+
+  li {
+    margin-bottom: 23px;
+  }
+}
+
+@media (max-width: 1190px) {
+  .footer {
+    margin-top: 40px;
+  }
+
+  .footer__sub-nav {
+    margin-top: 60px;
+  }
+
+  .social-links-wrapper {
+    max-width: 520px;
+  }
+
+  .social-links-list {
+    max-width: 315px;
+  }
+}
+
+@media (max-width: 990px) {
+  .footer {
+    &__main-nav {
+      display: block;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .social-links-wrapper {
+    max-width: 100%;
+    margin-top: 50px;
+  }
+
+  .social-links-list {
+    max-width: 395px;
+  }
+}
+
+@media (max-width: 767px) {
+  .social-links-list {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 575px) {
+  .sub-nav-list {
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    &__item {
+      margin-right: 20px;
+    }
+  }
+
+  .social-links-wrapper {
+    display: block;
+  }
+
+  .social-links-wrapper {
+    margin-top: 25px;
+  }
+
+  .footer {
+    .social-links-list {
+      max-width: 100%;
+      margin-top: 25px;
+    }
+  }
+}
