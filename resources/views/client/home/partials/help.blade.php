@@ -28,7 +28,7 @@
                         </span>
             </a>
 
-            <a href="#" class="section-help__help-item">
+            <a href="/faq" class="section-help__help-item">
                 <span class="help-item__img icon bg-faq"></span>
                 <span class="help-item__paragraph">
                             FAQ
