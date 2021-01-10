@@ -10,6 +10,6 @@ Route::group([
 
     Route::get('search', 'SearchController@index')->name('search.index');
     Route::get('{page}', 'PagesController@show')
-        ->where('page', '(about|sellers|buyers|contacts)');
+        ->where('page', '(about|sellers|buyers|contacts|faq)');
 
 });
