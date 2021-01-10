@@ -26,7 +26,7 @@ class BenefitsController extends Controller
     {
         $benefit = Page::where('slug', 'main')->first()->benefits()->create($request->only('title'));
         if ($request->hasFile('benefit')) {
-            $benefit->addMediaToCollection('benefit')
+            $benefit->addMediaFromRequest('benefit')
                 ->sanitizingFileName(filenameSanitizer())
                 ->toMediaCollection('benefit');
         }

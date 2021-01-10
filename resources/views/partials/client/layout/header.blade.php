@@ -5,7 +5,10 @@
                 <a href="/" class="logo-link">{{config('app.name')}}</a>
 
                 <div class="main-nav__menu">
-                    <a href="#customers" class="link customers-link">Sellers / Buyers</a>
+                    <div class="customers-link">
+                    <a href="/sellers" class="link">Sellers</a> /
+                    <a href="/buyers" class="link">Buyers</a>
+                    </div>
                     <form action="{{ route('client.search.index') }}" method="get" class="search-label" style="display: inline-flex">
                         <input type="text" class="search-input"
                                                            placeholder="...">

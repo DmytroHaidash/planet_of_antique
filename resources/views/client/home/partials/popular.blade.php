@@ -6,41 +6,11 @@
         </div>
 
         <div class="popular-section__item-row-wrapper">
-            <div class="popular-item first-row">
-                <a href="#" class="popular-item__link">Name</a>
-            </div>
-
-            <div class="popular-item second-row">
-                <a href="#" class="popular-item__link">Name</a>
-            </div>
-
-            <div class="popular-item third-row">
-                <a href="#" class="popular-item__link">Name</a>
-            </div>
-
-            <div class="popular-item first-row">
-                <a href="#" class="popular-item__link">Name</a>
-            </div>
-
-            <div class="popular-item second-row">
-                <a href="#" class="popular-item__link">Name</a>
-            </div>
-
-            <div class="popular-item third-row">
-                <a href="#" class="popular-item__link">Name</a>
-            </div>
-
-            <div class="popular-item first-row">
-                <a href="#" class="popular-item__link">Name</a>
-            </div>
-
-            <div class="popular-item second-row">
-                <a href="#" class="popular-item__link">Name</a>
-            </div>
-
-            <div class="popular-item third-row">
-                <a href="#" class="popular-item__link">Name</a>
-            </div>
+            @foreach($popular as $item)
+                <div class="popular-item" style="background-image: url({{$item->image}})">
+                    <a href="#" class="popular-item__link">{{ $item->title }}</a>
+                </div>
+            @endforeach
         </div>
     </div>
 </section>

@@ -1,4 +1,4 @@
-<section class="section section-sellers" #sellers>
+<section class="section section-sellers">
     <a name="sellers" class="anchor"></a>
     <div class="content-wrapper">
         <div class="section__header slider-header">
@@ -8,25 +8,11 @@
 
         <div class="section-sellers__slider swiper-container">
             <div class="swiper-wrapper">
-                <div class="section-sellers__slide swiper-slide">
-                    <img src="./img/sliders/slider3.png" alt="slide image">
-                </div>
-
-                <div class="section-sellers__slide swiper-slide">
-                    <img src="./img/sliders/slider3.png" alt="slide image">
-                </div>
-
-                <div class="section-sellers__slide swiper-slide">
-                    <img src="./img/sliders/slider3.png" alt="slide image">
-                </div>
-
-                <div class="section-sellers__slide swiper-slide">
-                    <img src="./img/sliders/slider3.png" alt="slide image">
-                </div>
-
-                <div class="section-sellers__slide swiper-slide">
-                    <img src="./img/sliders/slider3.png" alt="slide image">
-                </div>
+                @foreach($sellers as $item)
+                    <div class="section-sellers__slide swiper-slide">
+                        <img src="{{$item->logo}}" alt="slide image">
+                    </div>
+                @endforeach
             </div>
             <div class="slider__buttons-wrapper">
                 <button class="swiper-button-prev section-sellers__slider__button-prev">

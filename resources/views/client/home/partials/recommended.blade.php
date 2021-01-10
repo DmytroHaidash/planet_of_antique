@@ -8,18 +8,11 @@
 
         <div class="section-recommended__slider swiper-container">
             <div class="swiper-wrapper">
-                <div class="section-recommended__slide swiper-slide">
-                    <img src="./img/sliders/slider2.png" alt="slide image">
-                </div>
-                <div class="section-recommended__slide swiper-slide">
-                    <img src="./img/sliders/slider2.png" alt="slide image">
-                </div>
-                <div class="section-recommended__slide swiper-slide">
-                    <img src="./img/sliders/slider2.png" alt="slide image">
-                </div>
-                <div class="section-recommended__slide swiper-slide">
-                    <img src="./img/sliders/slider2.png" alt="slide image">
-                </div>
+                @foreach($recommended as $item)
+                    <div class="section-recommended__slide swiper-slide">
+                        <img src="{{$item->firstImage}}" alt="slide image">
+                    </div>
+                @endforeach
             </div>
             <div class="slider__buttons-wrapper">
                 <button class="swiper-button-prev section-recommended__slider__button-prev">

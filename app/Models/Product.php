@@ -34,7 +34,8 @@ class Product extends Model implements HasMedia, Sortable
         'in_stock',
         'sort_order',
         'publish_price',
-        'shop_id'
+        'shop_id',
+        'recommended'
     ];
 
     /**
@@ -42,10 +43,10 @@ class Product extends Model implements HasMedia, Sortable
      */
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class, 'category_product',  'product_id', 'category_id');
+        return $this->belongsToMany(Category::class, 'category_product', 'product_id', 'category_id');
     }
 
-    public function shop():BelongsTo
+    public function shop(): BelongsTo
     {
         return $this->belongsTo(Shop::class);
     }
@@ -56,6 +57,13 @@ class Product extends Model implements HasMedia, Sortable
     public function meta(): MorphMany
     {
         return $this->morphMany(Meta::class, 'metable');
+    }
+
+    public function getFirstImageAttribute()
+    {
+        return $this->hasMedia('uploads')
+            ? $this->getFirstMedia('uploads')->getFullUrl()
+            : asset('images/no-image.png');
     }
 
     /**
@@ -82,6 +90,11 @@ class Product extends Model implements HasMedia, Sortable
     protected static function boot()
     {
         parent::boot();
+        if (app('router')->currentRouteNamed('client.*')) {
+            self::addGlobalScope('available', function (Builder $builder) {
+                $builder->where('is_published', 1);
+            });
+        };
 
         self::addGlobalScope('sortById', function (Builder $builder) {
             $builder->orderByDesc('in_stock')->orderBy('sort_order');

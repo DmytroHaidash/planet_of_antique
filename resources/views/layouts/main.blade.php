@@ -11,7 +11,10 @@
     <link
             href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap"
             rel="stylesheet">
+
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+
 
     <title>{!! config('app.name', 'Laravel') . (isset($page_title) ? ' | ' . $page_title : '') !!}</title>
 
@@ -21,10 +24,10 @@
     @stack('styles')
 </head>
 <body>
-<div id="app" class="flex flex-col min-h-screen">
+<div id="app">
     @includeIf('partials.client.layout.header')
     @includeIf('partials.client.layout.icons')
-    <main class="flex-1">
+    <main class="content">
         @yield('content')
     </main>
     @includeIf('partials.client.layout.footer')

@@ -1,14 +1,14 @@
-@extends('layouts.app', ['page_title' => 'Home'])
+@extends('layouts.main', ['page_title' => 'Home'])
 
 @section('content')
     @includeWhen($banners->count(), 'client.home.partials.slideshow')
-    @include('client.home.partials.new')
-    @include('client.home.partials.recommended')
-    @include('client.home.partials.sellers')
+    @includeWhen($new->count(), 'client.home.partials.new')
+    @includeWhen($recommended->count(), 'client.home.partials.recommended')
+    @includeWhen($sellers->count(), 'client.home.partials.sellers')
     @include('client.home.partials.information')
-    @include('client.home.partials.popular')
-    @include('client.home.partials.benefits')
-    @include('client.home.partials.articles')
+    @includeWhen($popular->count(), 'client.home.partials.popular')
+    @includeWhen($benefits->count(), 'client.home.partials.benefits')
+    @includeWhen($articles->count(), 'client.home.partials.articles')
     @include('client.home.partials.help')
 
 @endsection

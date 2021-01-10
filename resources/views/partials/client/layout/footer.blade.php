@@ -2,18 +2,35 @@
     <div class="content-wrapper">
         <nav class="footer__main-nav">
             <a href="#main" class="logo-link">AntiquesPlanet</a>
-
-            <div class="social-links-wrapper">
-                <h2 class="section__title central-title">
-                    Follow Us
-                </h2>
-                <ul class="social-links-list">
-                    <li class="social-links__item icon bg-facebook"></li>
-                    <li class="social-links__item icon bg-youtube"></li>
-                    <li class="social-links__item icon bg-instagram"></li>
-                    <li class="social-links__item icon bg-pinterest"></li>
-                </ul>
-            </div>
+            @if(app('settings')->facebook || app('settings')->youtube || app('settings')->instagram ||app('settings')->pinterest)
+                <div class="social-links-wrapper">
+                    <h2 class="section__title central-title">
+                        Follow Us
+                    </h2>
+                    <ul class="social-links-list">
+                        @if(app('settings')->facebook)
+                            <a href="{{app('settings')->facebook}}">
+                                <li class="social-links__item icon bg-facebook"></li>
+                            </a>
+                        @endif
+                        @if(app('settings')->youtube)
+                            <a href="{{app('settings')->youtube}}">
+                                <li class="social-links__item icon bg-youtube"></li>
+                            </a>
+                        @endif
+                        @if(app('settings')->instagram)
+                            <a href="{{app('settings')->instagram}}">
+                                <li class="social-links__item icon bg-instagram"></li>
+                            </a>
+                        @endif
+                        @if(app('settings')->pinterest)
+                            <a href="{{app('settings')->pinterest}}">
+                                <li class="social-links__item icon bg-pinterest"></li>
+                            </a>
+                        @endif
+                    </ul>
+                </div>
+            @endif
         </nav>
 
         <nav class="footer__sub-nav">
@@ -21,13 +38,16 @@
                 <li class="sub-nav-list__item">
                     <ul class="sub-nav-list__main-links-list">
                         <li class="main-link-list__item">
-                            <a href="#customers">sellers/buyers</a>
+                            <a href="/sellers">sellers</a>
                         </li>
                         <li class="main-link-list__item">
-                            <a href="#benefits">about</a>
+                            <a href="/buyers">buyers</a>
                         </li>
                         <li class="main-link-list__item">
-                            <a href="#contacts">contacts</a>
+                            <a href="/about">about</a>
+                        </li>
+                        <li class="main-link-list__item">
+                            <a href="/contacts">contacts</a>
                         </li>
                     </ul>
                 </li>
@@ -44,17 +64,16 @@
                 <li class="sub-nav-list__item">
                     <a name="contacts"></a>
                     <ul class="sub-nav-list__contacts-links-list">
-                        <li class="site-link-list__item">
-                            <a href="tel:+0123456789">contact us +0 123 45 67 89</a>
-                        </li>
-
-                        <li class="site-link-list__item">
-                            <a href="wa.me0/+987654321">whatsapp +9 876 543 21</a>
-                        </li>
-
-                        <li class="site-link-list__item">
-                            <a href="mailto:antique@planet .com">email antique@planet.com</a>
-                        </li>
+                        @if(app('settings')->whatsapp)
+                            <li class="site-link-list__item">
+                                <a href="wa.me0/{{app('settings')->whatsapp}}">whatsapp {{app('settings')->whatsapp}}</a>
+                            </li>
+                        @endif
+                        @if(app('settings')->email)
+                            <li class="site-link-list__item">
+                                <a href="mailto:{{app('settings')->email}}">{{app('settings')->email}}</a>
+                            </li>
+                        @endif
                     </ul>
                 </li>
             </ul>

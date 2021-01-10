@@ -19,4 +19,11 @@ class Benefit extends Model implements HasMedia
         'title',
         'page_id'
     ];
+
+    public function getImageAttribute()
+    {
+        return $this->hasMedia('benefit')
+            ? $this->getFirstMedia('benefit')->getFullUrl()
+            : asset('images/no-image.png');
+    }
 }

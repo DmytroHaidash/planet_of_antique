@@ -37,6 +37,7 @@ class ProductsController extends Controller
             'in_stock' => $request->input('in_stock'),
             'publish_price' => $request->has('publish_price'),
             'is_published' => $request->has('is_published'),
+            'recommended' => $request->has('recommended'),
         ]);
         $product->categories()->attach($request->input('categories'));
         $this->handleMedia($request, $product);
@@ -58,7 +59,7 @@ class ProductsController extends Controller
         return view('admin.products.edit', compact('categories', 'product'));
     }
 
-    public function update(ProductSavingRequest $product, Request $request): RedirectResponse
+    public function update(Product $product, ProductSavingRequest $request): RedirectResponse
     {
         $product->update([
             'title' => $request->input('title'),
@@ -68,6 +69,7 @@ class ProductsController extends Controller
             'in_stock' => $request->input('in_stock'),
             'publish_price' => $request->has('publish_price'),
             'is_published' => $request->has('is_published'),
+            'recommended' => $request->has('recommended'),
         ]);
         $product->categories()->sync($request->input('categories'));
         $this->handleMedia($request, $product);

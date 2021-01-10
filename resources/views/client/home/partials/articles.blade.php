@@ -7,61 +7,20 @@
         </div>
 
         <div class="section-articles__articles-wrapper">
-            <article class="section-articles__article">
-                <img src="./img/articles/article1.png" alt="article image" class="article__img">
+            @foreach($articles as $item)
+                <article class="section-articles__article">
+                    <img src="{{$item->image}}" alt="article image" class="article__img">
 
-                <h2 class="article__title">
-                    name of article
-                </h2>
-
-                <p class="article__paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut recusandae, molestiae illum
-                    incidunt
-                    impedit quas ab sunt voluptatem sit, quasi
-                </p>
-            </article>
-
-            <article class="section-articles__article">
-                <img src="./img/articles/article2.png" alt="article image" class="article__img">
-
-                <h2 class="article__title">
-                    name of article
-                </h2>
-
-                <p class="article__paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut recusandae, molestiae illum
-                    incidunt
-                    impedit quas ab sunt voluptatem sit, quasi
-                </p>
-            </article>
-
-            <article class="section-articles__article">
-                <img src="./img/articles/article3.png" alt="article image" class="article__img">
-
-                <h2 class="article__title">
-                    name of article
-                </h2>
-
-                <p class="article__paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut recusandae, molestiae illum
-                    incidunt
-                    impedit quas ab sunt voluptatem sit, quasi
-                </p>
-            </article>
-
-            <article class="section-articles__article">
-                <img src="./img/articles/article4.png" alt="article image" class="article__img">
-
-                <h2 class="article__title">
-                    name of article
-                </h2>
-
-                <p class="article__paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut recusandae, molestiae illum
-                    incidunt
-                    impedit quas ab sunt voluptatem sit, quasi
-                </p>
-            </article>
+                    <h2 class="article__title">
+                        {{$item->title}}
+                    </h2>
+                    @if($item->description)
+                        <p class="article__paragraph">
+                            {{$item->description}}
+                        </p>
+                    @endif
+                </article>
+            @endforeach
         </div>
     </div>
 </section>

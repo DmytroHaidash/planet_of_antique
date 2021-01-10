@@ -8,50 +8,16 @@
         </div>
 
         <div class="section-benefits__benefits-wrapper">
+            @foreach($benefits as $item)
             <div class="section-benefits__benefit-item">
-                <div class="benefit-item__icon icon bg-clock">
+                <div class="benefit-item__icon icon bg-clock" style="background-image: url({{$item->image}})">
                 </div>
 
                 <p class="benefit-item__paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sit aliquam
-                    sapiente.
-                    Quisquam
-                    illum eos fuga, voluptatibus nobis, commodi odit maxime placeat cum, tenetur saepe!
+                  {{ $item->title }}
                 </p>
             </div>
-
-            <div class="section-benefits__benefit-item">
-                <div class="benefit-item__icon icon bg-notes"></div>
-
-                <p class="benefit-item__paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sit aliquam
-                    sapiente.
-                    Quisquam
-                    illum eos fuga, voluptatibus nobis, commodi odit maxime placeat cum, tenetur saepe!
-                </p>
-            </div>
-
-            <div class="section-benefits__benefit-item">
-                <div class="benefit-item__icon icon bg-save_money"></div>
-
-                <p class="benefit-item__paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sit aliquam
-                    sapiente.
-                    Quisquam
-                    illum eos fuga, voluptatibus nobis, commodi odit maxime placeat cum, tenetur saepe!
-                </p>
-            </div>
-
-            <div class="section-benefits__benefit-item">
-                <div class="benefit-item__icon icon bg-hand_n_shild"></div>
-
-                <p class="benefit-item__paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sit aliquam
-                    sapiente.
-                    Quisquam
-                    illum eos fuga, voluptatibus nobis, commodi odit maxime placeat cum, tenetur saepe!
-                </p>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

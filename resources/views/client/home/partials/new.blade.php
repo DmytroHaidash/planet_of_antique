@@ -8,18 +8,11 @@
 
         <div class="section-new__slider swiper-container">
             <div class="swiper-wrapper">
-                <div class="section-new__slide swiper-slide">
-                    <img src="./img/sliders/slider1.png" alt="slide image">
-                </div>
-                <div class="section-new__slide swiper-slide">
-                    <img src="./img/sliders/slider1.png" alt="slide image">
-                </div>
-                <div class="section-new__slide swiper-slide">
-                    <img src="./img/sliders/slider1.png" alt="slide image">
-                </div>
-                <div class="section-new__slide swiper-slide">
-                    <img src="./img/sliders/slider1.png" alt="slide image">
-                </div>
+                @foreach($new as $item)
+                    <div class="section-new__slide swiper-slide">
+                        <img src="{{$item->firstImage}}" alt="slide image">
+                    </div>
+                @endforeach
             </div>
             <div class="slider__buttons-wrapper">
                 <button class="swiper-button-prev section-new__slider__button-prev">

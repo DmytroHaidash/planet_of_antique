@@ -122,6 +122,11 @@
                            id="published" name="is_published" {{ $product->is_published ? 'checked' : '' }}>
                     <label class="custom-control-label" for="published">Published</label>
                 </div>
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input"
+                           id="recommended" name="recommended" {{ $product->recommended ? 'checked' : '' }}>
+                    <label class="custom-control-label" for="recommended">Recommended</label>
+                </div>
             </div>
         </form>
     </section>

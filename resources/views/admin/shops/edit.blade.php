@@ -8,7 +8,7 @@
 @section('content')
 
     <section>
-        <form action="{{ route('admin.shops.update') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.shops.update', $shop) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('patch')
 

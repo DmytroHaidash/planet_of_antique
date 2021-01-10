@@ -6,18 +6,19 @@
         </div>
 
         <div class="section-information__wrapper">
-            <div class="section-information__link-wrapper">
-                <a href="#" class="section-information__link">for sellers</a>
+            <a href="/sellers" class="section-information__link-wrapper">
+                <p class="section-information__link">for sellers</p>
                 <div class="section-information__link-background"></div>
-            </div>
+            </a>
 
-            <div class="section-information__link-wrapper">
-                <a href="#" class="section-information__link">for buyers</a>
+            <a href="/buyers" class="section-information__link-wrapper">
+                <p  class="section-information__link">for buyers</p>
                 <div class="section-information__link-background"></div>
-            </div>
+            </a>
 
         </div>
-
-        <a class="link-btn create-link" href="#">creative your store in 10 minutes</a>
+        @guest
+        <a class="link-btn create-link" href="{{route('register')}}">creative your store in 10 minutes</a>
+            @endguest
     </div>
 </section>

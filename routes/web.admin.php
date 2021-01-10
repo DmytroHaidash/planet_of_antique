@@ -24,4 +24,12 @@ Route::group([
 
     Route::get('setting', 'SettingsController@index')->name('settings.index');
     Route::post('setting', 'SettingsController@update')->name('settings.update');
+
+    Route::group([
+        'as' => 'media.',
+        'prefix' => 'media'
+    ], function () {
+        Route::post('upload', 'UploadsController@store')->name('store');
+        Route::delete('{media}', 'UploadsController@destroy')->name('destroy');
+    });
 });

@@ -44,6 +44,13 @@ class Category extends Model implements HasMedia
         return $this->morphMany(Meta::class, 'metable');
     }
 
+    public function getImageAttribute()
+    {
+        return $this->hasMedia('category')
+            ? $this->getFirstMedia('category')->getFullUrl()
+            : asset('images/no-image.png');
+    }
+
 //    /**
 //     * @return HasMany
 //     */

@@ -42,4 +42,11 @@ class Article extends Model implements HasMedia
     {
         return $this->morphMany(Meta::class, 'metable');
     }
+
+    public function getImageAttribute()
+    {
+        return $this->hasMedia('article')
+            ? $this->getFirstMedia('article')->getFullUrl()
+            : asset('images/no-image.png');
+    }
 }

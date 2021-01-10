@@ -37,7 +37,7 @@ class Navigation
                 'name' => 'Products',
                 'route' => route('admin.products.index'),
                 'icon' => 'i-folder',
-                'match' => app('router')->is('admin.products'),
+                'match' => app('router')->is('admin.products.*'),
             ],
             (object)[
                 'name' => 'Tags',

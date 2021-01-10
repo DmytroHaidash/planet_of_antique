@@ -9,5 +9,7 @@ Route::group([
     Route::get('/', 'HomeController@index')->name('index');
 
     Route::get('search', 'SearchController@index')->name('search.index');
+    Route::get('{page}', 'PagesController@show')
+        ->where('page', '(about|sellers|buyers|contacts)');
 
 });
