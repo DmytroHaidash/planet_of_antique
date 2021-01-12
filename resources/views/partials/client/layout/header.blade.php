@@ -53,6 +53,7 @@
                 <li class="link"><a href="#sellers">sellers</a></li>
                 <li class="link"><a href="#recommended">recommended</a></li>
                 <li class="link"><a href="#new">new</a></li>
+                <li class="link"><a href="/blog">Blog</a></li>
             </ul>
             <a href="" class="link store-link">create your store</a>
         </nav>
