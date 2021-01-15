@@ -65,6 +65,14 @@ class Product extends Model implements HasMedia, Sortable
             ? $this->getFirstMedia('uploads')->getFullUrl()
             : asset('images/no-image.png');
     }
+    public function getBanner()
+    {
+        if ($this->hasMedia('uploads')) {
+            return $this->getFirstMedia('uploads')->getFullUrl();
+        }
+
+        return asset('images/no-image.png');
+    }
 
     /**
      * Store viewed articles and count up

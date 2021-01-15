@@ -6,13 +6,14 @@
 
                 <div class="main-nav__menu">
                     <div class="customers-link">
-                    <a href="/sellers" class="link">Sellers</a> /
-                    <a href="/buyers" class="link">Buyers</a>
+                        <a href="/sellers" class="link">@lang('nav.sellers')</a> /
+                        <a href="/buyers" class="link">@lang('nav.buyers')</a>
                     </div>
-                    <form action="{{ route('client.search.index') }}" method="get" class="search-label" style="display: inline-flex">
+                    <form action="{{ route('client.search.index') }}" method="get" class="search-label"
+                          style="display: inline-flex">
                         <input type="text" class="search-input"
-                                                           placeholder="...">
-                        <button class="search-btn d-none">Search</button>
+                               placeholder="...">
+                        <button class="search-btn d-none">@lang('nav.search')</button>
                     </form>
                     <button class="search-btn icon bg-search" onclick="toggleSearch()"></button>
                 </div>
@@ -20,22 +21,23 @@
 
             <ul class="main-nav__links-list">
                 <li class="main-nav__link-item about-link">
-                    <a href="/about" class="link ">About</a>
+                    <a href="/about" class="link ">@lang('pages.about.title')</a>
                 </li>
 
                 <li class="main-nav__link-item contacts-link">
-                    <a href="/contacts" class="link ">Contacts</a>
+                    <a href="/contacts" class="link ">@lang('pages.contacts.title')</a>
                 </li>
 
                 <li class="main-nav__link-item authorization-link">
                     @guest
-                        <a href="{{route('login')}}" class="link">login</a> / <a href="{{route('register')}}"
-                                                                                 class="link">registration</a>
+                        <a href="{{route('login')}}" class="link">@lang('auth.login')</a> / <a
+                                href="{{route('register')}}"
+                                class="link">@lang('auth.register')</a>
                     @else
                         <a>{{auth()->user()->name}}</a>
                         <a href="{{ route('logout') }}"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            Logout
+                            @lang('auth.logout')
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
@@ -49,13 +51,15 @@
         <nav class="sub-nav">
             <button class="link-menu-btn" onclick="toggleMenu(event)">&#8801</button>
             <ul class="link-menu" id="link-menu">
-                <li class="link"><a href="#catalog">catalog</a></li>
-                <li class="link"><a href="#sellers">sellers</a></li>
-                <li class="link"><a href="#recommended">recommended</a></li>
-                <li class="link"><a href="#new">new</a></li>
-                <li class="link"><a href="/blog">Blog</a></li>
+                <li class="link"><a href="{{route('client.catalog.index')}}">@lang('pages.catalog.title')</a></li>
+                <li class="link"><a href="#sellers">@lang('pages.sellers.title')</a></li>
+                <li class="link"><a href="#recommended">@lang('pages.recommended.title')</a></li>
+                <li class="link"><a href="#new">@lang('pages.new.title')</a></li>
+                <li class="link"><a href="/blog">@lang('nav.blog')</a></li>
             </ul>
-            <a href="" class="link store-link">create your store</a>
+            @guest
+                <a href="{{route('register')}}" class="link store-link">@lang('nav.create')</a>
+            @endguest
         </nav>
     </div>
 </header>

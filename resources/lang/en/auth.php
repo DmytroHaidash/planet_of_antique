@@ -14,6 +14,7 @@ return [
     */
     'login' => 'Login',
     'register' => 'Registration',
+    'logout' => 'Logout',
     'email' => 'Your e-mail',
     'password' => 'Password',
     'password_confirmation' => 'Confirm password',

@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'about' => [
+        'title' => 'About',
+    ],
     'sections' => [
         'visit' => 'Go to the collection'
     ],
@@ -21,6 +24,7 @@ return [
         'btn' => 'Ask a question',
     ],
     'contacts' =>[
+        'title' => 'Contacts',
         'btn' => 'Contact us',
     ],
     'not_found' => [
@@ -75,5 +79,14 @@ return [
         'sold' => 'Sold',
         'out_of_stock' => 'Check availability',
         'ask_price' => 'Price on request',
+    ],
+    'sellers' => [
+        'title' => 'Sellers',
+    ],
+    'recommended' => [
+        'title' => 'Recommended',
+    ],
+    'new' => [
+        'title' => 'New',
     ]
 ];

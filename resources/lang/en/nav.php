@@ -8,5 +8,9 @@ return [
     'previous' => 'Previous',
     'next' => 'Next',
     'catalog' => 'Catalog',
-    'all_items' => 'All items'
+    'all_items' => 'All items',
+    'sellers' => 'Sellers',
+    'buyers' => 'Buyers',
+    'search' => 'Search',
+    'create' => 'create your store'
 ];
