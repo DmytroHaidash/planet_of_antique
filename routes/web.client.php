@@ -24,6 +24,8 @@ Route::group([
     Route::group([
         'as' => 'catalog.',
     ], function () {
+        Route::get('recommended', 'CatalogController@recommended')->name('recommended');
+        Route::get('new', 'CatalogController@new')->name('new');
         Route::get('catalog', 'CatalogController@index')->name('index');
         Route::get('catalog/all', 'CatalogController@all')->name('all');
         Route::post('catalog', 'CatalogController@index')->name('search');

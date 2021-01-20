@@ -54,9 +54,9 @@
 
                 <li class="sub-nav-list__item">
                     <ul class="sub-nav-list__site-links-list">
-                        <li class="site-link-list__item"><a href="#catalog">@lang('pages.catalog.title')</a></li>
-                        <li class="site-link-list__item"><a href="#new">@lang('pages.new.title')</a></li>
-                        <li class="site-link-list__item"><a href="#recommended">@lang('pages.recommended.title')</a></li>
+                        <li class="site-link-list__item"><a href="{{route('client.catalog.index')}}">@lang('pages.catalog.title')</a></li>
+                        <li class="site-link-list__item"><a href="{{route('client.catalog.new')}}">@lang('pages.new.title')</a></li>
+                        <li class="site-link-list__item"><a href="{{route('client.catalog.recommended')}}">@lang('pages.recommended.title')</a></li>
                         <li class="site-link-list__item"><a href="#sellers">@lang('pages.sellers.title')</a></li>
                     </ul>
                 </li>

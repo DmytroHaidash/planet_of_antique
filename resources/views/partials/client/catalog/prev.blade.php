@@ -2,7 +2,7 @@
     <figure class="lozad teaser__thumbnail"
             data-background-image="{{ $product->getBanner('uploads') }}"></figure>
 
-    <a class="teaser__link p-2" href="{{ route('client.catalog.show', $product) }}">
+    <a class="teaser__link p-6" href="{{ route('client.catalog.show', $product) }}">
         <div class="teaser__title">
             <h4 class="text-xl title title--striped">
                 <span>{{ $product->title }} </span>

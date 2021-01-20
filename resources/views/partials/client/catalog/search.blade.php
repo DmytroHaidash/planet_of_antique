@@ -1,4 +1,4 @@
-<form action="{{ route('client.catalog.index') }}" class=" flex items-center mb-4">
+<form action="{{ url()->current() }}" class=" flex items-center mb-4">
     <input type="search" name="search" class="form-control text-lg mr-2"
            value="{{ old('search') ?? $search }}"
            placeholder="{{ trans('pages.catalog.search.placeholder') }}" required>
