@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->integer('views_count')->default(0);
             $table->boolean('publish_price')->default(1);
             $table->boolean('recommended')->default(0);
+            $table->boolean('new')->default(0);
             $table->unsignedInteger('sort_order')->default(1);
             $table->softDeletes();
             $table->timestamps();

@@ -35,7 +35,8 @@ class Product extends Model implements HasMedia, Sortable
         'sort_order',
         'publish_price',
         'shop_id',
-        'recommended'
+        'recommended',
+        'new',
     ];
 
     /**
@@ -46,6 +47,9 @@ class Product extends Model implements HasMedia, Sortable
         return $this->belongsToMany(Category::class, 'category_product', 'product_id', 'category_id');
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function shop(): BelongsTo
     {
         return $this->belongsTo(Shop::class);

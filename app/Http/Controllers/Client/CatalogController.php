@@ -3,10 +3,15 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AskProductPrice;
+use App\Mail\AskProductQuestion;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class CatalogController extends Controller
@@ -83,6 +88,36 @@ class CatalogController extends Controller
             'popular' => Product::orderByDesc('views_count')->take(3)->get(),
         ]);
     }
+
+    /**
+     * @param Request $request
+     * @param Product $product
+     * @return RedirectResponse
+     */
+    public function question(Request $request, Product $product): RedirectResponse
+    {
+
+        $data = [
+            'user' => (object)[
+                'name' => Auth::user() ? Auth::user()->name : $request->input('name'),
+                'phone' =>Auth::user() ? '' :  $request->input('phone'),
+                'email' => Auth::user() ? Auth::user()->email : $request->input('email'),
+            ],
+            'message' => $request->input('message'),
+        ];
+        Mail::send(new AskProductQuestion($data, $product));
+
+        return redirect()->back();
+    }
+
+    public function price(Request $request, Product $product):RedirectResponse
+    {
+
+        Mail::send(new AskProductPrice($request->input('email'), $product));
+
+        return redirect()->back();
+    }
+
     private function handleSearch(Request $request)
     {
         $search = null;

@@ -55,14 +55,4 @@ class Shop extends Model implements HasMedia
             ? $this->getFirstMedia('banner')->getFullUrl()
             : asset('images/no-image.png');
     }
-
-    protected static function boot()
-    {
-        parent::boot();
-        if (app('router')->currentRouteNamed('client.*')) {
-            self::addGlobalScope('available', function (Builder $builder) {
-                $builder->where('published', 1);
-            });
-        };
-    }
 }

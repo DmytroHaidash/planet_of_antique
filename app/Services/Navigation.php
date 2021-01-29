@@ -4,20 +4,6 @@ namespace App\Services;
 
 class Navigation
 {
-    public function header()
-    {
-        return [
-            //
-        ];
-    }
-
-    public function footer()
-    {
-        return [
-            //
-        ];
-    }
-
     public function backend()
     {
         return [
@@ -104,6 +90,12 @@ class Navigation
                 'route' => route('board.products.index'),
                 'icon' => 'i-folder',
                 'match' => app('router')->is('board.products'),
+            ],
+            (object)[
+                'name' => 'Orders',
+                'route' => route('board.orders.index'),
+                'icon' => 'i-gallery',
+                'match' => app('router')->is('board.orders'),
             ],
         ];
     }

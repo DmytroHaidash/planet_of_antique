@@ -16,10 +16,7 @@
                         <h6 class="mb-4">@lang('pages.product.all_photos')</h6>
                         <div class="flex flex-wrap">
                             @foreach($product->getMedia('uploads')->slice(1) as $photo)
-                                @if($loop->first)
-
-                                @endif
-                                <div class=" w-1/2 lg:w-1/3">
+                                <div class="w-1/2 lg:w-1/3 px-1 mb-1">
                                     <a href="{{ $photo->getUrl('banner') }}">
                                         <img data-fancybox="gallery" data-src="{{ $photo->getFullUrl() }}"
                                              class="lozad">
@@ -31,41 +28,51 @@
                 </div>
 
                 <div class="lg:w-1/2 order-1 md:order-2">
-                    <div class="d-flex flex-column flex-lg-row align-items-center align-items-lg-end mb-4 ml-4">
-                        @if($product->publish_price && $product->in_stock == 'stock')
-                            <h4 class="price mt-4">
-                                <small class="text-muted">@lang('pages.product.price'):</small>
-                                {{ number_format($product->price, 0, ',', ' ') }}
-                                @lang('common.currency')
-                            </h4>
-                        @endif
+                    <div class="flex align-items-center align-items-lg-end mb-4 ml-4">
+                        <div class="lg:w-1/6 order-1 md:order-2">
+                            <div class="text-right">
+                                @if ($product->in_stock == 'sold')
+                                    <p class="text-success">@lang('pages.product.sold')</p>
+                                @elseif($product->in_stock == 'reserved')
+                                    <p class="text-danger">@lang('pages.product.reserved')</p>
+                                @endif
+                                @if(!$product->publish_price)
+                                    <div class="ml-auto mt-4">
+                                        <button class="button button--primary modal-btn-3"
+                                                data-open-price="askPrice">
+                                            @lang('pages.product.ask_price')
+                                        </button>
+                                    </div>
+                                @endif
+                                <div class="ml-auto mt-4">
+                                    <button class="button button--primary modal-btn"
+                                            data-modal-open="buyModal">
+                                        @lang('pages.product.buy')
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-5/6 order-2 md:order-1">
+                            @if($product->publish_price && $product->in_stock == 'stock')
+                                <h4 class="price mt-4">
+                                    <small class="text-muted">@lang('pages.product.price'):</small>
+                                    {{ number_format($product->price, 0, ',', ' ') }}
+                                    @lang('common.currency')
+                                </h4>
+                            @endif
+                            <p class="lead mb-2">{{ $product->description }}</p>
+                            {!! $product->body !!}
+                        </div>
 
-                        {{--<div class="text-right">--}}
-                            {{--@if ($product->in_stock == 'sold')--}}
-                                {{--<p class="text-success">@lang('pages.product.sold')</p>--}}
-                            {{--@elseif($product->in_stock == 'reserved')--}}
-                                {{--<p class="text-danger">@lang('pages.product.reserved')</p>--}}
-                            {{--@endif--}}
-                            {{--<p>#{{$product->id}}</p>--}}
-                            {{--<div class="ml-auto mt-4">--}}
-                                {{--<button class="button button--primary modal-btn"--}}
-                                        {{--data-modal-open="buyModal">--}}
-                                    {{--@lang('pages.product.buy')--}}
-                                {{--</button>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
                     </div>
 
                     <div class="ml-4">
-                        <p class="lead mb-2">{{ $product->translate('description') }}</p>
-                        {!! $product->body !!}
-
-                        {{--<div class="mt-4">
+                        <div class="mt-4">
                             <button class="button button--primary modal-button"
                                     data-modal-opened="question">
                                 @lang('pages.product.question')
                             </button>
-                        </div>--}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,9 +89,9 @@
     </section>
 
 
-    {{--@include('client.catalog.order-modal')--}}
-    {{--@include('client.catalog.question-modal')--}}
-    {{--@include('client.catalog.ask-price-modal')--}}
+    @include('client.catalog.order-modal')
+    @include('client.catalog.question-modal')
+    @include('client.catalog.ask-price-modal')
 
 @endsection
 

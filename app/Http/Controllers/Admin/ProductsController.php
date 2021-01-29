@@ -38,6 +38,7 @@ class ProductsController extends Controller
             'publish_price' => $request->has('publish_price'),
             'is_published' => $request->has('is_published'),
             'recommended' => $request->has('recommended'),
+            'new' => $request->has('new'),
         ]);
         $product->categories()->attach($request->input('categories'));
         $this->handleMedia($request, $product);
@@ -70,6 +71,7 @@ class ProductsController extends Controller
             'publish_price' => $request->has('publish_price'),
             'is_published' => $request->has('is_published'),
             'recommended' => $request->has('recommended'),
+            'new' => $request->has('new'),
         ]);
         $product->categories()->sync($request->input('categories'));
         $this->handleMedia($request, $product);

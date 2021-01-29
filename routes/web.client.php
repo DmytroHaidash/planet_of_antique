@@ -30,7 +30,7 @@ Route::group([
         Route::get('catalog/all', 'CatalogController@all')->name('all');
         Route::post('catalog', 'CatalogController@index')->name('search');
         Route::get('lot/{product}', 'CatalogController@show')->name('show');
-//        Route::post('lot/{product}', 'OrderController')->name('buy');
+        Route::post('lot/{product}', 'OrderController')->name('buy');
         Route::post('lot/{product}/question', 'CatalogController@question')->name('question');
         Route::get('lot/pdf/{product}', 'CatalogController@pdf')->name('pdf');
         Route::post('lot/{product}/price', 'CatalogController@price')->name('price');

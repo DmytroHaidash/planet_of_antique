@@ -18,4 +18,6 @@ Route::group([
     Route::get('products/create', 'ProductsController@create')->name('products.create')
         ->middleware('canCreate');
 
+    Route::resource('orders', 'OrdersController')->except('create', 'destroy');
+
 });

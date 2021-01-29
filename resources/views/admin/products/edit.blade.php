@@ -127,6 +127,11 @@
                            id="recommended" name="recommended" {{ $product->recommended ? 'checked' : '' }}>
                     <label class="custom-control-label" for="recommended">Recommended</label>
                 </div>
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input"
+                           id="new" name="new" {{ $product->new ? 'checked' : '' }}>
+                    <label class="custom-control-label" for="new">New</label>
+                </div>
             </div>
         </form>
     </section>
