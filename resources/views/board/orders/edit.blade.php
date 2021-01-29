@@ -13,12 +13,16 @@
                     <h4 class="mb-3">Buyer</h4>
                     <h5 class="position-relative">
                         <div class="indicator bg-warning"></div>
-                        {{ $order->name }}
+                        {{$order->user_id ? $order->user->name : $order->name }}
                     </h5>
-                    <p>{{ $order->name }}</p>
-                    @foreach(json_decode($order->contact) as $item)
-                        <p class="mb-0">{{ $item }}</p>
-                    @endforeach
+
+                    @if(!$order->user_id)
+                        @foreach(json_decode($order->contact) as $item)
+                            <p class="mb-0">{{ $item }}</p>
+                        @endforeach
+                    @else
+                        <p class="mb-0">{{ $order->user->email }}</p>
+                    @endif
 
                     @if ($order->message)
                         <div class="form-group mb-0">
@@ -60,7 +64,7 @@
             <hr>
 
             <div class="form-group">
-                <label for="comment">Message</label>
+                <label for="comment">Your comment</label>
                 <textarea class="form-control" id="comment"
                           name="comment">{{ old('comment') ?? $order->comment }}</textarea>
             </div>
