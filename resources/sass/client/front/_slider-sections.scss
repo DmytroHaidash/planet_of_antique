@@ -34,8 +34,23 @@
 
 .section {
   .swiper-slide {
-    max-width: 33.5%;
+    max-width: 33%;
     min-width: 305px;
+    height: 300px;
+    display: block;
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: auto;
+    }
   }
 }
 

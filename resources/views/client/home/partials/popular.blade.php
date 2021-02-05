@@ -7,9 +7,13 @@
 
         <div class="popular-section__item-row-wrapper">
             @foreach($popular as $item)
-                <div class="popular-item" style="background-image: url({{$item->image}})">
-                    <a href="#" class="popular-item__link">{{ $item->title }}</a>
-                </div>
+                <a href="{{route('client.catalog.index', ['category' => $item->slug])}}" class="popular-item" style="background-image: url({{$item->image}});
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        margin: auto;">
+                    <span class="popular-item__link">{{ $item->title }}</span>
+                </a>
             @endforeach
         </div>
     </div>

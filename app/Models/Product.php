@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\MediaTrait;
 use App\Traits\SluggableTrait;
 use App\Traits\SortableTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -69,6 +70,7 @@ class Product extends Model implements HasMedia, Sortable
             ? $this->getFirstMedia('uploads')->getFullUrl()
             : asset('images/no-image.png');
     }
+
     public function getBanner()
     {
         if ($this->hasMedia('uploads')) {

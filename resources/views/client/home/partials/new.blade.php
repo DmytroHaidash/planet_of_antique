@@ -3,15 +3,15 @@
     <div class="content-wrapper">
         <div class="section__header slider-header">
             <h2 class="section__title ">New</h2>
-            <a class="section__btn link-btn" href="#">view all</a>
+            <a class="section__btn link-btn" href="{{route('client.catalog.new')}}">view all</a>
         </div>
 
         <div class="section-new__slider swiper-container">
             <div class="swiper-wrapper">
                 @foreach($new as $item)
-                    <div class="section-new__slide swiper-slide">
+                    <a href="{{ route('client.catalog.show', $item) }}" class="section-new__slide swiper-slide">
                         <img src="{{$item->firstImage}}" alt="slide image">
-                    </div>
+                    </a>
                 @endforeach
             </div>
             <div class="slider__buttons-wrapper">

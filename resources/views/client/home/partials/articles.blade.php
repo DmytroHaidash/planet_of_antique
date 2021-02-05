@@ -9,6 +9,7 @@
         <div class="section-articles__articles-wrapper">
             @foreach($articles as $item)
                 <article class="section-articles__article">
+                    <a href="{{route('client.blog.show', $item)}}">
                     <img src="{{$item->image}}" alt="article image" class="article__img">
 
                     <h2 class="article__title">
@@ -19,6 +20,7 @@
                             {{$item->description}}
                         </p>
                     @endif
+                    </a>
                 </article>
             @endforeach
         </div>
