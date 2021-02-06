@@ -26,18 +26,6 @@ class Banner extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null): void
     {
-
-        $this->addMediaConversion('thumb')
-            ->fit(Manipulations::FIT_CROP, 100, 100)
-            ->width(100)
-            ->height(100)
-            ->sharpen(10);
-
-        $this->addMediaConversion('preview')
-            ->width(480)
-            ->height(480)
-            ->sharpen(10);
-
         $this->addMediaConversion('banner')
             ->width(1200)
             ->height(1200)

@@ -46,7 +46,6 @@ class Shop extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null): void
     {
-
         $this->addMediaConversion('thumb')
             ->fit(Manipulations::FIT_CROP, 100, 100)
             ->width(100)
@@ -54,13 +53,13 @@ class Shop extends Model implements HasMedia
             ->sharpen(10);
 
         $this->addMediaConversion('preview')
-            ->width(480)
-            ->height(480)
+            ->width(600)
+            ->height(400)
             ->sharpen(10);
 
         $this->addMediaConversion('banner')
-            ->width(1200)
-            ->height(1200)
+            ->width(1920)
+            ->height(1080)
             ->sharpen(10);
     }
 

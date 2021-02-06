@@ -11,8 +11,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\EloquentSortable\Sortable;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Translatable\HasTranslations;
 
 class Product extends Model implements HasMedia, Sortable
@@ -67,7 +69,7 @@ class Product extends Model implements HasMedia, Sortable
     public function getFirstImageAttribute()
     {
         return $this->hasMedia('uploads')
-            ? $this->getFirstMedia('uploads')->getFullUrl()
+            ? $this->getFirstMedia('uploads')->getFullUrl('preview')
             : asset('images/no-image.png');
     }
 
@@ -99,6 +101,28 @@ class Product extends Model implements HasMedia, Sortable
                 'views_count' => $this->views_count + 1,
             ]);
         }
+    }
+    public function registerMediaCollections():void
+    {
+        $this->addMediaCollection('uploads')
+            ->useFallbackUrl(asset('images/no-image.png'))
+            ->registerMediaConversions(function (Media $media = null) {
+                $this->addMediaConversion('thumb')
+                    ->fit(Manipulations::FIT_CROP, 100, 100)
+                    ->width(100)
+                    ->height(100)
+                    ->sharpen(10);
+
+                $this->addMediaConversion('preview')
+                    ->width(600)
+                    ->height(400)
+                    ->sharpen(10);
+
+                $this->addMediaConversion('banner')
+                    ->width(1920)
+                    ->height(1080)
+                    ->sharpen(10);
+            });
     }
 
     protected static function boot()

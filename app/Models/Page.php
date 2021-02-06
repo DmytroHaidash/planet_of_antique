@@ -27,24 +27,16 @@ class Page extends Model implements HasMedia
         'description'
     ];
 
-    public function registerMediaConversions(Media $media = null): void
+    public function registerMediaCollections():void
     {
-
-        $this->addMediaConversion('thumb')
-            ->fit(Manipulations::FIT_CROP, 100, 100)
-            ->width(100)
-            ->height(100)
-            ->sharpen(10);
-
-        $this->addMediaConversion('preview')
-            ->width(480)
-            ->height(480)
-            ->sharpen(10);
-
-        $this->addMediaConversion('banner')
-            ->width(1200)
-            ->height(1200)
-            ->sharpen(10);
+        $this->addMediaCollection('page')
+            ->useFallbackUrl(asset('images/no-image.png'))
+            ->registerMediaConversions(function (Media $media = null) {
+                $this->addMediaConversion('banner')
+                    ->width(1920)
+                    ->height(1080)
+                    ->sharpen(10);
+            });
     }
     /**
      * @return MorphMany

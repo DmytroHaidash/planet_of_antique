@@ -4,7 +4,7 @@
     <div class="main-slider__wrapper swiper-wrapper">
         @foreach($banners as $banner)
             <div class="main-slider__slide main-slide swiper-slide"
-                 style="background-image: url({{$banner->getFirstMediaUrl('banner')}});
+                 style="background-image: url({{$banner->getFirstMediaUrl('banner', 'banner')}});
                          ">
                 @if($banner->title || $banner->description || $banner->url)
                     <article class="main-slide__article">

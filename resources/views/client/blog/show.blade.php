@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="lozad page-header" data-background-image="{{ $post->image }}"></section>
+    <section class="lozad page-header" data-background-image="{{ $post->banner }}"></section>
 
     <section class="-mt-24 mb-12 container">
         <h1 class="text-5xl font-thin leading-none text-center">{{ $post->title }}</h1>

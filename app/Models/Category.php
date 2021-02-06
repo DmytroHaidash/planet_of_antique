@@ -46,30 +46,22 @@ class Category extends Model implements HasMedia
         return $this->morphMany(Meta::class, 'metable');
     }
 
-    public function registerMediaConversions(Media $media = null): void
+    public function registerMediaCollections():void
     {
-
-        $this->addMediaConversion('thumb')
-            ->fit(Manipulations::FIT_CROP, 100, 100)
-            ->width(100)
-            ->height(100)
-            ->sharpen(10);
-
-        $this->addMediaConversion('preview')
-            ->width(480)
-            ->height(480)
-            ->sharpen(10);
-
-        $this->addMediaConversion('banner')
-            ->width(1200)
-            ->height(1200)
-            ->sharpen(10);
+        $this->addMediaCollection('category')
+            ->useFallbackUrl(asset('images/no-image.png'))
+            ->registerMediaConversions(function (Media $media = null) {
+                $this->addMediaConversion('preview')
+                    ->width(600)
+                    ->height(400)
+                    ->sharpen(10);
+            });
     }
 
     public function getImageAttribute()
     {
         return $this->hasMedia('category')
-            ? $this->getFirstMedia('category')->getFullUrl()
+            ? $this->getFirstMedia('category')->getFullUrl('preview')
             : asset('images/no-image.png');
     }
 
