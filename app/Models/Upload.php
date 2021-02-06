@@ -20,18 +20,15 @@ class Upload extends Model implements HasMedia
                 $this->addMediaConversion('thumb')
                     ->fit(Manipulations::FIT_CROP, 100, 100)
                     ->width(100)
-                    ->height(100)
-                    ->sharpen(10);
+                    ->height(100);
 
                 $this->addMediaConversion('preview')
                     ->width(600)
-                    ->height(400)
-                    ->sharpen(10);
+                    ->height(400);
 
                 $this->addMediaConversion('banner')
                     ->width(1920)
-                    ->height(1080)
-                    ->sharpen(10);
+                    ->height(1080);
             });
     }
 }
