@@ -10,7 +10,10 @@
         <div class="section-benefits__benefits-wrapper">
             @foreach($benefits as $item)
             <div class="section-benefits__benefit-item">
-                <div class="benefit-item__icon icon bg-clock" style="background-image: url({{$item->image}})">
+                <div class="benefit-item__icon icon bg-clock" style="background-image: url({{$item->image}});
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;">
                 </div>
 
                 <p class="benefit-item__paragraph">
