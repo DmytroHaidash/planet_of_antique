@@ -11,7 +11,7 @@
                     </div>
                     <form action="{{ route('client.search.index') }}" method="get" class="search-label"
                           style="display: inline-flex">
-                        <input type="text" class="search-input"
+                        <input type="text" class="search-input" name="search"
                                placeholder="...">
                         <button class="search-btn d-none">@lang('nav.search')</button>
                     </form>
