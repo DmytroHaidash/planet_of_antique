@@ -19,7 +19,7 @@ Route::group([
     });
 
     Route::get('{page}', 'PagesController@show')
-        ->where('page', '(about|sellers|buyers|contacts|faq)');
+        ->where('page', '(about|sellers|buyers|contacts|faq|story)');
 
     Route::group([
         'as' => 'catalog.',
@@ -34,5 +34,6 @@ Route::group([
         Route::post('lot/{product}/question', 'CatalogController@question')->name('question');
         Route::get('lot/pdf/{product}', 'CatalogController@pdf')->name('pdf');
         Route::post('lot/{product}/price', 'CatalogController@price')->name('price');
+        Route::post('lot/{product}/bargain', 'CatalogController@bargain')->name('bargain');
     });
 });

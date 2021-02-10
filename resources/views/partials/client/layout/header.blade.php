@@ -53,13 +53,19 @@
             <ul class="link-menu" id="link-menu">
                 <li class="link"><a href="{{route('client.catalog.index')}}">@lang('pages.catalog.title')</a></li>
                 <li class="link"><a href="#sellers">@lang('pages.sellers.title')</a></li>
-                <li class="link"><a href="{{route('client.catalog.recommended')}}">@lang('pages.recommended.title')</a></li>
+                <li class="link"><a href="{{route('client.catalog.recommended')}}">@lang('pages.recommended.title')</a>
+                </li>
                 <li class="link"><a href="{{route('client.catalog.new')}}">@lang('pages.new.title')</a></li>
                 <li class="link"><a href="{{route('client.blog.index')}}">@lang('nav.blog')</a></li>
             </ul>
-            @guest
-                <a href="{{route('register')}}" class="link store-link">@lang('nav.create')</a>
-            @endguest
+            @if(Auth::user() && !Auth::user()->hasRole('client'))
+                <a href="{{route('board.shops.index')}}" class="link store-link">@lang('nav.shop')</a>
+                @if(Auth::user()->hasRole('admin'))
+                    <a href="{{route('admin.shops.index')}}" class="link store-link">@lang('nav.admin')</a>
+                @endif
+            @else
+                <a href="/story" class="link store-link">@lang('nav.create')</a>
+            @endif
         </nav>
     </div>
 </header>

@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Mail\AskProductPrice;
 use App\Mail\AskProductQuestion;
+use App\Mail\BargainProductPrice;
 use App\Models\Category;
 use App\Models\Product;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -110,6 +112,21 @@ class CatalogController extends Controller
         return redirect()->back();
     }
 
+    public function bargain(Request $request, Product $product): RedirectResponse
+    {
+        $data = [
+            'user' => (object)[
+                'name' => Auth::user() ? Auth::user()->name : $request->input('name'),
+                'phone' =>Auth::user() ? '' :  $request->input('phone'),
+                'email' => Auth::user() ? Auth::user()->email : $request->input('email'),
+            ],
+            'message' => $request->input('message'),
+        ];
+        Mail::send(new BargainProductPrice($data, $product));
+
+        return redirect()->back();
+    }
+
     public function price(Request $request, Product $product):RedirectResponse
     {
 
@@ -162,4 +179,14 @@ class CatalogController extends Controller
         }
         return $products;
     }
+
+    public function pdf(Product $product)
+    {
+        $images = $product->getMedia('uploads');
+        PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadView('pdf.pdf', compact('product', 'images'));
+        return $pdf->download($product->title .'.pdf');
+
+    }
+
 }

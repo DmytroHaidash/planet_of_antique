@@ -43,18 +43,27 @@
                                             @lang('pages.product.ask_price')
                                         </button>
                                     </div>
+                                @else
+                                    <div class="ml-auto mt-4">
+                                        <button class="button button--primary modal-btn"
+                                                data-modal-open="buyModal">
+                                            @lang('pages.product.buy')
+                                        </button>
+                                    </div>
                                 @endif
-                                <div class="ml-auto mt-4">
-                                    <button class="button button--primary modal-btn"
-                                            data-modal-open="buyModal">
-                                        @lang('pages.product.buy')
-                                    </button>
-                                </div>
+                                @if($product->bargain)
+                                        <div class="ml-auto mt-4">
+                                            <button class="button button--primary modal-btn"
+                                                    data-modal-open="bargain">
+                                                @lang('pages.product.bargain')
+                                            </button>
+                                        </div>
+                                @endif
                             </div>
                         </div>
                         <div class="lg:w-5/6 order-2 md:order-1">
                             @if($product->publish_price && $product->in_stock == 'stock')
-                                <h4 class="price mt-4">
+                                <h4 class="price mt-4 text-2xl">
                                     <small class="text-muted">@lang('pages.product.price'):</small>
                                     {{ number_format($product->price, 0, ',', ' ') }}
                                     @lang('common.currency')
@@ -73,6 +82,12 @@
                                 @lang('pages.product.question')
                             </button>
                         </div>
+                        @if(Auth::user() && Auth::user()->hasRole('admin') || (Auth::user()->hasRole('admin') && Auth::user()->shop->id == $product->shop->id))
+                            <a href="{{route('client.catalog.pdf', $product)}}"
+                               class=" button button--primary-outline mt-4">
+                                @lang('pages.product.pdf')
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -92,6 +107,7 @@
     @include('client.catalog.order-modal')
     @include('client.catalog.question-modal')
     @include('client.catalog.ask-price-modal')
+    @include('client.catalog.bargain-modal')
 
 @endsection
 

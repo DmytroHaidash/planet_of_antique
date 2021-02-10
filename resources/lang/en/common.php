@@ -13,5 +13,11 @@ return [
         'copy' => 'Copyright &#169 2020 All rights reserved'
     ],
     'currency' => 'EUR',
+    'information' => [
+        'title' => 'Information',
+        'sellers' => 'for sellers',
+        'buyers' => 'for buyers',
+        'btn' => 'create your store in 10 minutes',
+    ]
 
 ];

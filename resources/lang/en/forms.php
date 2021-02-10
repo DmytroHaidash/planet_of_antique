@@ -9,7 +9,8 @@ return [
     'phone'=> 'Phone',
     'message' => [
         'order' => 'Message <small class="text-muted">(not necessary)</small>',
-        'question' => 'Question?'
+        'question' => 'Question?',
+        'bargain' => 'Your price'
     ],
     'ask_email' => 'Enter Your E-mail',
 
@@ -18,6 +19,7 @@ return [
 		'buy' => 'Buy',
 		'question' => 'Ask a question',
         'subscribe' => 'Subscribe to us',
-        'ask-prise' => 'Send request'
+        'ask-prise' => 'Send request',
+        'send' => 'Send'
 	],
 ];

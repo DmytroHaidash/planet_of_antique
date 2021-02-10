@@ -80,3 +80,25 @@ $('.custom-modal-3-mask').on('click', function () {
   $('.custom-modal-3').toggle();
   $(this).toggle();
 });
+
+///
+$('.modal-btn-4').on('click', function (e) {
+  e.preventDefault();
+  console.log('click btn open')
+  let modalIds = $(this).data('open-price');
+
+  $(`#${modalIds}`).toggle();
+  $('.custom-modal-4-mask').toggle();
+});
+
+$('.custom-modal-4--close').on('click', function () {
+
+  $('.custom-modal-4').toggle();
+  $('.custom-modal-4-mask').toggle();
+})
+
+
+$('.custom-modal-4-mask').on('click', function () {
+  $('.custom-modal-4').toggle();
+  $(this).toggle();
+});

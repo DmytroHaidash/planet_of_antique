@@ -79,6 +79,8 @@ return [
         'sold' => 'Sold',
         'out_of_stock' => 'Check availability',
         'ask_price' => 'Price on request',
+        'bargain' => 'Offer your price',
+        'pdf' => 'Save PDF',
     ],
     'sellers' => [
         'title' => 'Sellers',

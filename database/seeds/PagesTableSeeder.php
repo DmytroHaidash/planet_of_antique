@@ -18,6 +18,7 @@ class PagesTableSeeder extends Seeder
         $pages[] = [ 'slug' => 'buyers', 'title' => ['en' => 'For Buyers']];
         $pages[] = [ 'slug' => 'contacts', 'title' => ['en' => 'Contacts']];
         $pages[] = [ 'slug' => 'faq', 'title' => ['en' => 'Faq']];
+        $pages[] = [ 'slug' => 'story', 'title' => ['en' => 'Create your story']];
 
         foreach ($pages as $page) {
             Page::create(['slug'=> $page['slug'], 'title' => $page['title']]);
