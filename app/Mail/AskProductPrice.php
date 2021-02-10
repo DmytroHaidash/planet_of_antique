@@ -42,6 +42,7 @@ class AskProductPrice extends Mailable
     {
         return $this
             ->to($this->product->shop->user->email)
+            ->cc(config('app.admin_email'))
             ->subject('Item price request')
             ->view('mail.ask_price');
     }

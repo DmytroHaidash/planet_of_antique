@@ -35,6 +35,7 @@ class OrderCreate extends Mailable
     {
         return $this
             ->to($this->order->product->shop->user->email)
+            ->cc(config('app.admin_email'))
             ->subject('New order')
             ->view('mail.product_order');
     }

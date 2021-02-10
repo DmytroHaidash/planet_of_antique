@@ -38,6 +38,7 @@ class AskProductQuestion extends Mailable
     {
         return $this
             ->to($this->product->shop->user->email)
+            ->cc(config('app.admin_email'))
             ->subject('Product question')
             ->view('mail.product_question');
     }
