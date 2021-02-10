@@ -39,6 +39,7 @@ class ProductsController extends Controller
             'is_published' => $request->has('is_published'),
             'recommended' => $request->has('recommended'),
             'new' => $request->has('new'),
+            'bargain' => $request->has('bargain'),
         ]);
         $product->categories()->attach($request->input('categories'));
         $this->handleMedia($request, $product);
@@ -72,6 +73,7 @@ class ProductsController extends Controller
             'is_published' => $request->has('is_published'),
             'recommended' => $request->has('recommended'),
             'new' => $request->has('new'),
+            'bargain' => $request->has('bargain'),
         ]);
         $product->categories()->sync($request->input('categories'));
         $this->handleMedia($request, $product);

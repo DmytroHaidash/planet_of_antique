@@ -40,6 +40,7 @@ class Product extends Model implements HasMedia, Sortable
         'shop_id',
         'recommended',
         'new',
+        'bargain',
     ];
 
     /**

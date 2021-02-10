@@ -74,6 +74,15 @@
                         </div>
                     </div>
 
+                    <div class="form-group my-4">
+                        <div class="custom-control custom-checkbox ml-3">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="bargain" name="bargain"
+                                    {{ $product->bargain ? 'checked' : '' }}>
+                            <label class="custom-control-label" for="bargain">Bargain</label>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="section">Category</label>
                         <ul class="list-unstyled">

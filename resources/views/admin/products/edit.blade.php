@@ -20,7 +20,7 @@
                                     <label for="title">Title</label>
                                     <input id="title" type="text" name="title[{{$lang}}]"
                                            class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
-                                           value="{{ old('title.'.$lang) ?? $product->translate('title', $lang)}}" >
+                                           value="{{ old('title.'.$lang) ?? $product->translate('title', $lang)}}">
                                     @if($errors->has('title'))
                                         <div class="mt-1 text-danger">
                                             {{ $errors->first('title') }}
@@ -71,6 +71,15 @@
                                    id="publish_price" name="publish_price"
                                     {{ $product->publish_price ? 'checked' : '' }}>
                             <label class="custom-control-label" for="publish_price">Published price</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group my-4">
+                        <div class="custom-control custom-checkbox ml-3">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="bargain" name="bargain"
+                                    {{ $product->bargain ? 'checked' : '' }}>
+                            <label class="custom-control-label" for="bargain">Bargain</label>
                         </div>
                     </div>
 

@@ -37,6 +37,7 @@ class ProductsController extends Controller
             'in_stock' => $request->input('in_stock'),
             'publish_price' => $request->has('publish_price'),
             'is_published' => $request->has('is_published'),
+            'bargain' => $request->has('bargain'),
         ]);
         $product->categories()->attach($request->input('categories', []));
         $this->handleMedia($request, $product);
@@ -67,6 +68,7 @@ class ProductsController extends Controller
             'in_stock' => $request->input('in_stock'),
             'publish_price' => $request->has('publish_price'),
             'is_published' => $request->has('is_published'),
+            'bargain' => $request->has('bargain'),
         ]);
         $product->categories()->sync($request->input('categories'));
         $this->handleMedia($request, $product);
