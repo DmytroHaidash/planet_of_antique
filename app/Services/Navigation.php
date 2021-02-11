@@ -26,6 +26,12 @@ class Navigation
                 'match' => app('router')->is('admin.products.*'),
             ],
             (object)[
+                'name' => 'Orders',
+                'route' => route('admin.orders.index'),
+                'icon' => 'i-gallery',
+                'match' => app('router')->is('admin.orders.*'),
+            ],
+            (object)[
                 'name' => 'Tags',
                 'route' => route('admin.tags.index'),
                 'icon' => 'i-tag',

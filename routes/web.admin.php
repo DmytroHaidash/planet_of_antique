@@ -21,6 +21,7 @@ Route::group([
     Route::resource('banners', 'BannersController')->except('show');
     Route::resource('users', 'UsersController')->except('show', 'create', 'store');
     Route::resource('benefits', 'BenefitsController')->except('show');
+    Route::resource('orders', 'OrderController')->except('show','create', 'destroy');
 
     Route::get('setting', 'SettingsController@index')->name('settings.index');
     Route::post('setting', 'SettingsController@update')->name('settings.update');

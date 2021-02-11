@@ -1,4 +1,4 @@
-@extends('layouts.board', ['page_title' => 'Orders'])
+@extends('layouts.admin', ['page_title' => 'Orders'])
 
 @section('content')
 
@@ -61,7 +61,7 @@
                     </td>
                     <td width="150">
                         <select name="status" class="form-control"
-                                onchange="updateStatus('{{ route('board.orders.update', $order) }}')">
+                                onchange="updateStatus('{{ route('admin.orders.update', $order) }}')">
                             @foreach(\App\Models\Order::$STATUSES as $status)
                                 <option value="{{ $status }}"
                                         {{ $order->status == $status ? 'selected' : '' }}>
@@ -72,7 +72,7 @@
                     </td>
                     <td width="150">{{ $order->created_at->formatLocalized('%d %b %Y, %H:%M') }}</td>
                     <td width="50">
-                        <a href="{{ route('board.orders.edit', $order) }}"
+                        <a href="{{ route('admin.orders.edit', $order) }}"
                            class="btn btn-warning btn-squire">
                             <i class="i-pencil"></i>
                         </a>

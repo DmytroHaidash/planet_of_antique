@@ -1,15 +1,15 @@
-@extends('layouts.board', ['page_title' => 'Order №' . $order->id])
+@extends('layouts.admin', ['page_title' => 'Order №' . $order->id])
 
 @section('content')
 
     <section id="content">
         <h1 class="h3 mb-4">Order №{{ $order->id }}</h1>
 
-        <form action="{{ route('board.orders.update', $order) }}" method="post">
+        <form action="{{ route('admin.orders.update', $order) }}" method="post">
             @csrf
             @method('patch')
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <h4 class="mb-3">Buyer</h4>
                     <h5 class="position-relative">
                         <div class="indicator bg-warning"></div>
@@ -24,16 +24,23 @@
                         <p class="mb-0">{{ $order->user->email }}</p>
                     @endif
 
-                    @if ($order->message)
-                        <div class="form-group mb-0">
-                            <label for="message">Message</label>
-                            <textarea class="form-control" id="message"
-                                      name="message">{{ old('message') ?? $order->message }}</textarea>
-                        </div>
-                    @endif
+
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <h4 class="mb-3">Seller</h4>
+                    <h5 class="position-relative">
+                        <div class="indicator bg-warning"></div>
+                        {{$order->product->shop->user->name }}
+                    </h5>
+                    <h5 class="position-relative">
+                        <div class="indicator bg-warning"></div>
+                        {{$order->product->shop->title }}
+                    </h5>
+
+                </div>
+
+                <div class="col-md-4">
                     <h4 class="mb-3">Product</h4>
                     <div class="d-flex">
                         <div class="flex-shrink-0 mr-3">
@@ -62,7 +69,13 @@
             </div>
 
             <hr>
-
+            @if ($order->message)
+                <div class="form-group mb-0">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message"
+                              name="message">{{ old('message') ?? $order->message }}</textarea>
+                </div>
+            @endif
             <div class="form-group">
                 <label for="comment">Your comment</label>
                 <textarea class="form-control" id="comment"

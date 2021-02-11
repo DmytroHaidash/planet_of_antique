@@ -32,6 +32,7 @@ class Slideshow {
           easing: {in: 'easeOutQuad', out: 'easeOutQuad'}
         }
       },
+      preventInteractionOnTransition: true,
       frameFill: '#111'
     };
     this.init();

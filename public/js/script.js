@@ -14,10 +14,6 @@ new Swiper(".main-slider__section", {
     onlyInViewport: true,
     pageUpDown: true,
   },
-  mousewheel: {
-    sensitivity: 1,
-    eventsTarget: ".main-slider__section",
-  },
   loop: true,
   effect: "fade",
   fadeEffect: {
@@ -39,10 +35,6 @@ new Swiper(".section-new__slider", {
     onlyInViewport: true,
     pageUpDown: true,
   },
-  mousewheel: {
-    sensitivity: 1,
-    eventsTarget: ".section-new__slider",
-  },
   loop: true,
   speed: 1000,
   spaceBetween: 20,
@@ -61,10 +53,6 @@ new Swiper(".section-recommended__slider", {
     onlyInViewport: true,
     pageUpDown: true,
   },
-  mousewheel: {
-    sensitivity: 1,
-    eventsTarget: ".section-recommended__slider",
-  },
   loop: true,
   speed: 1000,
   spaceBetween: 20,
@@ -82,10 +70,6 @@ new Swiper(".section-sellers__slider", {
     enabled: true,
     onlyInViewport: true,
     pageUpDown: true,
-  },
-  mousewheel: {
-    sensitivity: 1,
-    eventsTarget: ".section-sellers__slider",
   },
   loop: true,
   speed: 1000,
