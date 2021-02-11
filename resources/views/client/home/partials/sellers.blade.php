@@ -2,8 +2,8 @@
     <a name="sellers" class="anchor"></a>
     <div class="content-wrapper">
         <div class="section__header slider-header">
-            <h2 class="section__title">Sellers</h2>
-            <a class="section__btn link-btn" href="#">view all</a>
+            <h2 class="section__title">@lang('common.sellers')</h2>
+            <a class="section__btn link-btn" href="#">@lang('common.view')</a>
         </div>
 
         <div class="section-sellers__slider swiper-container">

@@ -2,7 +2,7 @@
     <a name="catalog" class="anchor"></a>
     <div class="content-wrapper">
         <div class="section__header central-header">
-            <h2 class="section__title central-title">Popular-sections</h2>
+            <h2 class="section__title central-title">@lang('common.popular')</h2>
         </div>
 
         <div class="popular-section__item-row-wrapper">

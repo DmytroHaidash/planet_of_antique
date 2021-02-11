@@ -3,7 +3,7 @@
     <div class="content-wrapper">
         <div class="section__header central-header">
             <h2 class="section__title central-title">
-                Benefits
+                @lang('common.benefits')
             </h2>
         </div>
 

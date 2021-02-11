@@ -2,8 +2,8 @@
     <a name="recommended" class="anchor"></a>
     <div class="content-wrapper">
         <div class="section__header slider-header">
-            <h2 class="section__title">Recommended</h2>
-            <a class="section__btn link-btn" href="{{route('client.catalog.recommended')}}">view all</a>
+            <h2 class="section__title">@lang('common.recommended')</h2>
+            <a class="section__btn link-btn" href="{{route('client.catalog.recommended')}}">@lang('common.view')</a>
         </div>
 
         <div class="section-recommended__slider swiper-container">

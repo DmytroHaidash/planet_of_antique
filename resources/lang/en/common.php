@@ -18,6 +18,21 @@ return [
         'sellers' => 'for sellers',
         'buyers' => 'for buyers',
         'btn' => 'create your store in 10 minutes',
-    ]
+    ],
+    'articles' => 'Articles',
+    'benefits' => 'Benefits',
+    'help' => [
+        'title' => 'We are here to Help',
+        'message' => 'Message',
+        'chat' => 'Chat',
+        'whats_app' => 'WhatsApp',
+        'faq' => 'FAQ'
+    ],
+    'new' => 'New',
+    'popular' => 'Popular-sections',
+    'recommended' => 'Recommended',
+    'view' => 'view all',
+    'sellers' => 'Sellers',
+    'url' => 'shop now'
 
 ];

@@ -2,7 +2,7 @@
     <div class="content-wrapper">
         <div class="section__header central-header">
             <h2 class="section__title central-title">
-                Articles
+                @lang('common.articles')
             </h2>
         </div>
 

@@ -19,7 +19,7 @@
                             </p>
                         @endif
                         @if($banner->url)
-                            <a class="main-slide__link-btn link-btn" href="{{$banner->url}}">shop now</a>
+                            <a class="main-slide__link-btn link-btn" href="{{$banner->url}}">@lang('common.url')</a>
                         @endif
                     </article>
                 @endif

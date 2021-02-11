@@ -2,8 +2,8 @@
     <a name="new" class="anchor"></a>
     <div class="content-wrapper">
         <div class="section__header slider-header">
-            <h2 class="section__title ">New</h2>
-            <a class="section__btn link-btn" href="{{route('client.catalog.new')}}">view all</a>
+            <h2 class="section__title ">@lang('common.new')</h2>
+            <a class="section__btn link-btn" href="{{route('client.catalog.new')}}">@lang('common.view')</a>
         </div>
 
         <div class="section-new__slider swiper-container">
