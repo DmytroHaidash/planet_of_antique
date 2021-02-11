@@ -52,12 +52,12 @@
                                     </div>
                                 @endif
                                 @if($product->bargain)
-                                        <div class="ml-auto mt-4">
-                                            <button class="button button--primary modal-btn"
-                                                    data-modal-open="bargain">
-                                                @lang('pages.product.bargain')
-                                            </button>
-                                        </div>
+                                    <div class="ml-auto mt-4">
+                                        <button class="button button--primary modal-btn-4"
+                                                data-open-barg="bargain">
+                                            @lang('pages.product.bargain')
+                                        </button>
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                                 @lang('pages.product.question')
                             </button>
                         </div>
-                        @if(Auth::user() && Auth::user()->hasRole('admin') || (Auth::user()->hasRole('admin') && Auth::user()->shop->id == $product->shop->id))
+                        @if(Auth::user() && (Auth::user()->hasRole('admin') || (Auth::user()->hasRole('admin') && Auth::user()->shop->id == $product->shop->id)))
                             <a href="{{route('client.catalog.pdf', $product)}}"
                                class=" button button--primary-outline mt-4">
                                 @lang('pages.product.pdf')

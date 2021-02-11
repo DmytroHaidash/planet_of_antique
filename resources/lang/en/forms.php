@@ -10,9 +10,11 @@ return [
     'message' => [
         'order' => 'Message <small class="text-muted">(not necessary)</small>',
         'question' => 'Question?',
-        'bargain' => 'Your price'
+        'bargain' => 'Your price',
+        'support' => 'Tour message for support',
     ],
     'ask_email' => 'Enter Your E-mail',
+    'support' => 'Send your message for support',
 
 
 	'buttons' => [

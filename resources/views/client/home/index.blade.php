@@ -10,7 +10,7 @@
     @includeWhen($benefits->count(), 'client.home.partials.benefits')
     @includeWhen($articles->count(), 'client.home.partials.articles')
     @include('client.home.partials.help')
-
+    @include('client.home.message')
 @endsection
 
 @section('meta')

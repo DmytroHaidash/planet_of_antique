@@ -7,12 +7,12 @@
         </div>
 
         <div class="section-help__helps-wrapper">
-            <a href="#" class="section-help__help-item">
+            <button class="section-help__help-item modal-button" data-modal-opened="supportMessage">
                 <span class="help-item__img icon bg-message"></span>
                 <span class="help-item__paragraph">
                             Message
                         </span>
-            </a>
+            </button>
 
             <a href="#" class="section-help__help-item">
                 <span class="help-item__img icon bg-chat"></span>

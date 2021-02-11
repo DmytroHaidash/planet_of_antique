@@ -7,6 +7,7 @@ Route::group([
     'namespace' => 'Client'
 ], function () {
     Route::get('/', 'HomeController@index')->name('index');
+    Route::post('/message', 'HomeController@message')->name('home.message');
 
     Route::get('search', 'SearchController@index')->name('search.index');
 

@@ -62,7 +62,6 @@ $('.subscribe-modal-mask').on('click', function () {
 
 $('.modal-btn-3').on('click', function (e) {
   e.preventDefault();
-  console.log('click btn open')
   let modalIds = $(this).data('open-price');
 
   $(`#${modalIds}`).toggle();
@@ -84,10 +83,9 @@ $('.custom-modal-3-mask').on('click', function () {
 ///
 $('.modal-btn-4').on('click', function (e) {
   e.preventDefault();
-  console.log('click btn open')
-  let modalIds = $(this).data('open-price');
+  let mds = $(this).data('open-barg');
 
-  $(`#${modalIds}`).toggle();
+  $(`#${mds}`).toggle();
   $('.custom-modal-4-mask').toggle();
 });
 
