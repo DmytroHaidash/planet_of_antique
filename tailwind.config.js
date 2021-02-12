@@ -55,7 +55,8 @@ module.exports = {
     textColor: ['responsive', 'hover'],
     textDecoration: [],
     textTransform: [],
-    inset: ['responsive', 'hover']
+    inset: ['responsive', 'hover'],
+    verticalAlign: ['responsive'],
   },
   plugins: [
       require('@tailwindcss/custom-forms')

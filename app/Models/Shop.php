@@ -69,8 +69,14 @@ class Shop extends Model implements HasMedia
             ? $this->getFirstMedia('logo')->getFullUrl()
             : asset('images/no-image.png');
     }
+    public function getLogoThumbAttribute()
+    {
+        return $this->hasMedia('logo')
+            ? $this->getFirstMedia('logo')->getFullUrl('thumb')
+            : asset('images/no-image.png');
+    }
 
-    public function getBannerAttribute()
+    public function getFullBannerAttribute()
     {
         return $this->hasMedia('banner')
             ? $this->getFirstMedia('banner')->getFullUrl()

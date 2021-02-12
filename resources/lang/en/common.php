@@ -33,6 +33,8 @@ return [
     'recommended' => 'Recommended',
     'view' => 'view all',
     'sellers' => 'Sellers',
-    'url' => 'shop now'
+    'url' => 'shop now',
+    'about' => 'About',
+    'delivery' => 'Delivery'
 
 ];

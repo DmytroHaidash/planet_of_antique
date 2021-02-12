@@ -37,4 +37,6 @@ Route::group([
         Route::post('lot/{product}/price', 'CatalogController@price')->name('price');
         Route::post('lot/{product}/bargain', 'CatalogController@bargain')->name('bargain');
     });
+
+    Route::resource('shops', 'ShopController')->only('index', 'show');
 });

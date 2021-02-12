@@ -132,10 +132,6 @@
                     <label class="custom-control-label" for="published">Published</label>
                 </div>
             </div>
-
-            <div class="mt-4">
-                <button class="btn btn-primary">Save</button>
-            </div>
         </form>
     </section>
 

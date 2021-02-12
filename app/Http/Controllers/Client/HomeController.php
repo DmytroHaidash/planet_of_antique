@@ -23,7 +23,7 @@ class HomeController extends Controller
         $banners = Banner::all();
         $new = Product::latest()->take(5)->get();
         $recommended = Product::where('recommended', 1)->get();
-        $sellers = Shop::where('partner', 1)->get();
+        $sellers = Shop::where('partner', 1)->where('published', 1)->get();
         $popular = Category::inRandomOrder()->take(9)->get();
         $benefits = Benefit::all();
         $articles = Article::inRandomOrder()->take(4)->get();
