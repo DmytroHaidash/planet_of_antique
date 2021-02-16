@@ -28,7 +28,7 @@
         </div>
         <div class="container mx-0">
             <div class="flex flex-wrap justify-center mt-6">
-                @each('partials.client.catalog.prev', $products, 'product', 'partials.client.layout.not-found')
+                @each('partials.client.catalog.prev', $products, 'product')
             </div>
 
             @if ($products->count() > 1)
