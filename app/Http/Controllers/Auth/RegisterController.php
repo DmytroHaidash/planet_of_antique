@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'shop_name' => ['required_if:role,seller'],
+            'title.'. app()->getLocale() => ['required_if:role,seller'],
         ]);
     }
 
@@ -72,7 +72,7 @@ class RegisterController extends Controller
             'role' => $data['role'],
         ]);
         if($data['role'] == 'seller'){
-            $user->shop()->create(['title' => 'shop_name']);
+            $user->shop()->create(['title' => $data['title']]);
         }
         return $user;
     }

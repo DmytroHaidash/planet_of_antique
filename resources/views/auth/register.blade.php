@@ -79,8 +79,8 @@
                     <input id="shop_name"
                            type="text"
                            class="form-control @error('shop_name') is-invalid @enderror"
-                           name="shop_name"
-                           value="{{ old('shop_name') }}"
+                           name="title[{{app()->getLocale()}}]"
+                           value="{{ old('title') }}"
                            required
                            autofocus
                            placeholder="{{ __('Shop name') }}">
