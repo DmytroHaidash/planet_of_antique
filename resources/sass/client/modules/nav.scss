@@ -58,14 +58,34 @@
   .submenu {
     @apply relative w-full ;
     @screen lg {
-      @apply absolute w-48 -ml-24 text-sm bg-white text-black;
-      top: 0;
+      @apply bg-white text-black;
+      //top: 30px;
+      font-size: 1rem;
+      position: fixed;
+      //margin-top: 30px;
       left: 50%;
-      padding-top: 30px;
-      margin-top: -10px;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      //padding-top: 30px;
+      //margin-top: -10px;
       z-index: -1;
+      height: 90vh;
+      overflow-y: auto;
     }
+    .close{
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 20px;
+      margin-top: 10px;
 
+      svg {
+        fill: #000
+      ;
+        &:hover {
+          fill: theme('colors.yellow.500');
+        }
+      }
+    }
     ul {
       @apply p-3;
     }

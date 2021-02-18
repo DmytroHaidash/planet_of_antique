@@ -56,6 +56,28 @@
                 </li>
                 <li class="link"><a href="{{route('client.catalog.new')}}">@lang('pages.new.title')</a></li>
                 <li class="link"><a href="{{route('client.blog.index')}}">@lang('nav.blog')</a></li>
+                <li class="link hidden lg:inline-block">
+                    <a href="#">@lang('nav.categories')
+                        <svg width="12" height="11" class="fill-current ml-2 -mt-px inline-flex">
+                            <use xlink:href="#caret"></use>
+                        </svg>
+                    </a>
+                    <div class="submenu leading-tight" style="display: none">
+                        <div class="close">
+                            <svg width="24" height="24" fill="#000">
+                                <use xlink:href="#close"></use>
+                            </svg>
+                        </div>
+                        <ul class="list-reset lg:flex  lg:flex-wrap text-center">
+                            @foreach(app('categories') as $category)
+                                <li class="mb-1 lg:w-1/3">
+                                    <a href="{{route('client.catalog.index', ['category' => $category->slug])}}"
+                                       class="font-bold">{{ $category->title }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </li>
             </ul>
             @if(Auth::user() && !Auth::user()->hasRole('client'))
                 <a href="{{route('board.shops.index')}}" class="link store-link">@lang('nav.shop')</a>

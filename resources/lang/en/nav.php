@@ -14,5 +14,6 @@ return [
     'search' => 'Search',
     'create' => 'create your store',
     'shop' => 'Store management',
-    'admin' => 'Admin panel'
+    'admin' => 'Admin panel',
+    'categories' => 'Categories'
 ];
