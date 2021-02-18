@@ -26,17 +26,34 @@
 
             {!! $shop->delivery !!}
         </div>
-        <div class="container mx-0">
-            <div class="flex flex-wrap justify-center mt-6">
-                @each('partials.client.catalog.prev', $products, 'product')
-            </div>
-
-            @if ($products->count() > 1)
-                <div class="container mt-10">
-                    {{ $products->appends(request()->except('page'))->links() }}
+        @if($products)
+            @if($categories)
+                <div class="flex flex-wrap justify-center">
+                    @foreach($categories as $item)
+                        <a href="{{'?category='.$item->slug }}"
+                           class="mx-px button button--primary{{ $category == $item->slug ? '' : '-outline' }}">
+                            {{ $item->title }}
+                        </a>
+                    @endforeach
+                    @if(request()->filled('category'))
+                        <a href="{{ url()->current() }}" class="mx-px button button--primary-outline">
+                            @lang('pages.catalog.filter.clear')
+                        </a>
+                    @endif
                 </div>
             @endif
-        </div>
+            <div class="container mx-0">
+                <div class="flex flex-wrap justify-center mt-6">
+                    @each('partials.client.catalog.prev', $products, 'product')
+                </div>
+
+                @if ($products->count() > 1)
+                    <div class="container mt-10">
+                        {{ $products->appends(request()->except('page'))->links() }}
+                    </div>
+                @endif
+            </div>
+        @endif
     </section>
 
 @endsection

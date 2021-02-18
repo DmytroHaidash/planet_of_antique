@@ -51,7 +51,7 @@
                         @endforeach
                     </block-editor>
                     @includeIf('partials.admin.meta', ['meta' => $product->meta()->first()])
-                    <multi-uploader class="mt-4"
+                    <multi-uploader class="mt-4" url="/board/media/upload"
                                     :src="{{ json_encode(\App\Http\Resources\MediaResource::collection($product->getMedia('uploads'))) }}"></multi-uploader>
                 </div>
                 <div class="col-lg-4">

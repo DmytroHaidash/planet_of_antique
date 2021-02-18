@@ -34,7 +34,6 @@
                                 href="{{route('register')}}"
                                 class="link">@lang('auth.register')</a>
                     @else
-                        <a>{{auth()->user()->name}}</a>
                         <a href="{{ route('logout') }}"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             @lang('auth.logout')

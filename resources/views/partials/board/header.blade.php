@@ -2,13 +2,13 @@
     <ul class="d-flex align-items-center list-unstyled mb-0">
         <li>
             <a href="{{ route('client.index') }}" class="font-weight-bold" target="_blank">
-                Перейти на сайт
+                Go to website
             </a>
         </li>
         <li class="ml-auto">
             <a href="{{ route('logout') }}"
                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                Выйти
+                Logout
                 <svg width="20" height="20" style="transform: scale(-1)">
                     <use xlink:href="#exit"></use>
                 </svg>

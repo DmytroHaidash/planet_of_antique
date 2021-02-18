@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use App\Models\Setting;
 use App\Services\Navigation;
 use Illuminate\Support\Facades\Schema;
@@ -30,6 +31,10 @@ class AppServiceProvider extends ServiceProvider
 
         app()->singleton('nav', function () {
             return new Navigation();
+        });
+
+        app()->singleton('categories', function(){
+           return Category::all();
         });
 
         app()->singleton('settings', function () {

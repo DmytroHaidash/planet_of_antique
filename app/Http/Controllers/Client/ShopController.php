@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Shop;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -33,11 +35,33 @@ class ShopController extends Controller
         ]);
     }
 
-    public function show(Shop $shop):View
+    public function show(Request $request, Shop $shop):View
     {
+        $categories = [];
+        $products = $shop->products();
+        foreach($shop->products as $product){
+            foreach ($product->categories as $category)
+            {
+
+                if(!in_array_field($category->id, 'id',  $categories)){
+                    $categories[] = $category;
+                }
+            }
+        }
+
+        if ($request->filled('category')) {
+            $ids = Category::whereIn('slug', explode(',', $request->input('category')))
+                ->pluck('id');
+
+            $products = $products->whereHas('categories', function (Builder $builder) use ($ids) {
+                $builder->whereIn('id', $ids);
+            });
+        }
         return view('client.shops.show', [
             'shop' => $shop,
-            'products' => $shop->products()->paginate(20),
+            'products' => $products->paginate(20),
+            'categories' => $categories,
+            'category' => $request->input('category'),
         ]);
     }
 }

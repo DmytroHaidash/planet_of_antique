@@ -27,7 +27,7 @@
 <div id="app">
     @includeIf('partials.client.layout.header')
     @includeIf('partials.client.layout.icons')
-    <main class="content">
+    <main class="content front">
         @yield('content')
     </main>
     @includeIf('partials.client.layout.footer')

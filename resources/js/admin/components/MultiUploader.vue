@@ -22,7 +22,8 @@
 
         <label class="position-relative image-uploader d-block rounded bg-light p-4">
             <input type="file" accept="image/*" multiple @change="handleImages">
-            <input type="hidden" :name="name ? name+'[]' : 'uploads[]'" :value="image.id" v-for="(image, index) in images" :key="index">
+            <input type="hidden" :name="name ? name+'[]' : 'uploads[]'" :value="image.id"
+                   v-for="(image, index) in images" :key="index">
             <input type="hidden" name="deletion[]" :value="image" v-for="(image, index) in deletion" :key="index">
 
             <div class="text-center">
@@ -41,6 +42,12 @@
       Draggable
     },
     props: {
+      url: {
+        type: String,
+        default() {
+          return '/admin/media/upload';
+        },
+      },
       src: Array,
       model: String,
       modelId: Number | String,
@@ -60,14 +67,14 @@
     },
     methods: {
       async uploadFile(formData, tempImage) {
-        await axios.post('/admin/media/upload', formData)
-            .then(({data}) => {
-              const index = this.images.indexOf(tempImage);
+        await axios.post(this.url, formData)
+          .then(({data}) => {
+            const index = this.images.indexOf(tempImage);
 
-              if (index >= 0) {
-                this.$set(this.images, index, data);
-              }
-            });
+            if (index >= 0) {
+              this.$set(this.images, index, data);
+            }
+          });
       },
 
       handleImages(event) {

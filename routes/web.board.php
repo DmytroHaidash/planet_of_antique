@@ -20,4 +20,12 @@ Route::group([
 
     Route::resource('orders', 'OrdersController')->except('create', 'destroy');
 
+    Route::group([
+        'as' => 'media.',
+        'prefix' => 'media'
+    ], function () {
+        Route::post('upload', 'UploadsController@store')->name('store');
+        Route::delete('{media}', 'UploadsController@destroy')->name('destroy');
+    });
+
 });

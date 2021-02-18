@@ -29,7 +29,7 @@ return [
         'faq' => 'FAQ'
     ],
     'new' => 'New',
-    'popular' => 'Popular-sections',
+    'popular' => 'Popular-categories',
     'recommended' => 'Recommended',
     'view' => 'view all',
     'sellers' => 'Sellers',

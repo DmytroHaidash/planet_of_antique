@@ -49,7 +49,7 @@
                         @endforeach
                     </block-editor>
                     @includeIf('partials.admin.meta', ['meta' => null])
-                    <multi-uploader class="mt-4"></multi-uploader>
+                    <multi-uploader class="mt-4" url="/board/media/upload"></multi-uploader>
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group{{ $errors->has('price') ? ' is-invalid' : '' }}">
