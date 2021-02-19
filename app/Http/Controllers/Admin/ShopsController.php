@@ -37,12 +37,6 @@ class ShopsController extends Controller
                 ->sanitizingFileName(filenameSanitizer())
                 ->toMediaCollection('logo');
         }
-        if($request->hasFile('banner')){
-            $shop->clearMediaCollection('banner');
-            $shop->addMediaFromRequest('banner')
-                ->sanitizingFileName(filenameSanitizer())
-                ->toMediaCollection('banner');
-        }
 
         if ($request->has('meta')) {
             foreach ($request->get('meta') as $key => $meta) {

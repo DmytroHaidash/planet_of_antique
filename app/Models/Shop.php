@@ -48,8 +48,8 @@ class Shop extends Model implements HasMedia
     {
         $this->addMediaConversion('thumb')
             ->fit(Manipulations::FIT_CROP, 100, 100)
-            ->width(100)
-            ->height(100)
+            ->width(250)
+            ->height(250)
             ->sharpen(10);
 
         $this->addMediaConversion('preview')
@@ -67,19 +67,12 @@ class Shop extends Model implements HasMedia
     {
         return $this->hasMedia('logo')
             ? $this->getFirstMedia('logo')->getFullUrl()
-            : asset('images/no-image.png');
+            : asset('images/no-avatar.png');
     }
     public function getLogoThumbAttribute()
     {
         return $this->hasMedia('logo')
             ? $this->getFirstMedia('logo')->getFullUrl('thumb')
-            : asset('images/no-image.png');
-    }
-
-    public function getFullBannerAttribute()
-    {
-        return $this->hasMedia('banner')
-            ? $this->getFirstMedia('banner')->getFullUrl()
-            : asset('images/no-image.png');
+            : asset('images/no-avatar.png');
     }
 }

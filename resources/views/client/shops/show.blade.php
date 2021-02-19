@@ -1,13 +1,12 @@
 @extends('layouts.app', ['page_title' => $shop->title])
 
 @section('content')
-    <section class="lozad page-header" data-background-image="{{ $shop->FullBanner }}"></section>
 
-    <section class="-mt-24 mb-12 container">
-        <div class="flex flex-wrap sm:-mx-8 mt-12 justify-center">
-            <img data-src="{{ $shop->logoThumb }}" class="lozad">
+    <section class="mb-12 container">
+        <div class="flex flex-wrap sm:-mx-8 h-25 justify-center items-center">
+            <img data-src="{{ $shop->logoThumb }}" class="lozad w-1/3">
 
-            <h1 class="text-5xl font-thin pt-2">{{ $shop->title }}</h1>
+            <h1 class="text-5xl font-thin w-2/3">{{ $shop->title }}</h1>
         </div>
         <div class="page-content mt-8">
             <div class="flex items-center mb-8 font-serif italic text-xl">

@@ -73,11 +73,6 @@
                         <single-uploader name="logo"
                                          src="{{ optional($shop->getFirstMedia('logo'))->getFullUrl() }}"></single-uploader>
                     </div>
-                    <div class="mb-2">
-                        <P>Banner</P>
-                        <single-uploader name="banner"
-                                         src="{{ optional($shop->getFirstMedia('banner'))->getFullUrl() }}"></single-uploader>
-                    </div>
                 </div>
             </div>
 
