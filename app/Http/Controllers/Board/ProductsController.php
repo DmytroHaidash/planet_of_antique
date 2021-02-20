@@ -14,10 +14,13 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ProductsController extends Controller
 {
-    public function index():View
+    public function index(Request $request):View
     {
-        $products = Auth::user()->shop->products()->paginate(20);
-        return view('board.products.index', compact('products'));
+        $products = Auth::user()->shop->products();
+        if($request->filled('q')){
+            $products = $products->where('title', 'like', "%{$request->input('q')}%");
+        }
+        return view('board.products.index', ['products' => $products->paginate(20)]);
     }
 
     public function create():View

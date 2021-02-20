@@ -13,7 +13,7 @@ Route::group([
     });
 
     Route::resource('categories', 'CategoriesController')->except('show');
-    Route::resource('shops', 'ShopsController')->except('show', 'create', 'store');
+    Route::resource('shops', 'ShopsController')->except('show', 'create', 'store', 'destroy');
     Route::resource('articles', 'ArticlesController')->except('show');
     Route::resource('products', 'ProductsController')->except('show');
     Route::resource('tags', 'TagsController')->except('show');
@@ -22,6 +22,8 @@ Route::group([
     Route::resource('users', 'UsersController')->except('show', 'create', 'store');
     Route::resource('benefits', 'BenefitsController')->except('show');
     Route::resource('orders', 'OrderController')->except('show','create', 'destroy');
+    Route::resource('museums', 'MuseumController')->except('show', 'create', 'store', 'destroy');
+    Route::resource('exhibits', 'ExhibitController')->except('show', 'create', 'store');
 
     Route::get('setting', 'SettingsController@index')->name('settings.index');
     Route::post('setting', 'SettingsController@update')->name('settings.update');

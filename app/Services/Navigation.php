@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Facades\Auth;
+
 class Navigation
 {
     public function backend()
@@ -30,6 +32,18 @@ class Navigation
                 'route' => route('admin.orders.index'),
                 'icon' => 'i-gallery',
                 'match' => app('router')->is('admin.orders.*'),
+            ],
+            (object)[
+                'name' => 'Museums',
+                'route' => route('admin.museums.index'),
+                'icon' => 'i-flag',
+                'match' => app('router')->is('admin.museums.*'),
+            ],
+            (object)[
+                'name' => 'Exhibits',
+                'route' => route('admin.exhibits.index'),
+                'icon' => 'i-floppy',
+                'match' => app('router')->is('admin.exhibits.*'),
             ],
             (object)[
                 'name' => 'Tags',
@@ -78,7 +92,7 @@ class Navigation
 
     public function board()
     {
-        return [
+        $aside = [
             (object)[
                 'name' => 'Shops',
                 'route' => route('board.shops.index'),
@@ -86,23 +100,46 @@ class Navigation
                 'match' => app('router')->is('board.shops.*'),
             ],
             (object)[
-                'name' => 'Articles',
-                'route' => route('board.articles.index'),
-                'icon' => 'i-newspaper',
-                'match' => app('router')->is('board.articles.*'),
-            ],
-            (object)[
                 'name' => 'Products',
                 'route' => route('board.products.index'),
                 'icon' => 'i-folder',
-                'match' => app('router')->is('board.products'),
+                'match' => app('router')->is('board.products.*'),
             ],
             (object)[
                 'name' => 'Orders',
                 'route' => route('board.orders.index'),
                 'icon' => 'i-gallery',
-                'match' => app('router')->is('board.orders'),
+                'match' => app('router')->is('board.orders.*'),
             ],
         ];
+        if(Auth::user()->museum){
+            $aside[] = (object)[
+                'name' => 'Museum',
+                'route' => route('board.museums.edit', Auth::user()->museum),
+                'icon' => 'i-flag',
+                'match' => app('router')->is('board.museums.*'),
+            ];
+            $aside[] = (object)[
+                'name' => 'Exhibits',
+                'route' => route('board.exhibits.index'),
+                'icon' => 'i-floppy',
+                'match' => app('router')->is('board.exhibits.*'),
+            ];
+        }else{
+            $aside[] = (object)[
+                'name' => 'Create Museum',
+                'route' => route('board.museums.create'),
+                'icon' => 'i-flag',
+                'match' => app('router')->is('board.museums.*'),
+            ];
+        }
+        $aside[] = (object)[
+            'name' => 'Articles',
+            'route' => route('board.articles.index'),
+            'icon' => 'i-newspaper',
+            'match' => app('router')->is('board.articles.*'),
+        ];
+
+        return $aside;
     }
 }

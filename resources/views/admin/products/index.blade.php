@@ -62,7 +62,7 @@
             @empty
                 <tr>
                     <td colspan="5" class="text-center">
-                        Товары пока не добавлены
+                        Products not added
                     </td>
                 </tr>
             @endforelse
@@ -84,7 +84,7 @@
     <script>
       function deleteItem(route) {
         const form = document.getElementById('delete');
-        const conf = confirm('Уверены?');
+        const conf = confirm('Sure?');
 
         if (conf) {
           form.action = route;

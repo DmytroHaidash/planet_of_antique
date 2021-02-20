@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\CanCreateProduct;
 use App\Http\Middleware\CheckAuthUserRole;
+use App\Http\Middleware\HasMuseum;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -66,5 +67,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'role' => CheckAuthUserRole::class,
         'canCreate' => CanCreateProduct::class,
+        'hasMuseum' => HasMuseum::class,
     ];
 }

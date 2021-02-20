@@ -20,6 +20,9 @@ Route::group([
 
     Route::resource('orders', 'OrdersController')->except('create', 'destroy');
 
+    Route::resource('museums', 'MuseumController')->except('index', 'show', 'destroy');
+    Route::resource('exhibits', 'ExhibitController')->except('show')->middleware('hasMuseum');
+
     Route::group([
         'as' => 'media.',
         'prefix' => 'media'

@@ -1,18 +1,10 @@
-@extends('layouts.board', ['page_title' => 'Products'])
+@extends('layouts.admin', ['page_title' => 'Exhibits'])
 
 @section('content')
+
     <section id="content">
         <div class="d-flex align-items-center mb-5">
-            <h1 class="h3 mb-0">Products</h1>
-            @if(Auth::user()->shop->products->count() < app('settings')->ads_per_user ||
-            (Auth::user()->premium && Auth::user()->premium > Carbon\Carbon::now()->toDate())
-            )
-                <div class="ml-4">
-                    <a href="{{ route('board.products.create') }}" class="btn btn-primary">
-                        Create new product
-                    </a>
-                </div>
-            @endif
+            <h1 class="h3 mb-0">Exhibits</h1>
         </div>
 
         <form class="my-4 d-flex">
@@ -22,7 +14,7 @@
             </div>
             <button class="btn btn-primary">
                 <i class="i-search"></i>
-                Найти
+                Find
             </button>
         </form>
 
@@ -36,28 +28,28 @@
             </tr>
             </thead>
 
-            @forelse($products as $product)
+            @forelse($exhibits as $exhibit)
                 <tr>
-                    <td width="20">{{ $product->id }}</td>
+                    <td width="20">{{ $exhibit->id }}</td>
                     <td width="280">
-                        <a href="{{ route('board.products.edit', $product) }}" class="underline">
-                            {{ $product->title }}
+                        <a href="{{ route('admin.exhibits.edit', $exhibit) }}" class="underline">
+                            {{ $exhibit->title }}
                         </a>
                     </td>
                     <td>
-                        @forelse($product->categories as $category)
+                        @forelse($exhibit->categories as $category)
                             {{ $category->title }}
                         @empty
                             ---
                         @endforelse
                     </td>
                     <td width="100">
-                        <a href="{{ route('board.products.edit', $product) }}"
+                        <a href="{{ route('admin.exhibits.edit', $exhibit) }}"
                            class="btn btn-warning btn-squire">
                             <i class="i-pencil"></i>
                         </a>
                         <button class="btn btn-danger btn-squire"
-                                onclick="deleteItem('{{ route('board.products.destroy', $product) }}')">
+                                onclick="deleteItem('{{ route('admin.exhibits.destroy', $exhibit) }}')">
                             <i class="i-trash"></i>
                         </button>
                     </td>
@@ -65,13 +57,13 @@
             @empty
                 <tr>
                     <td colspan="5" class="text-center">
-                        Товары пока не добавлены
+                        Exhibits not added
                     </td>
                 </tr>
             @endforelse
         </table>
 
-        {{ $products->appends(request()->except('page'))->links() }}
+        {{ $exhibits->appends(request()->except('page'))->links() }}
     </section>
 
 @endsection
@@ -93,12 +85,6 @@
           form.action = route;
           form.submit();
         }
-      }
-
-      function publishItem(route) {
-        const form = document.getElementById('publish');
-        form.action = route;
-        form.submit();
       }
     </script>
 @endpush

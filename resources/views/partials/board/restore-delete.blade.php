@@ -11,7 +11,7 @@
     <script>
       function deleteItem(route) {
         const form = document.getElementById('delete');
-        const conf = confirm('Уверены?');
+        const conf = confirm('Sure?');
 
         if (conf) {
           form.action = route;
@@ -21,7 +21,7 @@
 
       function restoreItem(route) {
         const form = document.getElementById('restore');
-        const conf = confirm('Уверены?');
+        const conf = confirm('Sure?');
 
         if (conf) {
           form.action = route;
