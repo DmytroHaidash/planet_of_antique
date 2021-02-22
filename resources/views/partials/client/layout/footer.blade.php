@@ -49,6 +49,9 @@
                         <li class="main-link-list__item">
                             <a href="/contacts">@lang('pages.contacts.title')</a>
                         </li>
+                        <li class="main-link-list__item">
+                            <a href="{{route('client.museums.index')}}">@lang('nav.museums')</a>
+                        </li>
                     </ul>
                 </li>
 
@@ -57,7 +60,8 @@
                         <li class="site-link-list__item"><a href="{{route('client.catalog.index')}}">@lang('pages.catalog.title')</a></li>
                         <li class="site-link-list__item"><a href="{{route('client.catalog.new')}}">@lang('pages.new.title')</a></li>
                         <li class="site-link-list__item"><a href="{{route('client.catalog.recommended')}}">@lang('pages.recommended.title')</a></li>
-                        <li class="site-link-list__item"><a href="#sellers">@lang('pages.sellers.title')</a></li>
+                        <li class="site-link-list__item"><a href="{{route('client.shops.index')}}">@lang('pages.sellers.title')</a></li>
+                        <li class="site-link-list__item"><a href="{{route('client.exhibits.index')}}">@lang('nav.exhibits')</a></li>
                     </ul>
                 </li>
 

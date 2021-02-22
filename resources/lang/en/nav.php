@@ -15,5 +15,7 @@ return [
     'create' => 'create your store',
     'shop' => 'Store management',
     'admin' => 'Admin panel',
-    'categories' => 'Categories'
+    'categories' => 'Categories',
+    'museums' => 'Museums',
+    'exhibits' => 'Exhibits'
 ];

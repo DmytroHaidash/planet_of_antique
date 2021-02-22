@@ -78,6 +78,8 @@
                         </ul>
                     </div>
                 </li>
+                <li class="link"><a href="{{route('client.museums.index')}}">@lang('nav.museums')</a></li>
+                <li class="link"><a href="{{route('client.exhibits.index')}}">@lang('nav.exhibits')</a></li>
             </ul>
             @if(Auth::user() && !Auth::user()->hasRole('client'))
                 <a href="{{route('board.shops.index')}}" class="link store-link">@lang('nav.shop')</a>

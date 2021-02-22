@@ -39,4 +39,14 @@ Route::group([
     });
 
     Route::resource('shops', 'ShopController')->only('index', 'show');
+    Route::resource('museums', 'MuseumController')->only('index', 'show');
+
+    Route::group([
+        'as' => 'exhibits.',
+        'prefix' => 'exhibits'
+    ], function () {
+        Route::get('/', 'ExhibitController@index')->name('index');
+        Route::get('{exhibit}', 'ExhibitController@show')->name('show');
+        Route::post('{exhibit}/question', 'ExhibitController@question')->name('question');
+    });
 });
