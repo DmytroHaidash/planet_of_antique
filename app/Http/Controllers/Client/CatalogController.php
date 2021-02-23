@@ -138,7 +138,7 @@ class CatalogController extends Controller
     private function handleSearch(Request $request)
     {
         $search = null;
-        $products = Product::query()->where('is_published', 1);
+        $products = Product::query()->latest()->where('is_published', 1);
 
         if ($request->filled('search')) {
             $search = $request->input('search');

@@ -60,7 +60,7 @@ class ExhibitController extends Controller
     private function handleSearch(Request $request)
     {
         $search = null;
-        $exhibits = Exhibit::query()->where('published', 1);
+        $exhibits = Exhibit::query()->latest()->where('published', 1);
 
         if ($request->filled('search')) {
             $search = $request->input('search');
