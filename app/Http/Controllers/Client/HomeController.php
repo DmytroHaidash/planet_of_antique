@@ -23,14 +23,14 @@ class HomeController extends Controller
     public function index(): View
     {
         $banners = Banner::all();
-        $new = Product::latest()->take(5)->get();
-        $recommended = Product::where('recommended', 1)->where('is_published', 1)->get();
+        $new = Product::latest()->take(20)->get();
+        $recommended = Product::where('recommended', 1)->where('is_published', 1)->take(20)->get();
         $sellers = Shop::where('partner', 1)->where('published', 1)->get();
         $popular = Category::inRandomOrder()->take(9)->get();
         $benefits = Benefit::all();
         $articles = Article::inRandomOrder()->take(4)->get();
-        $museums = Museum::where('published', 1)->where('recommended', 1)->get();
-        $exhibits = Exhibit::inRandomOrder()->where('published', 1)->take(9)->get();
+        $museums = Museum::where('published', 1)->where('recommended', 1)->latest()->take(20)->get();
+        $exhibits = Exhibit::inRandomOrder()->where('published', 1)->take(20)->get();
 
         return view('client.home.index', compact('banners', 'new', 'recommended', 'sellers', 'popular',
             'benefits', 'articles', 'museums', 'exhibits'));
