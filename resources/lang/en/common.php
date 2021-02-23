@@ -28,13 +28,13 @@ return [
         'whats_app' => 'WhatsApp',
         'faq' => 'FAQ'
     ],
-    'new' => 'New',
-    'popular' => 'Popular-categories',
+    'new' => 'New items',
+    'popular' => 'Popular categories',
     'recommended' => 'Recommended',
     'view' => 'view all',
     'sellers' => 'Sellers',
     'url' => 'shop now',
     'about' => 'About',
-    'delivery' => 'Delivery'
+    'delivery' => 'Payment and shipping'
 
 ];

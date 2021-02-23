@@ -8,6 +8,8 @@ use App\Models\Article;
 use App\Models\Banner;
 use App\Models\Benefit;
 use App\Models\Category;
+use App\Models\Exhibit;
+use App\Models\Museum;
 use App\Models\Product;
 use App\Models\Shop;
 use Illuminate\Http\RedirectResponse;
@@ -22,13 +24,16 @@ class HomeController extends Controller
     {
         $banners = Banner::all();
         $new = Product::latest()->take(5)->get();
-        $recommended = Product::where('recommended', 1)->get();
+        $recommended = Product::where('recommended', 1)->where('is_published', 1)->get();
         $sellers = Shop::where('partner', 1)->where('published', 1)->get();
         $popular = Category::inRandomOrder()->take(9)->get();
         $benefits = Benefit::all();
         $articles = Article::inRandomOrder()->take(4)->get();
+        $museums = Museum::where('published', 1)->where('recommended', 1)->get();
+        $exhibits = Exhibit::inRandomOrder()->where('published', 1)->take(9)->get();
 
-        return view('client.home.index', compact('banners', 'new', 'recommended', 'sellers', 'popular', 'benefits', 'articles'));
+        return view('client.home.index', compact('banners', 'new', 'recommended', 'sellers', 'popular',
+            'benefits', 'articles', 'museums', 'exhibits'));
     }
 
     public function message(Request $request):RedirectResponse

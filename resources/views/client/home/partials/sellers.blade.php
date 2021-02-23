@@ -3,7 +3,7 @@
     <div class="content-wrapper">
         <div class="section__header slider-header">
             <h2 class="section__title">@lang('common.sellers')</h2>
-            <a class="section__btn link-btn" href="#">@lang('common.view')</a>
+            <a class="section__btn link-btn" href="{{route('client.shops.index')}}">@lang('common.view')</a>
         </div>
 
         <div class="section-sellers__slider swiper-container">

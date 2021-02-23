@@ -39,7 +39,7 @@ return [
         'buy' => 'Buy',
     ],
     'catalog' => [
-        'title' => 'Catalog',
+        'title' => 'Catalogue',
         'not_found' => 'Products not found.',
         'all' => 'All',
         'search' => [
@@ -89,6 +89,6 @@ return [
         'title' => 'Recommended',
     ],
     'new' => [
-        'title' => 'New',
+        'title' => 'New items',
     ]
 ];

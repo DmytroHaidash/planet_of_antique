@@ -76,6 +76,41 @@ new Swiper(".section-sellers__slider", {
   spaceBetween: 20,
   slidesPerView: 'auto',
 });
+new Swiper(".section-museums__slider", {
+  navigation: {
+    nextEl: ".section-museums__slider__button-next",
+    prevEl: ".section-museums__slider__button-prev",
+  },
+  grabCursor: true,
+  slideToClikeSlide: true,
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+    pageUpDown: true,
+  },
+  loop: true,
+  speed: 1000,
+  spaceBetween: 20,
+  slidesPerView: 'auto',
+});
+
+new Swiper(".section-exhibit__slider", {
+  navigation: {
+    nextEl: ".section-exhibit__slider__button-next",
+    prevEl: ".section-exhibit__slider__button-prev",
+  },
+  grabCursor: true,
+  slideToClikeSlide: true,
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+    pageUpDown: true,
+  },
+  loop: true,
+  speed: 1000,
+  spaceBetween: 20,
+  slidesPerView: 'auto',
+});
 
 function toggleSearch() {
   const searchInput = document.getElementsByClassName("search-input")[0];

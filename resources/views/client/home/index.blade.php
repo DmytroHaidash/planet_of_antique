@@ -9,6 +9,8 @@
     @includeWhen($popular->count(), 'client.home.partials.popular')
     @includeWhen($benefits->count(), 'client.home.partials.benefits')
     @includeWhen($articles->count(), 'client.home.partials.articles')
+    @includeWhen($museums->count(), 'client.home.partials.museums')
+    @includeWhen($exhibits->count(), 'client.home.partials.exhibits')
     @include('client.home.partials.help')
     @include('client.home.message')
 @endsection
