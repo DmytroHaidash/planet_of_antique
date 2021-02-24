@@ -50,4 +50,10 @@ class ShopsController extends Controller
 
         return redirect(route('admin.shops.index'))->with('success',  'Shop successfully updated');
     }
+
+    public function destroy(Shop $shop):RedirectResponse
+    {
+        $shop->delete();
+        return redirect(route('admin.shops.index'))->with('success', 'Shop successfully deleted');
+    }
 }
