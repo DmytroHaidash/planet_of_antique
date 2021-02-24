@@ -8,7 +8,7 @@
 
             <div class="w-2/3">
                 <h1 class="text-5xl font-thin text-center ">{{ $shop->title }}</h1>
-                <div class="page-content mt-8">
+                <div class="page-content">
                     <div class="flex items-center mb-8 font-serif italic text-xl">
                         <hr class="border-b border-green-500 ml-4 my-0 flex-grow opacity-25">
                     </div>
@@ -20,7 +20,7 @@
                 </div>
             </div>
         </div>
-        <div class="page-content mt-8">
+        <div class="page-content mt-2">
             <div class="flex items-center mb-8 font-serif italic text-xl">
                 <hr class="border-b border-green-500 ml-4 my-0 flex-grow opacity-25">
             </div>
