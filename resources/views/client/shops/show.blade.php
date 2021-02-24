@@ -7,7 +7,7 @@
             <img data-src="{{ $shop->logo }}" class="lozad w-1/3 pt-4 h-auto">
 
             <div class="w-2/3">
-                <h1 class="text-5xl font-thin text-center pl-4">{{ $shop->title }}</h1>
+                <h1 class="text-5xl font-thin text-center ">{{ $shop->title }}</h1>
                 <div class="page-content mt-8">
                     <div class="flex items-center mb-8 font-serif italic text-xl">
                         <hr class="border-b border-green-500 ml-4 my-0 flex-grow opacity-25">
