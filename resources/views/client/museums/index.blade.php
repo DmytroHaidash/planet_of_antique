@@ -24,6 +24,10 @@
 
                 </div>
                 <div class="flex flex-wrap justify-center mt-6">
+                    @each('partials.client.museums.prev', $museums, 'museum', 'partials.client.layout.not-found')
+                </div>
+                {{--<div class="flex flex-wrap justify-center mt-6">
+
                     @foreach($museums as $museum)
                         @if($loop->first || $loop->iteration == 11 || $loop->iteration == 21 )
                             <div class="w-full sm:w-1/2 lg:w-1/3">
@@ -34,7 +38,7 @@
                         @endif
 
                     @endforeach
-                </div>
+                </div>--}}
             </div>
         </div>
         @if ($museums->count() > 1)
