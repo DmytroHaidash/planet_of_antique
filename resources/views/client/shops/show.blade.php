@@ -4,9 +4,9 @@
 
     <section class="mb-12 container">
         <div class="flex flex-wrap sm:-mx-8 h-25 justify-center items-center">
-            <img data-src="{{ $shop->logo }}" class="lozad w-1/3 pt-4 h-auto">
+            <img data-src="{{ $shop->logo }}" class="lozad lg:w-1/3 pt-5 h-25">
 
-            <div class="w-2/3">
+            <div class="lg:w-2/3">
                 <h1 class="text-5xl font-thin text-center ">{{ $shop->title }}</h1>
                 <div class="page-content">
                     <div class="flex items-center mb-8 font-serif italic text-xl">
