@@ -31,7 +31,8 @@ class Category extends Model implements HasMedia, Sortable
     protected $fillable = [
         'slug',
         'title',
-        'parent_id'
+        'parent_id',
+        'sort_order',
     ];
 
     /**
