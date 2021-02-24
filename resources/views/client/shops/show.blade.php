@@ -4,7 +4,7 @@
 
     <section class="mb-12 container">
         <div class="flex flex-wrap sm:-mx-8 h-25 justify-center items-center">
-            <img data-src="{{ $shop->logoThumb }}" class="lozad w-1/3 pt-4">
+            <img data-src="{{ $shop->logo }}" class="lozad w-1/3 pt-4 h-auto">
 
             <h1 class="text-5xl font-thin w-2/3 pl-4">{{ $shop->title }}</h1>
         </div>
