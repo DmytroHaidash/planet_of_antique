@@ -54,7 +54,7 @@
                 <li class="link"><a href="{{route('client.shops.index')}}">@lang('pages.sellers.title')</a></li>
                 <li class="link"><a href="{{route('client.catalog.recommended')}}">@lang('pages.recommended.title')</a>
                 </li>
-                <li class="link"><a href="{{route('client.catalog.new')}}">@lang('pages.new.title')</a></li>
+                <li class="link hidden lg:inline-block"><a href="{{route('client.catalog.new')}}">@lang('pages.new.title')</a></li>
                 <li class="link"><a href="{{route('client.blog.index')}}">@lang('nav.blog')</a></li>
                 <li class="link hidden lg:inline-block">
                     <a href="#">@lang('nav.categories')

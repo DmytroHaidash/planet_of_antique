@@ -20,7 +20,7 @@ class ExhibitController extends Controller
         $exhibits = $this->handleSearch($request);
         $exhibits = $this->handleFilters($request, $exhibits);
 
-        return \view('client.catalog.index', [
+        return \view('client.exhibits.index', [
             'search' => $request->input('search'),
             'search_category' => $request->input('category'),
             'category' => Category::where('slug', $request->input('category'))->first(),
@@ -43,7 +43,6 @@ class ExhibitController extends Controller
      */
     public function question(Request $request, Exhibit $exhibit): RedirectResponse
     {
-
         $data = [
             'user' => (object)[
                 'name' => Auth::user() ? Auth::user()->name : $request->input('name'),

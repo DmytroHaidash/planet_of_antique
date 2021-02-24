@@ -174,7 +174,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 800px;
+  width: 850px;
 }
 
 .store-link {
@@ -214,12 +214,11 @@
 
 @media (max-width: 766px) {
   .link-menu {
-    width: 0;
-    opacity: 0;
+   display: none;
   }
 
   .link-menu.active {
-    width: 100%;
+    @apply relative flex w-full;
     opacity: 1;
     transition: 0.4s ease-in-out;
   }

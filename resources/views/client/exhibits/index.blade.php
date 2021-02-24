@@ -24,7 +24,6 @@
 
 @endsection
 @section('meta')
-    <meta property="og:type" content="product.group">
     @foreach($exhibits as $exhibit)
         @includeIf('partials.client.layout.meta', ['meta' => $exhibit->meta()->first()])
     @endforeach
