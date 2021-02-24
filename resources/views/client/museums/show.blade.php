@@ -4,8 +4,8 @@
 
     <section class="mb-12 container">
         <div class="flex flex-wrap sm:-mx-8 h-25 justify-center items-center">
-            <img data-src="{{ $museum->logoThumb }}" class="lozad w-1/3">
-            <div class="w-2/3">
+            <img data-src="{{ $museum->logoThumb }}" class="lozad mt-2 lg:w-1/3">
+            <div class="lg:w-2/3">
                 <h1 class="text-5xl font-thin text-center">{{ $museum->title }}</h1>
                 <div class="page-content">
                     <div class="flex items-center mb-8 font-serif italic text-xl">
