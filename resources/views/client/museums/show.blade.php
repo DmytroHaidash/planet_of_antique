@@ -3,10 +3,14 @@
 @section('content')
 
     <section class="mb-12 container">
-        <div class="flex flex-wrap sm:-mx-8 h-25 justify-center items-center">
-            <img data-src="{{ $museum->logoThumb }}" class="lozad  lg:w-1/3">
+        <h1 class="text-5xl font-thin text-center hidden lg:flex justify-center items-center">{{ $museum->title }}</h1>
+        <div class="flex flex-wrap sm:-mx-8 justify-center">
+            <div class="lg:w-1/3">
+                <img data-src="{{ $museum->logoThumb  }}" class="lozad" >
+            </div>
+
             <div class="lg:w-2/3">
-                <h1 class="text-5xl font-thin text-center">{{ $museum->title }}</h1>
+                <h1 class="text-5xl font-thin text-center lg:hidden">{{ $museum->title }}</h1>
                 <div class="page-content">
                     <div class="flex items-center mb-8 font-serif italic text-xl">
                         <hr class="border-b border-green-500 ml-4 my-0 flex-grow opacity-25">
@@ -19,6 +23,7 @@
                 </div>
             </div>
         </div>
+      
 
         @if($exhibits)
             @if($categories)
