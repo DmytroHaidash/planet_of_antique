@@ -9,6 +9,7 @@ trait SortableTrait
     use \Spatie\EloquentSortable\SortableTrait;
 
     public $sortable = [
-        'order_column_name' => 'sort_order'
+        'order_column_name' => 'sort_order',
+        'sort_when_creating' => true,
     ];
 }

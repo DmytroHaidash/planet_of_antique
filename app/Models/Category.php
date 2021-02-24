@@ -3,27 +3,31 @@
 namespace App\Models;
 
 use App\Traits\SluggableTrait;
-use App\Traits\SortableTrait;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Translatable\HasTranslations;
 
-class Category extends Model implements HasMedia
+class Category extends Model implements HasMedia, Sortable
 {
-    use InteractsWithMedia, HasTranslations, SluggableTrait;
+    use InteractsWithMedia, HasTranslations, SortableTrait,  SluggableTrait;
 
     protected $translatable = [
         'title'
     ];
 
+    public $sortable = [
+        'order_column_name' => 'sort_order',
+        'sort_when_creating' => true,
+    ];
     protected $fillable = [
         'slug',
         'title',
@@ -82,4 +86,12 @@ class Category extends Model implements HasMedia
 //        return $query->whereNull('parent_id');
 //    }
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        self::addGlobalScope('sortById', function (Builder $builder) {
+            $builder->orderBy('sort_order');
+        });
+    }
 }

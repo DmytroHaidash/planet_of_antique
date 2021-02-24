@@ -18,6 +18,7 @@
                 <th>#</th>
                 <th>Title</th>
                 <th class="text-center">Products qty</th>
+                <th class="text-center">Sort order</th>
                 <th></th>
             </tr>
             </thead>
@@ -31,6 +32,23 @@
                         </a>
                     </td>
                     <td class="text-center small">{{ $category->products()->count() }}</td>
+                    <td width="150" class="small">
+                        <div class="d-flex text-center mb-2">
+                            <form action="{{ route('admin.sort.categories.up', $category) }}"
+                                  method="post" class="col-6 px-0">
+                                @csrf
+
+                                <button class="btn btn-sm p-0">&uparrow;</button>
+                            </form>
+
+                            <form action="{{ route('admin.sort.categories.down', $category) }}"
+                                  method="post" class="col-6 px-0">
+                                @csrf
+
+                                <button class="btn btn-sm p-0">&downarrow;</button>
+                            </form>
+                        </div>
+                    </td>
                     <td width="100">
                         <a href="{{ route('admin.categories.edit', $category) }}"
                            class="btn btn-warning btn-squire">

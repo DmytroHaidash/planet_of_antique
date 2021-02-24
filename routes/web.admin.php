@@ -13,7 +13,7 @@ Route::group([
     });
 
     Route::resource('categories', 'CategoriesController')->except('show');
-    Route::resource('shops', 'ShopsController')->except('show', 'create', 'store', 'destroy');
+    Route::resource('shops', 'ShopsController')->except('show', 'create', 'store');
     Route::resource('articles', 'ArticlesController')->except('show');
     Route::resource('products', 'ProductsController')->except('show');
     Route::resource('tags', 'TagsController')->except('show');
@@ -35,4 +35,18 @@ Route::group([
         Route::post('upload', 'UploadsController@store')->name('store');
         Route::delete('{media}', 'UploadsController@destroy')->name('destroy');
     });
+
+
+    $sortable = [
+        'categories' => 'CategoriesController',
+    ];
+    foreach ($sortable as $name => $controller) {
+        Route::group([
+            'as' => "sort.{$name}.",
+            'prefix' => "sort/{$name}"
+        ], function () use ($name, $controller) {
+            Route::post('{item}/up', "{$controller}@up")->name('up');
+            Route::post('{item}/down', "{$controller}@down")->name('down');
+        });
+    }
 });

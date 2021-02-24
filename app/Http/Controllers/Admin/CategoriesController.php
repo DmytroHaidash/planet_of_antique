@@ -108,4 +108,26 @@ class CategoriesController extends Controller
         return back()->with('success', 'Shop successfully deleted');
     }
 
+    /**
+     * @param  Category $item
+     * @return RedirectResponse
+     */
+    public function up(Category $item)
+    {
+        $item->moveOrderUp();
+
+        return back();
+    }
+
+    /**
+     * @param  Category $item
+     * @return RedirectResponse
+     */
+    public function down(Category $item)
+    {
+        $item->moveOrderDown();
+
+        return back();
+    }
+
 }

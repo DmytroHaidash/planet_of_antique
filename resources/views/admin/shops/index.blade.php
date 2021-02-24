@@ -34,7 +34,7 @@
                             <i class="i-pencil"></i>
                         </a>
                         <button class="btn btn-danger btn-squire"
-                                onclick="deleteItem('{{ route('admin.articles.destroy', $article) }}')">
+                                onclick="deleteItem('{{ route('admin.shops.destroy', $shop) }}')">
                             <i class="i-trash"></i>
                         </button>
                     </td>
