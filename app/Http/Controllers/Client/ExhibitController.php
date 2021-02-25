@@ -19,8 +19,7 @@ class ExhibitController extends Controller
     {
         $exhibits = $this->handleSearch($request);
         $exhibits = $this->handleFilters($request, $exhibits);
-
-        dd($exhibits->paginate(20));
+        
         return \view('client.exhibits.index', [
             'search' => $request->input('search'),
             'search_category' => $request->input('category'),
