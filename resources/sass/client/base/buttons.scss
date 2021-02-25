@@ -27,3 +27,34 @@
     }
   }
 }
+
+.button-xs {
+  @apply px-6 py-1 inline-flex items-center uppercase tracking-widest text-xs font-medium border;
+
+  &--primary {
+    color: #fff;
+    background-color: #daa520;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+
+
+    &-outline {
+      background-color: transparent;
+      color: #333;
+      border: 1px solid #daa520;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #daa520;
+        color: #fff;
+      }
+    }
+
+    &:hover {
+      background-color: #8e671e;
+      color: #fff;
+    }
+  }
+}
+

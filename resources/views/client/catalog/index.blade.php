@@ -3,7 +3,15 @@
 @section('content')
     <section class="mt-12 mb-12 container">
         <h1 class="text-5xl font-thin leading-none text-center font-heading">
-            <span>{{ $category->title ?? 'Catalog' }}</span>
+            <span>
+                @if(\Route::current()->getName() == 'client.catalog.index')
+                    @lang('nav.catalog')
+                @elseif(\Route::current()->getName() == 'client.catalog.new')
+                    @lang('pages.new.title')
+                @else
+                    @lang('pages.recommended.title')
+                @endif
+            </span>
         </h1>
         <div class="mt-12 mb-12">
             <div class="container mx-0">
