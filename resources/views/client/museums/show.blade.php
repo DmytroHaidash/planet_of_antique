@@ -43,7 +43,7 @@
                     @endif
                 </div>
             @endif
-            <div class="container mx-0">
+
                 <div class="exhibits grid">
                     @each('partials.client.exhibits.teaser', $exhibits, 'exhibit')
                 </div>
@@ -53,7 +53,6 @@
                         {{ $exhibits->appends(request()->except('page'))->links() }}
                     </div>
                 @endif
-            </div>
         @endif
     </section>
 

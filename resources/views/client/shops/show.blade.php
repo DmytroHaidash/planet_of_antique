@@ -22,20 +22,20 @@
 
                         {!! $shop->description !!}
                     </div>
+                </div>
+                <div class="page-content mt-4">
+                    <div class="flex items-center mb-8 font-serif italic text-xl">
+                        <hr class="border-b border-green-500 ml-4 my-0 flex-grow opacity-25">
+                    </div>
+                    <div class="text-xl border-l border-yellow-500 mb-8 pl-4">
+                        @lang('common.delivery')
+                    </div>
 
+                    {!! $shop->delivery !!}
                 </div>
             </div>
         </div>
-        <div class="page-content mt-4">
-            <div class="flex items-center mb-8 font-serif italic text-xl">
-                <hr class="border-b border-green-500 ml-4 my-0 flex-grow opacity-25">
-            </div>
-            <div class="text-xl border-l border-yellow-500 mb-8 pl-4">
-                @lang('common.delivery')
-            </div>
 
-            {!! $shop->delivery !!}
-        </div>
         @if($products)
             @if($categories)
                 <div class="flex flex-wrap justify-center">
@@ -52,7 +52,7 @@
                     @endif
                 </div>
             @endif
-            <div class="container mx-0">
+
                 <div class="flex flex-wrap justify-center mt-6">
                     @each('partials.client.catalog.prev', $products, 'product')
                 </div>
@@ -62,7 +62,7 @@
                         {{ $products->appends(request()->except('page'))->links() }}
                     </div>
                 @endif
-            </div>
+
         @endif
     </section>
 
