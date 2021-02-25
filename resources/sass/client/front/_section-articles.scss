@@ -50,6 +50,9 @@
 @media (max-width: 1800px) {
   .section-articles__article {
     width: 24.5%;
+     img {
+       width: 100%;
+     }
   }
 }
 
