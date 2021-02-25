@@ -3,7 +3,7 @@
 return [
     'home' => 'Home',
     'about' => 'About',
-    'blog' => 'Blog',
+    'blog' => 'Articles',
     'contacts' => 'Contacts',
     'previous' => 'Previous',
     'next' => 'Next',
