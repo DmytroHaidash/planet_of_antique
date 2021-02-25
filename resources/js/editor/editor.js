@@ -28,7 +28,7 @@ import 'froala-editor/js/languages/uk';
 
 import './editor.scss';
 
-const path = location.origin + (/admin/gi.test(location.href) ? '/admin' : '');
+const path = location.origin + (/admin/gi.test(location.href) ? '' : '');
 const _token = document.querySelector('meta[name="csrf-token"]').content;
 
 new FroalaEditor('.editor', {
