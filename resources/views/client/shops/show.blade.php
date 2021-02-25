@@ -6,7 +6,7 @@
         <h1 class="text-5xl font-thin text-center hidden lg:flex justify-center items-center">{{ $shop->title }}</h1>
         <div class="flex flex-wrap sm:-mx-8 justify-center">
             <div class="lg:w-1/2">
-                <img data-src="{{ $shop->logo }}" class="lozad" >
+                <img data-src="{{ $shop->logo }}" class="lozad">
             </div>
 
             <div class="lg:w-1/2">
@@ -15,11 +15,14 @@
                     <div class="flex items-center mb-8 font-serif italic text-xl">
                         <hr class="border-b border-green-500 ml-4 my-0 flex-grow opacity-25">
                     </div>
-                    <div class="text-xl border-l border-yellow-500 mb-8 pl-4">
-                        @lang('common.about')
+                    <div class="pl-4">
+                        <div class="text-xl border-l border-yellow-500 mb-8">
+                            @lang('common.about')
+                        </div>
+
+                        {!! $shop->description !!}
                     </div>
 
-                    {!! $shop->description !!}
                 </div>
             </div>
         </div>
