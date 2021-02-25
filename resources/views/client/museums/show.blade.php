@@ -16,7 +16,7 @@
                         <hr class="border-b border-green-500 ml-4 my-0 flex-grow opacity-25">
                     </div>
                     <div class="pl-4">
-                        <div class="text-xl border-l border-yellow-500 mb-8">
+                        <div class="text-xl border-l border-yellow-500 mb-8 pl-4">
                             @lang('common.about')
                         </div>
 
