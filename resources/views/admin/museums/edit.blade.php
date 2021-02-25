@@ -61,7 +61,7 @@
                     <div class="mb-2">
                         <P>Logo</P>
                         <single-uploader name="logo"
-                                         src="{{ optional($shop->getFirstMedia('logo'))->getFullUrl() }}"></single-uploader>
+                                         src="{{ optional($museum->getFirstMedia('logo'))->getFullUrl() }}"></single-uploader>
                     </div>
                 </div>
             </div>
