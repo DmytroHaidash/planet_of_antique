@@ -70,7 +70,7 @@
                         </div>
                         <ul class="list-reset lg:flex  lg:flex-wrap text-center">
                             @foreach(app('categories') as $category)
-                                <li class="mb-1 lg:w-1/3">
+                                <li class="mb-3 lg:w-1/3">
                                     <a href="{{route('client.catalog.index', ['category' => $category->slug])}}"
                                        class="font-bold">{{ $category->title }}</a>
                                 </li>

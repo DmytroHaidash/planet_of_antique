@@ -1,4 +1,4 @@
-<section class="section section-sellers">
+<section class="section section-new">
     <a name="exhibits" class="anchor"></a>
     <div class="content-wrapper">
         <div class="section__header slider-header">
