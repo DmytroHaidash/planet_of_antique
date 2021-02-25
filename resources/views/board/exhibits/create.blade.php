@@ -65,7 +65,7 @@
 
                 <div class="custom-control custom-checkbox ml-3">
                     <input type="checkbox" class="custom-control-input"
-                           id="published" name="is_published" checked>
+                           id="published" name="published" checked>
                     <label class="custom-control-label" for="published">Published</label>
                 </div>
             </div>
