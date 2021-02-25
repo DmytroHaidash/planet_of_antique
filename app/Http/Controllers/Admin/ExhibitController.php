@@ -9,6 +9,7 @@ use App\Models\Exhibit;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ExhibitController extends Controller
 {
