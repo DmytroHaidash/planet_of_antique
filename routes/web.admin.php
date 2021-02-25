@@ -13,7 +13,7 @@ Route::group([
     });
 
     Route::resource('categories', 'CategoriesController')->except('show');
-    Route::resource('shops', 'ShopsController')->except('show', 'create', 'store');
+    Route::resource('shops', 'ShopsController')->except('show', 'create', 'store', 'destroy');
     Route::resource('articles', 'ArticlesController')->except('show');
     Route::resource('products', 'ProductsController')->except('show');
     Route::resource('tags', 'TagsController')->except('show');

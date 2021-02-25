@@ -33,10 +33,6 @@
                            class="btn btn-warning btn-squire">
                             <i class="i-pencil"></i>
                         </a>
-                        <button class="btn btn-danger btn-squire"
-                                onclick="deleteItem('{{ route('admin.shops.destroy', $shop) }}')">
-                            <i class="i-trash"></i>
-                        </button>
                     </td>
                 </tr>
             @empty
@@ -52,23 +48,3 @@
     </section>
 
 @endsection
-
-@push('scripts')
-    <form method="post" id="delete" style="display: none">
-        @csrf
-        @method('delete')
-    </form>
-
-    <script>
-      function deleteItem(route) {
-        const form = document.getElementById('delete');
-        const conf = confirm('Sure?');
-
-        if (conf) {
-          form.action = route;
-          form.submit();
-        }
-      }
-    </script>
-@endpush
-
