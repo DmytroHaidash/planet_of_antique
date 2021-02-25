@@ -4,9 +4,9 @@
 
     <section class="mb-12 container">
         <h1 class="text-5xl font-thin text-center hidden lg:flex justify-center items-center">{{ $museum->title }}</h1>
-        <div class="flex flex-wrap sm:-mx-8 justify-center">
+        <div class="flex flex-wrap sm:-mx-8 justify-center mb-2">
             <div class="lg:w-1/2">
-                <img data-src="{{ $museum->logo  }}" class="lozad">
+                <img data-src="{{ $museum->logo  }}" class="lozad justify-content-end">
             </div>
 
             <div class="lg:w-1/2">
