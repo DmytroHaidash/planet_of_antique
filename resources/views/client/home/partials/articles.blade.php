@@ -1,9 +1,10 @@
 <section class="section section-articles">
     <div class="content-wrapper">
-        <div class="section__header central-header">
-            <h2 class="section__title central-title">
+        <div class="section__header slider-header">
+            <h2 class="section__title">
                 @lang('common.articles')
             </h2>
+            <a class="section__btn link-btn" href="{{route('client.blog.index')}}">@lang('common.view')</a>
         </div>
 
         <div class="section-articles__articles-wrapper">
