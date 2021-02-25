@@ -8,11 +8,12 @@
         <div class="mt-12 mb-12">
             <div class="container mx-0">
                 @include('partials.client.catalog.search')
-                @include('partials.client.catalog.filters')
-                <div class="flex flex-wrap justify-center mt-6">
-                    @each('partials.client.exhibits.prev', $exhibits, 'exhibit', 'partials.client.layout.not-found')
+                <div class="mb-2">
+                    @include('partials.client.catalog.filters')
                 </div>
-
+                <div class="exhibits {{ $exhibits->count() ? 'grid' : '' }}">
+                    @each('partials.client.exhibits.teaser', $exhibits, 'exhibit', 'partials.client.layout.not-found')
+                </div>
                 @if ($exhibits->count() > 1)
                     <div class="container mt-10">
                         {{ $exhibits->appends(request()->except('page'))->links() }}

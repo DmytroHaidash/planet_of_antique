@@ -1,5 +1,4 @@
 <section class="section section-new">
-    <a name="new" class="anchor"></a>
     <div class="content-wrapper">
         <div class="section__header slider-header">
             <h2 class="section__title ">@lang('common.new')</h2>

@@ -1,8 +1,8 @@
-<div class="flex flex-wrap justify-center mt-2 mb-2">
+<div class="flex flex-wrap justify-center ">
     @if ($categories->count())
         @foreach($categories as $category)
             <a href="{{$search? '?search='.$search.'&' : '?'}}category={{ $category->slug }}"
-               class="mx-px mb-1 ml-1 button-xs ml-2 button-xs--primary{{ $search_category == $category->slug ? '' : '-outline' }}">
+               class="mx-px mb-2 button-xs ml-2 button-xs--primary{{ $search_category == $category->slug ? '' : '-outline' }}">
                 {{ $category->title }}
             </a>
         @endforeach
