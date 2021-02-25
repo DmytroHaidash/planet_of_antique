@@ -4,7 +4,7 @@
 
     <h1 hidden>{{ __('nav.blog') }}</h1>
 
-    <section class="mt-32 mb-12">
+    <section class="mb-12">
         <div class="container">
             <h1 class="text-3xl leading-none mb-8 font-heading text-center">
                 <span>{{ __('nav.blog') }}</span>

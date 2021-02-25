@@ -1,7 +1,7 @@
 @extends('layouts.app', ['page_title' => 'Catalog'])
 
 @section('content')
-    <section class="mt-32 mb-12 container">
+    <section class="mb-12 container">
         <div class="container mx-0">
             @include('partials.client.catalog.search')
             @include('partials.client.catalog.filters')

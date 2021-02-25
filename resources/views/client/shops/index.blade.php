@@ -1,9 +1,9 @@
 @extends('layouts.app', ['page_title' => 'Sellers'])
 
 @section('content')
-    <section class="mt-32 mb-12 container">
+    <section class="mb-12 container">
         <h1 class="text-5xl font-thin leading-none text-center font-heading">
-            <span>@lang('nav.sellers')</span>
+            <span>@lang('pages.sellers.title')</span>
         </h1>
         <div class="mt-12 mb-12">
             <div class="container mx-0">

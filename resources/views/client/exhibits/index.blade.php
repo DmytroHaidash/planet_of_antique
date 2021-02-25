@@ -1,7 +1,7 @@
 @extends('layouts.app', ['page_title' => 'Exhibits'])
 
 @section('content')
-    <section class="mt-12 mb-12 container">
+    <section class="mb-12 container">
         <h1 class="text-5xl font-thin leading-none text-center font-heading">
             <span>@lang('nav.exhibits')</span>
         </h1>

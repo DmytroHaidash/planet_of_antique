@@ -5,11 +5,11 @@
     <section class="mb-12 container">
         <h1 class="text-5xl font-thin text-center hidden lg:flex justify-center items-center">{{ $museum->title }}</h1>
         <div class="flex flex-wrap sm:-mx-8 justify-center">
-            <div class="lg:w-1/3">
-                <img data-src="{{ $museum->logoThumb  }}" class="lozad" >
+            <div class="lg:w-1/2">
+                <img data-src="{{ $museum->logo  }}" class="lozad" >
             </div>
 
-            <div class="lg:w-2/3">
+            <div class="lg:w-1/2">
                 <h1 class="text-5xl font-thin text-center lg:hidden">{{ $museum->title }}</h1>
                 <div class="page-content">
                     <div class="flex items-center mb-8 font-serif italic text-xl">

@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <section class="mt-32 mb-12">
+    <section class="mb-12">
         <div class="container">
             <h1 class="text-5xl font-thin leading-none text-center">{{ $exhibit->translate('title') }}</h1>
             <div class="flex flex-wrap sm:-mx-8 mt-12 justify-content-center">
@@ -28,11 +28,14 @@
                 </div>
 
                 <div class="lg:w-1/2 order-1 md:order-2">
-                    <div class="flex align-items-center align-items-lg-end mb-4 ml-4">
-                        {!! $exhibit->body !!}
-                    </div>
-
                     <div class="ml-4">
+                        <h4 class="price text-2xl">
+                            <small class="text-muted">@lang('pages.exhibit.museum'):</small>
+                            <a href="{{route('client.museums.show', $exhibit->museum) }}">{{$exhibit->museum->title}}</a>
+                        </h4>
+                        <p class="lead mb-2">
+                            {!! $exhibit->body !!}
+                        </p>
                         <div class="mt-4">
                             <button class="button button--primary modal-button"
                                     data-modal-opened="exhibitsQuestion">

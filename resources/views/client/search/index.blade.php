@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="mt-32 mb-12 container text-center">
+    <section class="mb-12 container text-center">
         <h1 class="text-5xl font-thin leading-none text-center font-heading">
             <span>{{ __('common.header.search') }}: &laquo;{{ $query }}&raquo;</span>
         </h1>

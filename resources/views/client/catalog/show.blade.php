@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <section class="mt-32 mb-12">
+    <section class="mb-12">
         <div class="container">
             <h1 class="text-5xl font-thin leading-none text-center">{{ $product->translate('title') }}</h1>
             <div class="flex flex-wrap sm:-mx-8 mt-12 justify-content-center">
@@ -62,8 +62,12 @@
                             </div>
                         </div>
                         <div class="lg:w-5/6 order-2 md:order-1">
+                            <h4 class="price text-2xl">
+                                <small class="text-muted">@lang('pages.product.shop'):</small>
+                                <a href="{{route('client.shops.show', $product->shop) }}">{{$product->shop->title}}</a>
+                            </h4>
                             @if($product->publish_price && $product->in_stock == 'stock')
-                                <h4 class="price mt-4 text-2xl">
+                                <h4 class="price text-2xl">
                                     <small class="text-muted">@lang('pages.product.price'):</small>
                                     {{ number_format($product->price, 0, ',', ' ') }}
                                     @lang('common.currency')

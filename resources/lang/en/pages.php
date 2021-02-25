@@ -81,6 +81,7 @@ return [
         'ask_price' => 'Price on request',
         'bargain' => 'Offer your price',
         'pdf' => 'Save PDF',
+        'shop' => 'Shop'
     ],
     'sellers' => [
         'title' => 'Sellers',
@@ -90,5 +91,8 @@ return [
     ],
     'new' => [
         'title' => 'New items',
+    ],
+    'exhibit' => [
+        'museum' => 'Museum'
     ]
 ];
