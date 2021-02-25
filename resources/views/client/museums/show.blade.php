@@ -44,8 +44,8 @@
                 </div>
             @endif
             <div class="container mx-0">
-                <div class="flex flex-wrap justify-center mt-6">
-                    @each('partials.client.exhibits.prev', $exhibits, 'exhibit')
+                <div class="exhibits grid">
+                    @each('partials.client.exhibits.teaser', $exhibits, 'exhibit')
                 </div>
 
                 @if ( $exhibits->count() > 1)
