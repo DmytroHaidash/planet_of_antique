@@ -27,7 +27,7 @@
                         </a>
                     </td>
                     <td>{{$museum->user->name}}</td>
-                    <td class="text-center small">{{ $museum->exponats()->count() }}</td>
+                    <td class="text-center small">{{ $museum->exhibits()->count() }}</td>
                     <td width="100">
                         <a href="{{ route('admin.museums.edit', $museum) }}"
                            class="btn btn-warning btn-squire">

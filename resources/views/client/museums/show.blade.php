@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-      
+
 
         @if($exhibits)
             @if($categories)
