@@ -27,6 +27,7 @@ class MuseumController extends Controller
         $museum->update([
             'title' => $request->input('title'),
             'body' => $request->input('body'),
+            'contacts' => $request->input('contacts'),
             'published' => $request->has('published'),
             'recommended' => $request->has('recommended'),
         ]);

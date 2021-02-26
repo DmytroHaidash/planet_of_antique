@@ -23,6 +23,18 @@
                         {!! $museum->body !!}
                     </div>
                 </div>
+                <div class="page-content">
+                    <div class="flex items-center mb-8 font-serif italic text-xl">
+                        <hr class="border-b border-green-500 ml-4 my-0 flex-grow opacity-25">
+                    </div>
+                    <div class="pl-4">
+                        <div class="text-xl border-l border-yellow-500 mb-8 pl-4">
+                            @lang('common.contacts')
+                        </div>
+
+                        {!! $museum->contacts !!}
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -44,15 +56,15 @@
                 </div>
             @endif
 
-                <div class="exhibits grid">
-                    @each('partials.client.exhibits.teaser', $exhibits, 'exhibit')
-                </div>
+            <div class="exhibits grid">
+                @each('partials.client.exhibits.teaser', $exhibits, 'exhibit')
+            </div>
 
-                @if ( $exhibits->count() > 1)
-                    <div class="container mt-10">
-                        {{ $exhibits->appends(request()->except('page'))->links() }}
-                    </div>
-                @endif
+            @if ( $exhibits->count() > 1)
+                <div class="container mt-10">
+                    {{ $exhibits->appends(request()->except('page'))->links() }}
+                </div>
+            @endif
         @endif
     </section>
 

@@ -47,6 +47,17 @@
                                             class="editor"
                                     >{{ old('delivery.'.$lang) ?? $shop->translate('delivery', $lang) }}</textarea>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="contacts">Contacts</label>
+                                    <textarea
+                                            id="contacts"
+                                            name="contacts[{{$lang}}]"
+                                            rows="4"
+                                            id="contacts"
+                                            class="editor"
+                                    >{{ old('contacts.'.$lang) ?? $shop->translate('contacts', $lang) }}</textarea>
+                                </div>
                             </fieldset>
                         @endforeach
                     </block-editor>

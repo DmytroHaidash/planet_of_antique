@@ -48,6 +48,19 @@
                                             class="editor"
                                     >{{ old('delivery.'.$lang) ?? $shop->translate('delivery', $lang) }}</textarea>
                                 </div>
+
+                                @if(Auth::user()->role == 'admin' || (Auth::user()->primium && Auth::user()->premium >= now()))
+                                    <div class="form-group">
+                                        <label for="contacts">Contacts</label>
+                                        <textarea
+                                                id="contacts"
+                                                name="contacts[{{$lang}}]"
+                                                rows="4"
+                                                id="contacts"
+                                                class="editor"
+                                        >{{ old('contacts.'.$lang) ?? $shop->translate('contacts', $lang) }}</textarea>
+                                    </div>
+                                @endif
                             </fieldset>
                         @endforeach
                     </block-editor>
@@ -55,7 +68,8 @@
                     <div class="flex">
                         <div class="px-6 pt-3">
                             <div class="form-checkbox">
-                                <input type="checkbox" name="published" id="published" {{ $shop->published ? 'checked' : '' }}>
+                                <input type="checkbox" name="published"
+                                       id="published" {{ $shop->published ? 'checked' : '' }}>
                                 <label for="published">Published</label>
                             </div>
                         </div>

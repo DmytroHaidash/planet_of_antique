@@ -19,10 +19,10 @@ class Shop extends Model implements HasMedia
     use InteractsWithMedia, HasTranslations, SluggableTrait;
 
     protected $translatable = [
-        'title', 'description', 'delivery'
+        'title', 'description', 'delivery', 'contacts'
     ];
     protected $fillable = [
-        'user_id', 'slug', 'title', 'description', 'delivery', 'published', 'partner'
+        'user_id', 'slug', 'title', 'description', 'delivery', 'published', 'partner', 'contacts'
     ];
 
 

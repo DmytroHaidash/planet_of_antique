@@ -20,11 +20,12 @@ class Museum extends Model implements HasMedia
 
     protected $translatable = [
         'title',
-        'body'
+        'body',
+        'contacts'
     ];
 
     protected $fillable = [
-        'slug', 'user_id', 'title', 'body', 'published', 'recommended'
+        'slug', 'user_id', 'title', 'body', 'published', 'recommended', 'contacts'
     ];
 
     public function user(): BelongsTo

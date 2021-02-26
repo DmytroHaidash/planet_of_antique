@@ -35,6 +35,7 @@ return [
     'sellers' => 'Sellers',
     'url' => 'shop now',
     'about' => 'About',
-    'delivery' => 'Payment and shipping'
+    'delivery' => 'Payment and shipping',
+    'contacts' => 'Contacts'
 
 ];

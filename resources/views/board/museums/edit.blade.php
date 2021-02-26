@@ -37,6 +37,16 @@
                                             class="editor"
                                     >{{ old('body.'.$lang) ?? $museum->translate('body', $lang) }}</textarea>
                                 </div>
+                                <div class="form-group">
+                                    <label for="contacts">Contacts</label>
+                                    <textarea
+                                            id="contacts"
+                                            name="contacts[{{$lang}}]"
+                                            rows="4"
+                                            id="contacts"
+                                            class="editor"
+                                    >{{ old('contacts.'.$lang) ?? $museum->translate('contacts', $lang) }}</textarea>
+                                </div>
                             </fieldset>
                         @endforeach
                     </block-editor>
