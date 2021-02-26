@@ -13,7 +13,7 @@
                           style="display: inline-flex">
                         <input type="text" class="search-input" name="search"
                                placeholder="...">
-                        <button class="search-btn d-none">@lang('nav.search')</button>
+                        <button class="search-btn mt-1 d-none">@lang('nav.search')</button>
                     </form>
                     <button class="search-btn icon bg-search" onclick="toggleSearch()"></button>
                 </div>

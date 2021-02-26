@@ -40,7 +40,7 @@ class Navigation
                 'match' => app('router')->is('admin.museums.*'),
             ],
             (object)[
-                'name' => 'Exhibits',
+                'name' => 'Museum items',
                 'route' => route('admin.exhibits.index'),
                 'icon' => 'i-floppy',
                 'match' => app('router')->is('admin.exhibits.*'),
@@ -120,7 +120,7 @@ class Navigation
                 'match' => app('router')->is('board.museums.*'),
             ];
             $aside[] = (object)[
-                'name' => 'Exhibits',
+                'name' => 'Museum items',
                 'route' => route('board.exhibits.index'),
                 'icon' => 'i-floppy',
                 'match' => app('router')->is('board.exhibits.*'),

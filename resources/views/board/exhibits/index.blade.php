@@ -3,10 +3,10 @@
 @section('content')
     <section id="content">
         <div class="d-flex align-items-center mb-5">
-            <h1 class="h3 mb-0">Exhibits</h1>
+            <h1 class="h3 mb-0">Museum items</h1>
                 <div class="ml-4">
                     <a href="{{ route('board.exhibits.create') }}" class="btn btn-primary">
-                        Create new exhibit
+                        Create new item
                     </a>
                 </div>
         </div>
@@ -61,7 +61,7 @@
             @empty
                 <tr>
                     <td colspan="5" class="text-center">
-                        Exhibits not added
+                        Items not added
                     </td>
                 </tr>
             @endforelse

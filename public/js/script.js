@@ -119,7 +119,12 @@ function toggleSearch() {
   btns[0].classList.toggle("d-none");
   btns[1].classList.toggle("d-none");
   searchInput.classList.toggle("search-input_active");
-  
+  searchInput.classList.toggle("inputFocused");
+  if(searchInput.classList.contains('inputFocused')){
+    searchInput.focus();
+  }else{
+    searchInput.blur();
+  }
   if (window.screen.width < 1800) {
     customerLink.classList.toggle("none");
   }

@@ -17,5 +17,5 @@ return [
     'admin' => 'Admin panel',
     'categories' => 'Categories',
     'museums' => 'Museums',
-    'exhibits' => 'Exhibits'
+    'exhibits' => 'Museum items'
 ];
