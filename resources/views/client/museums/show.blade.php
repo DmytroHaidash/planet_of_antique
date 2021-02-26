@@ -23,18 +23,20 @@
                         {!! $museum->body !!}
                     </div>
                 </div>
-                <div class="page-content">
-                    <div class="flex items-center mb-8 font-serif italic text-xl">
-                        <hr class="border-b border-green-500 ml-4 my-0 flex-grow opacity-25">
-                    </div>
-                    <div class="pl-4">
-                        <div class="text-xl border-l border-yellow-500 mb-8 pl-4">
-                            @lang('common.contacts')
+                @if($museum->contacts)
+                    <div class="page-content">
+                        <div class="flex items-center mb-8 font-serif italic text-xl">
+                            <hr class="border-b border-green-500 ml-4 my-0 flex-grow opacity-25">
                         </div>
+                        <div class="pl-4">
+                            <div class="text-xl border-l border-yellow-500 mb-8 pl-4">
+                                @lang('common.contacts')
+                            </div>
 
-                        {!! $museum->contacts !!}
+                            {!! $museum->contacts !!}
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
 

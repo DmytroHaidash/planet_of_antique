@@ -33,18 +33,18 @@
 
                     {!! $shop->delivery !!}
                 </div>
-                @if($shop->user->role == 'admin' || $shop->user->premium >= now())
-                <div class="page-content mt-4">
-                    <div class="flex items-center mb-8 font-serif italic text-xl">
-                        <hr class="border-b border-green-500 ml-4 my-0 flex-grow opacity-25">
-                    </div>
-                    <div class="text-xl border-l border-yellow-500 mb-8 pl-4">
-                        @lang('common.contacts')
-                    </div>
+                @if(($shop->user->role == 'admin' || $shop->user->premium >= now()) && $shop->contacts)
+                    <div class="page-content mt-4">
+                        <div class="flex items-center mb-8 font-serif italic text-xl">
+                            <hr class="border-b border-green-500 ml-4 my-0 flex-grow opacity-25">
+                        </div>
+                        <div class="text-xl border-l border-yellow-500 mb-8 pl-4">
+                            @lang('common.contacts')
+                        </div>
 
-                    {!! $shop->contacts !!}
-                </div>
-                    @endif
+                        {!! $shop->contacts !!}
+                    </div>
+                @endif
             </div>
         </div>
 
@@ -65,15 +65,15 @@
                 </div>
             @endif
 
-                <div class="flex flex-wrap justify-center mt-6">
-                    @each('partials.client.catalog.prev', $products, 'product')
-                </div>
+            <div class="flex flex-wrap justify-center mt-6">
+                @each('partials.client.catalog.prev', $products, 'product')
+            </div>
 
-                @if ($products->count() > 1)
-                    <div class="container mt-10">
-                        {{ $products->appends(request()->except('page'))->links() }}
-                    </div>
-                @endif
+            @if ($products->count() > 1)
+                <div class="container mt-10">
+                    {{ $products->appends(request()->except('page'))->links() }}
+                </div>
+            @endif
 
         @endif
     </section>
