@@ -128,7 +128,9 @@
 
                 <div class="custom-control custom-checkbox ml-3">
                     <input type="checkbox" class="custom-control-input"
-                           id="published" name="is_published" {{ $product->is_published ? 'checked' : '' }}>
+                           id="published" name="is_published" {{ $product->is_published ? 'checked' : '' }}
+                    {{Auth::user()->shop->products->count() >= app('settings')->ads_per_user && !Auth::user()->premium ||
+            Auth::user()->premium < now() ? 'disabled' : ''}}>
                     <label class="custom-control-label" for="published">Published</label>
                 </div>
             </div>
