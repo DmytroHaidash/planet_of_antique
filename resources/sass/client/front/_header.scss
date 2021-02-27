@@ -41,7 +41,10 @@
 .main-nav__menu {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 60%;
+  @screen lg{
+    width: 100%;
+  }
 }
 
 .link {
@@ -216,7 +219,7 @@
   }
 }
 
-@media (max-width: 766px) {
+@media (max-width: 1199px) {
   .link-menu {
    display: none;
   }
