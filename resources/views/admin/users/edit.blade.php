@@ -27,6 +27,11 @@
                     @endforeach
                 </select>
             </div>
+            <div class="form-group">
+                <label for="premium">Premium</label>
+                <input type="date" class="form-control" name="premium" id="premium"
+                       value="{{ old('premium') ?? $user->premium }}">
+            </div>
             <div class="mt-4">
                 <button class="btn btn-primary">Save</button>
             </div>

@@ -62,6 +62,12 @@
                         @endforeach
                     </block-editor>
                     @includeIf('partials.admin.meta', ['meta' => $shop->meta()->first()])
+
+                    <div class="form-group">
+                        <label for="premium">Sellers premium</label>
+                        <input type="date" class="form-control" name="premium" id="premium"
+                               value="{{ old('premium') ?? $shop->user->premium }}">
+                    </div>
                     <div class="flex">
                         <div class="px-6 pt-3">
                             <div class="form-checkbox">

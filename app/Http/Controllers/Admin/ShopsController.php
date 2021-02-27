@@ -32,6 +32,9 @@ class ShopsController extends Controller
             'published' => $request->has('published'),
             'partner' => $request->has('partner')
         ]);
+        if($request->has('premium')){
+            $shop->user->update(['premium' => $request->input('premium')]);
+        };
         if($request->hasFile('logo')){
             $shop->clearMediaCollection('logo');
             $shop->addMediaFromRequest('logo')

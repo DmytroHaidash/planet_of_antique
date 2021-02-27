@@ -31,6 +31,10 @@ class ProductsController extends Controller
 
     public function store(ProductSavingRequest $request):RedirectResponse
     {
+        if(Auth::user()->shop->products->count >= app('settings')->ads_per_user || !Auth::user()->premium ||
+            Auth::user()->premium < now()){
+            return redirect()->back()->with('warning', 'For create new product, by premium');
+        }
         $product = Product::create([
             'shop_id' => Auth::user()->shop->id,
             'title' => $request->input('title'),
@@ -63,6 +67,11 @@ class ProductsController extends Controller
 
     public function update(ProductSavingRequest $request, Product $product):RedirectResponse
     {
+        $published = $request->has('is_published');
+        if(Auth::user()->shop->products->count >= app('settings')->ads_per_user || !Auth::user()->premium ||
+            Auth::user()->premium < now()){
+            $published = false;
+        }
         $product->update([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
@@ -70,7 +79,7 @@ class ProductsController extends Controller
             'price' => $request->input('price'),
             'in_stock' => $request->input('in_stock'),
             'publish_price' => $request->has('publish_price'),
-            'is_published' => $request->has('is_published'),
+            'is_published' => $published,
             'bargain' => $request->has('bargain'),
         ]);
         $product->categories()->sync($request->input('categories'));

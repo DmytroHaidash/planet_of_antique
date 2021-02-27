@@ -23,7 +23,7 @@ class UsersController extends Controller
 
     public function update(Request $request, User $user):RedirectResponse
     {
-        $user->update($request->only('role'));
+        $user->update($request->only('role', 'premium'));
         return redirect(route('admin.users.index'))->with('success', 'User successfully updated');
     }
 
