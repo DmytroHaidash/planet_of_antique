@@ -51,7 +51,7 @@ class Article extends Model implements HasMedia
             ->useFallbackUrl(asset('images/no-image.png'))
             ->registerMediaConversions(function (Media $media = null) {
                 $this->addMediaConversion('preview')
-                    ->width(600)
+                    ->width(400)
                     ->height(400)
                     ->sharpen(10);
 
