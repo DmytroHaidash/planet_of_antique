@@ -8,12 +8,12 @@
         <div class="section-information__wrapper">
             <a href="/sellers" class="section-information__link-wrapper">
                 <p class="section-information__link">@lang('common.information.sellers')</p>
-                <div class="section-information__link-background"></div>
+                {{--<div class="section-information__link-background"></div>--}}
             </a>
 
             <a href="/buyers" class="section-information__link-wrapper">
                 <p  class="section-information__link">@lang('common.information.buyers')</p>
-                <div class="section-information__link-background"></div>
+                {{--<div class="section-information__link-background"></div>--}}
             </a>
 
         </div>

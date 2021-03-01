@@ -8,11 +8,19 @@
   }
 
   &__link-wrapper {
-    //padding: 45px 75px 25px;
+    padding: 45px 75px 25px;
     background-color: #f4ede7;
     text-align: center;
+    background-image: url("../../img/content-part/castle.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: auto;
+    margin: 5px;
 
     p {
+      height: 320px;
       color: var(--secondary-color);
       font-size: 40px;
       letter-spacing: 0.2em;
