@@ -74,7 +74,13 @@ class Product extends Model implements HasMedia, Sortable
             : asset('images/no-image.png');
     }
 
-    public function getBanner()
+    public function getPreviewAttribute()
+    {
+        return $this->hasMedia('uploads')
+            ? $this->getFirstMedia('uploads')->getFullUrl('preview')
+            : asset('images/no-image.png');
+    }
+    public function getBannerAttribute()
     {
         if ($this->hasMedia('uploads')) {
             return $this->getFirstMedia('uploads')->getFullUrl();
@@ -112,7 +118,6 @@ class Product extends Model implements HasMedia, Sortable
                     ->fit(Manipulations::FIT_CROP, 100, 100)
                     ->width(100)
                     ->height(100);
-
                 $this->addMediaConversion('preview')
                     ->width(600)
                     ->height(400);
