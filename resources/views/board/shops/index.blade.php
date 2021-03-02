@@ -49,7 +49,7 @@
                                     >{{ old('delivery.'.$lang) ?? $shop->translate('delivery', $lang) }}</textarea>
                                 </div>
 
-                                @if(Auth::user()->role == 'admin' || (Auth::user()->primium && Auth::user()->premium >= now()))
+                                @if(Auth::user()->role == 'admin' || (Auth::user()->premium && Auth::user()->premium >= now()))
                                     <div class="form-group">
                                         <label for="contacts">Contacts</label>
                                         <textarea

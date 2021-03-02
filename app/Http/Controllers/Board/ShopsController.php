@@ -24,6 +24,7 @@ class ShopsController extends Controller
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'delivery' => $request->input('delivery'),
+            'contacts' => $request->input('contacts'),
             'published' => $request->has('published'),
         ]);
         if ($request->hasFile('logo')) {

@@ -22,6 +22,7 @@ class MuseumController extends Controller
         $museum = Auth::user()->museum()->create([
             'title' => $request->input('title'),
             'body' => $request->input('body'),
+            'contacts' => $request->input('contacts'),
             'published' => $request->has('published'),
         ]);
         if($request->hasFile('logo')){
@@ -54,6 +55,7 @@ class MuseumController extends Controller
         $museum->update([
             'title' => $request->input('title'),
             'body' => $request->input('body'),
+            'contacts' => $request->input('contacts'),
             'published' => $request->has('published'),
         ]);
         if($request->hasFile('logo')){

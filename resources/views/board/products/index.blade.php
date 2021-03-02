@@ -5,7 +5,7 @@
         <div class="d-flex align-items-center mb-5">
             <h1 class="h3 mb-0">Products</h1>
             @if(Auth::user()->shop->products->count() < app('settings')->ads_per_user ||
-            (Auth::user()->premium && Auth::user()->premium > Carbon\Carbon::now()->toDate())
+            (Auth::user()->premium && Auth::user()->premium >= now())
             )
                 <div class="ml-4">
                     <a href="{{ route('board.products.create') }}" class="btn btn-primary">
