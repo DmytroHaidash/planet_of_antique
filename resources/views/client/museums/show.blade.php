@@ -43,7 +43,7 @@
 
         @if($exhibits)
             @if($categories)
-                <div class="flex flex-wrap justify-center">
+                <div class="flex flex-wrap justify-center mx-3">
                     @foreach($categories as $item)
                         <a href="{{'?category='.$item->slug }}"
                            class="mx-px button button--primary{{ $category == $item->slug ? '' : '-outline' }}">
@@ -51,7 +51,7 @@
                         </a>
                     @endforeach
                     @if(request()->filled('category'))
-                        <a href="{{ url()->current() }}" class="mx-px button button--primary-outline">
+                        <a href="{{ url()->current() }}" class="mx-px button button--primary">
                             @lang('pages.catalog.filter.clear')
                         </a>
                     @endif
