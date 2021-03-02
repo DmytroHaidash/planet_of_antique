@@ -43,7 +43,7 @@
 
         @if($exhibits)
             @if($categories)
-                <div class="flex flex-wrap justify-center my-3">
+                <div class="flex flex-wrap justify-center my-5">
                     @foreach($categories as $item)
                         <a href="{{'?category='.$item->slug }}"
                            class="mx-px button button--primary{{ $category == $item->slug ? '' : '-outline' }}">
