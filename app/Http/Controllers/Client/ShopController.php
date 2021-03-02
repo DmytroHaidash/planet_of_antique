@@ -62,6 +62,7 @@ class ShopController extends Controller
             'products' => $products->paginate(20),
             'categories' => $categories,
             'category' => $request->input('category'),
+            'articles' => $shop->user->article()->take(4)->get(),
         ]);
     }
 }

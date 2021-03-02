@@ -15,8 +15,11 @@ class BlogController extends Controller
     {
         $tag = null;
         $posts = Article::query();
+        if($request->has('user_id')){
+            $posts = $posts->where('user_id', $request->input('user_id'));
+        }
 
-        if ($request->input('tag')) {
+        if ($request->has('tag')) {
             $tag = Tag::where('slug', $request->input('tag'))->first();
             $posts = $posts->whereHas('tags', function (Builder $builder) use ($tag) {
                 $builder->where('id', $tag->id);
