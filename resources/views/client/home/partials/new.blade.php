@@ -9,7 +9,7 @@
             <div class="swiper-wrapper">
                 @foreach($new as $item)
                     <a href="{{ route('client.catalog.show', $item) }}" class="section-new__slide swiper-slide">
-                        <img src="{{$item->banner}}" alt="slide image">
+                        <img src="{{$item->firstImage}}" alt="slide image">
                     </a>
                 @endforeach
             </div>
