@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\Image\Manipulations;
@@ -59,6 +60,13 @@ class Product extends Model implements HasMedia, Sortable
         return $this->belongsTo(Shop::class);
     }
 
+    /**
+     * @return HasOne
+     */
+    public function accountings():HasOne
+    {
+        return $this->hasOne(Accounting::class);
+    }
     /**
      * @return MorphMany
      */

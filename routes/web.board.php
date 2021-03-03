@@ -23,6 +23,10 @@ Route::group([
     Route::resource('museums', 'MuseumController')->except('index', 'show', 'destroy');
     Route::resource('exhibits', 'ExhibitController')->except('show')->middleware('hasMuseum');
 
+    Route::resource('suppliers', 'SuppliersController')->except('show');
+    Route::get('accounting', 'AccountingsController@index')->name('accounting.index');
+    Route::post('accounting/filter', 'AccountingsController@filter')->name('accounting.filter');
+
     Route::group([
         'as' => 'media.',
         'prefix' => 'media'

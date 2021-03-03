@@ -27,7 +27,7 @@
             <input type="hidden" name="deletion[]" :value="image" v-for="(image, index) in deletion" :key="index">
 
             <div class="text-center">
-                Загрузить изображения
+                Upload images
                 <div v-if="tooltip">({{ tooltip }})</div>
             </div>
         </label>

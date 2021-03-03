@@ -1,13 +1,13 @@
 <template>
     <div  class="row">
         <div class="form-group col-5">
-            <label :for="`price[${index}]`">Себестоимость</label>
+            <label :for="`price[${index}]`">Cost price</label>
             <input type="number" class="form-control" min="0" :id="`price[${index}]`"
                    :name="`accountings[price][${index}]`"
                    v-model="accountings.price[index]" required>
         </div>
         <div class="form-group col-6">
-            <label :for="`message[${index}]`">Комментарий</label>
+                <label :for="`message[${index}]`">Comment</label>
             <input type="text" class="form-control" :id="`message[${index}]`"
                    :name="`accountings[message][${index}]`"
                    v-model="accountings.message[index]">

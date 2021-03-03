@@ -20,7 +20,7 @@
                                     <label for="title">Title</label>
                                     <input id="title" type="text" name="title[{{$lang}}]"
                                            class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
-                                           value="{{ old('title.'.$lang) ?? $product->translate('title', $lang)}}" >
+                                           value="{{ old('title.'.$lang) ?? $product->translate('title', $lang)}}">
                                     @if($errors->has('title'))
                                         <div class="mt-1 text-danger">
                                             {{ $errors->first('title') }}
@@ -129,11 +129,76 @@
                 <div class="custom-control custom-checkbox ml-3">
                     <input type="checkbox" class="custom-control-input"
                            id="published" name="is_published" {{ $product->is_published ? 'checked' : '' }}
-                    {{Auth::user()->shop->products->count() >= app('settings')->ads_per_user && !Auth::user()->premium ||
-            Auth::user()->premium < now() ? 'disabled' : ''}}>
+                            {{Auth::user()->shop->products->count() >= app('settings')->ads_per_user && !Auth::user()->premium ||
+                    Auth::user()->premium < now() ? 'disabled' : ''}}>
                     <label class="custom-control-label" for="published">Published</label>
                 </div>
             </div>
+            @if(Auth::user()->role == 'admin' || (Auth::user()->premium && Auth::user()->premium >= now()))
+                <h2 class="mt-4">Accounting department</h2>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" class="form-control" name="accountings[date]"
+                               value="{{ $product->accountings->date ?? date("Y-m-d")}}" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="whom">Whom</label>
+                        <input type="text" class="form-control" id="whom" name="accountings[whom]"
+                               value="{{ $product->accountings->whom ?? ''}}">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="supplier">Supplier</label>
+                        <select name="accountings[supplier_id]" id="supplier" class="form-control">
+                            <option value="">-------</option>
+                            @foreach($suppliers as $supplier)
+                                <option value="{{ $supplier->id }}" {{  $product->accountings ? ($supplier->id === $product->accountings->supplier_id ? 'selected' : '') : '' }}>
+                                    {{ $supplier->title }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="new-supplier">New supplier</label>
+                        <input type="text" class="form-control" id="new-supplier" name="new-supplier">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="sell_price">Sell price</label>
+                        <input type="number" min="1" step="1" class="form-control" id="sell_price"
+                               name="accountings[sell_price]" value="{{ $product->accountings->sell_price ?? ''}}">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="sell_date">Sell date</label>
+                        <input type="date" id="sell_date" class="form-control" name="accountings[sell_date]"
+                               value="{{ $product->accountings->sell_date  ?? ''}}">
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="buyer">Buyer</label>
+                        <input type="text" class="form-control" id="buyer" name="accountings[buyer]"
+                               value="{{ $product->accountings->buyer  ?? ''}}">
+                    </div>
+
+                </div>
+
+                <accountings :message="{{$product->accountings->message ?? "['']"}}"
+                             :price="{{$product->accountings->price ?? "['0']" }}"></accountings>
+
+
+                <div class="form-group col-12">
+                    <label for="comment">Comment</label>
+                    <textarea name="accountings[comment]" class="form-control"
+                              id="comment">{{$product->accountings->comment  ?? '' }}</textarea>
+                </div>
+                @if($product->accountings)
+                    <multi-uploader name="accounting" class="mt-4"
+                                    :src="{{ json_encode(\App\Http\Resources\MediaResource::collection($product->accountings->getMedia('uploads'))) }}"></multi-uploader>
+                @else
+                    <multi-uploader name="accounting" class="mt-4"></multi-uploader>
+                @endif
+                <div class="d-flex align-items-center mt-4">
+                    <button class="btn btn-primary">Save</button>
+                </div>
+            @endif
         </form>
     </section>
 

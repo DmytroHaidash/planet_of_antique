@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductSavingRequest;
+use App\Models\Accounting;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Supplier;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +19,7 @@ class ProductsController extends Controller
     public function index(Request $request): View
     {
         $products = Product::latest();
-        if($request->filled('q')){
+        if ($request->filled('q')) {
             $products = $products->where('title', 'like', "%{$request->input('q')}%");
         }
         return view('admin.products.index', ['products' => $products->paginate(20)]);
@@ -26,7 +28,8 @@ class ProductsController extends Controller
     public function create(): View
     {
         $categories = Category::all();
-        return view('admin.products.create', compact('categories'));
+        $suppliers = Supplier::all();
+        return view('admin.products.create', compact('categories', 'suppliers'));
     }
 
     public function store(ProductSavingRequest $request): RedirectResponse
@@ -55,13 +58,18 @@ class ProductsController extends Controller
                 ]);
             }
         }
+        if ($request->has('accountings')) {
+            $this->handleAccount($request, $product);
+        }
+
         return redirect()->route('admin.products.index')->with('success', 'Product successfully created');
     }
 
     public function edit(Product $product): View
     {
         $categories = Category::all();
-        return view('admin.products.edit', compact('categories', 'product'));
+        $suppliers = $product->shop->user->suppliers;
+        return view('admin.products.edit', compact('categories', 'product', 'suppliers'));
     }
 
     public function update(Product $product, ProductSavingRequest $request): RedirectResponse
@@ -88,6 +96,9 @@ class ProductsController extends Controller
                     $key => $meta
                 ]);
             }
+        }
+        if ($request->has('accountings')) {
+            $this->handleAccount($request, $product);
         }
         return redirect()->route('admin.products.index')->with('success', 'Product successfully updated');
     }
@@ -118,5 +129,52 @@ class ProductsController extends Controller
         if ($request->filled('deletion')) {
             Media::whereIn('id', $request->input('deletion'))->delete();
         }
+    }
+
+    private function handleAccount(Request $request, Product $product): void
+    {
+        $supplier = $request['accountings']['supplier_id'];
+        if ($request['new-supplier']) {
+            $supplier = Supplier::create(['title' => $request->input('new-supplier'), 'user_id' => Auth::user()->id]);
+            $supplier = $supplier->id;
+        }
+
+        if ($product->accountings) {
+            $product->accountings->update([
+                'date' => $request['accountings']['date'],
+                'supplier_id' => $supplier,
+                'whom' => $request['accountings']['whom'],
+                'price' => json_encode($request['accountings']['price']),
+                'message' => json_encode($request['accountings']['message']),
+                'amount' => $request['accountings']['amount'],
+                'comment' => $request['accountings']['comment'],
+                'buyer' => $request['accountings']['buyer'],
+                'sell_price' => $request['accountings']['sell_price'],
+                'sell_date' => $request['accountings']['sell_date']
+            ]);
+        } else {
+            $product->accountings()->create([
+                'date' => $request['accountings']['date'],
+                'supplier_id' => $supplier,
+                'whom' => $request['accountings']['whom'],
+                'price' => json_encode($request['accountings']['price']),
+                'message' => json_encode($request['accountings']['message']),
+                'amount' => $request['accountings']['amount'],
+                'comment' => $request['accountings']['comment'],
+                'buyer' => $request['accountings']['buyer'],
+                'sell_price' => $request['accountings']['sell_price'],
+                'sell_date' => $request['accountings']['sell_date']
+            ]);
+        }
+        if ($request->has('accounting')) {
+            foreach ($request->accounting as $media) {
+                Media::find($media)->update([
+                    'model_type' => Accounting::class,
+                    'model_id' => $product->accountings->id,
+                ]);
+            }
+            Media::setNewOrder($request->input('accounting'));
+        }
+
     }
 }

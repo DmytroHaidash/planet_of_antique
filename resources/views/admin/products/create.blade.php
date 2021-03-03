@@ -133,6 +133,61 @@
                     <label class="custom-control-label" for="new">New</label>
                 </div>
             </div>
+
+            <h2 class="mt-4">Accounting department</h2>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" class="form-control" name="accountings[date]"
+                           value="{{date("Y-m-d")}}" required>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="whom">Whom</label>
+                    <input type="text" class="form-control" id="whom" name="accountings[whom]">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="supplier">Supplier</label>
+                    <select name="accountings[supplier_id]" id="supplier" class="form-control">
+                        <option value="">-------</option>
+                        @foreach($suppliers as $supplier)
+                            <option value="{{ $supplier->id }}">
+                                {{ $supplier->title }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="new-supplier">New supplier</label>
+                    <input type="text" class="form-control" id="new-supplier" name="new-supplier">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="sell_price">Sell price</label>
+                    <input type="number" min="1" step="1" class="form-control" id="sell_price"
+                           name="accountings[sell_price]">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="sell_date">Sell date</label>
+                    <input type="date" id="sell_date" class="form-control" name="accountings[sell_date]">
+                </div>
+                <div class="form-group col-sm-12">
+                    <label for="buyer">Buyer</label>
+                    <input type="text" class="form-control" id="buyer" name="accountings[buyer]">
+                </div>
+
+            </div>
+
+            <accountings :message="['']" :price="['0']"></accountings>
+
+
+            <div class="form-group col-12">
+                <label for="comment">Comment</label>
+                <textarea name="accountings[comment]" class="form-control" id="comment"></textarea>
+            </div>
+            <multi-uploader name="accounting" class="mt-4"></multi-uploader>
+            <div class="d-flex align-items-center mt-4">
+                <button class="btn btn-primary">Save</button>
+            </div>
+
         </form>
     </section>
 

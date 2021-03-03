@@ -81,6 +81,19 @@ class Navigation
                 'icon' => 'i-user',
                 'match' => app('router')->is('admin.users.*')
             ],
+
+            (object)[
+                'name' => 'Accounting department',
+                'route' => route('admin.accounting.index'),
+                'icon' => 'i-diagram',
+                'match' => app('router')->is('admin.accounting.*')
+            ],
+            (object)[
+                'name' => 'Suppliers',
+                'route' => route('admin.suppliers.index'),
+                'icon' => 'i-book',
+                'match' => app('router')->is('admin.suppliers.*')
+            ],
             (object)[
                 'name' => 'Settings',
                 'route' => route('admin.settings.index'),
@@ -139,6 +152,20 @@ class Navigation
             'icon' => 'i-newspaper',
             'match' => app('router')->is('board.articles.*'),
         ];
+        if(Auth::user()->premium && Auth::user()->premium >= now()){
+            $aside[] =   (object)[
+                'name' => 'Suppliers',
+                'route' => route('board.suppliers.index'),
+                'icon' => 'i-user',
+                'match' => app('router')->is('board.suppliers.*')
+            ];
+            $aside[] = (object)[
+                'name' => 'Accounting department',
+                'route' => route('board.accounting.index'),
+                'icon' => 'i-diagram',
+                'match' => app('router')->is('board.accounting.*')
+            ];
+        }
 
         return $aside;
     }

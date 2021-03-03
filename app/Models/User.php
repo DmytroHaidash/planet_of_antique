@@ -76,6 +76,11 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
     {
         return $this->hasMany(Article::class);
     }
+
+    public function suppliers():HasMany
+    {
+        return $this->hasMany(Supplier::class);
+    }
     /**
      * @return string|integer
      */

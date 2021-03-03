@@ -9,7 +9,7 @@
         <p>Итого: {{total}}</p>
         <input type="hidden" name="accountings[amount]" :value="total">
         <button class="btn btn-outline-primary" @click.prevent="addAccounting">
-            Добавить статью расходов
+            Add expense item
         </button>
 
     </div>
