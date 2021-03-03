@@ -26,7 +26,6 @@ class ProductsController extends Controller
 
     public function create(): View
     {
-        dd('tyt');
         $categories = Category::all();
         $suppliers = Auth::user()->suppliers;
         return view('board.products.create', compact('categories', 'suppliers'));
