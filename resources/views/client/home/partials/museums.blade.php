@@ -9,7 +9,7 @@
         <div class="section-museums__slider swiper-container">
             <div class="swiper-wrapper">
                 @foreach($museums as $item)
-                    <a href="{{route('client.museums.show', $item)}}" class="section-museums__slide swiper-slide">
+                    <a href="{{route('client.museums.show', $item)}}" class="section-museums__slide swiper-slide slider">
                         <img src="{{$item->logo}}" alt="slide image">
                     </a>
                 @endforeach

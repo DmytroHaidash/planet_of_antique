@@ -9,7 +9,7 @@
         <div class="section-recommended__slider swiper-container">
             <div class="swiper-wrapper">
                 @foreach($recommended as $item)
-                    <a href="{{ route('client.catalog.show', $item) }}" class="section-recommended__slide swiper-slide-2">
+                    <a href="{{ route('client.catalog.show', $item) }}" class="section-recommended__slide swiper-slide slider-2">
                         <img src="{{$item->firstImage}}" alt="slide image" class="image">
                     </a>
                 @endforeach
