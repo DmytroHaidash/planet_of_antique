@@ -52,23 +52,38 @@
       background-repeat: no-repeat;
       margin: auto;
     }
-    .slide-2 {
-      height: 300px !important;
-      img {
-        height: 100% !important;
-      }
+  }
+  .swiper-slide-2 {
+    max-width: 33%;
+    min-width: 305px;
+    height: 300px;
+    display: block;
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      margin: auto;
     }
   }
 }
 
-.section-sellers__slide.swiper-slide {
+.section-sellers__slide.swiper-slide.swiper-slide-2 {
   max-width: 24.05%;
   min-width: 305px;
 }
 
 @media (max-width: 575px) {
   .slider__buttons-wrapper {
-    display: flex;
+    display: flex; 
     justify-content: space-between;
     padding: 0 15px;
     margin-top: 15px;
