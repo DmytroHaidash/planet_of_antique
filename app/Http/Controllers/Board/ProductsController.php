@@ -74,7 +74,6 @@ class ProductsController extends Controller
         if (Auth::user()->shop->products()->where('is_published', 1)->count() >= app('settings')->ads_per_user &&
             (Auth::user()->premium == null || Auth::user()->premium < now())) {
             $published = false;
-            dd($published);
         }
         $product->update([
             'title' => $request->input('title'),
