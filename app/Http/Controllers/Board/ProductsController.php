@@ -71,7 +71,7 @@ class ProductsController extends Controller
     public function update(ProductSavingRequest $request, Product $product): RedirectResponse
     {
         $published = $request->has('is_published');
-        dd(Auth::user()->shop->products()->where('is_published', 1)->count() );
+        dd(Auth::user()->shop->products()->where('is_published', 1)->count(), app('settings')->ads_per_user,  !Auth::user()->premium);
         if (Auth::user()->shop->products()->where('is_published', 1)->count() >= app('settings')->ads_per_user && !Auth::user()->premium ||
             Auth::user()->premium < now()) {
             $published = false;
