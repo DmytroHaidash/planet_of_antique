@@ -33,10 +33,6 @@ class ProductsController extends Controller
 
     public function store(ProductSavingRequest $request): RedirectResponse
     {
-        if (Auth::user()->shop->products->count() >= app('settings')->ads_per_user || !Auth::user()->premium ||
-            Auth::user()->premium < now()) {
-            return redirect()->back()->with('warning', 'For create new product, by premium');
-        }
         $product = Product::create([
             'shop_id' => Auth::user()->shop->id,
             'title' => $request->input('title'),
