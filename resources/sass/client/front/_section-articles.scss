@@ -44,14 +44,21 @@
     background-repeat: no-repeat;
     background-position: center;
     margin: auto;
-    width: 100%;
   }
 }
 
+@media (min-width: 1801px) {
+  .section-articles__article{
+    img {
+      width: 100%;
+    }
+  }
+}
 @media (max-width: 1800px) {
   .section-articles__article {
     width: 24.5%;
      img {
+       width: 100%;
        max-height: 350px;
      }
   }
