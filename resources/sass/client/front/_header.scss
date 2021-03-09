@@ -27,7 +27,8 @@
     display: flex;
     justify-content: space-between;
     max-width: 65vw;
-    width: 78%;
+    width: 100%;
+
   }
 }
 
@@ -41,10 +42,7 @@
 .main-nav__menu {
   display: flex;
   justify-content: space-between;
-  width: 60%;
-  @screen lg{
-    width: 100%;
-  }
+  width: 100%;
 }
 
 .link {
