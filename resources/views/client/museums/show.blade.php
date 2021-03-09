@@ -46,7 +46,7 @@
                 <div class="flex flex-wrap justify-center my-5">
                     @foreach($categories as $item)
                         <a href="{{'?category='.$item->slug }}"
-                           class="mx-px button button--primary{{ $category == $item->slug ? '' : '-outline' }}">
+                           class="mx-px button ml-2 mb-2 button--primary{{ $category == $item->slug ? '' : '-outline' }}">
                             {{ $item->title }}
                         </a>
                     @endforeach

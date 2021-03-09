@@ -8,7 +8,7 @@
         <div class="section-exhibit__slider swiper-container">
             <div class="swiper-wrapper">
                 @foreach($exhibits as $item)
-                    <a href="{{ route('client.exhibits.show', $item) }}" class="section-exhibit__slide swiper-slide slider">
+                    <a href="{{ route('client.exhibits.show', $item) }}" class="section-exhibit__slide swiper-slide slider-2">
                         <img src="{{$item->firstImage}}" alt="slide image">
                     </a>
                 @endforeach
