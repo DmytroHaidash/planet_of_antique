@@ -39,6 +39,9 @@
     height: 400px;
     display: block;
     position: relative;
+    @media (max-width: 1200px){
+      width: 50%;
+    }
 
     img {
       position: absolute;
@@ -54,11 +57,14 @@
     }
   }
   .slider-2 {
-    max-width: 33%;
-    min-width: 305px;
+    width: 33%;
     height: 300px;
     display: block;
     position: relative;
+    @media (max-width: 1200px){
+      width: 50%;
+    }
+
 
     img {
       position: absolute;
@@ -92,7 +98,6 @@
 
     .swiper-button-prev,
     .swiper-button-next {
-      position: static;
       margin: 0;
       border: 2px solid var(--primary-color);
     }
