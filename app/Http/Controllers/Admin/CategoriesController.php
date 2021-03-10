@@ -35,7 +35,10 @@ class CategoriesController extends Controller
      */
     public function store(CategorySavingRequest $request): RedirectResponse
     {
-        $category = Category::create($request->only('title'));
+        $category = Category::create([
+            'title' => $request->input('title'),
+            'recommended' => $request->has('recommended'),
+        ]);
 
         if ($request->hasFile('category')) {
             $category->addMediaFromRequest('category')
@@ -74,7 +77,10 @@ class CategoriesController extends Controller
      */
     public function update(CategorySavingRequest $request, Category $category): RedirectResponse
     {
-        $category->update($request->only('title'));
+        $category->update([
+            'title' => $request->input('title'),
+            'recommended' => $request->has('recommended'),
+        ]);
 
         if ($request->hasFile('category')) {
             $category->clearMediaCollection('category');

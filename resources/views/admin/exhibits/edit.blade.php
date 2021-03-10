@@ -72,6 +72,11 @@
                            id="published" name="published" {{ $exhibit->published ? 'checked' : '' }}>
                     <label class="custom-control-label" for="published">Published</label>
                 </div>
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input"
+                           id="recommended" name="recommended" {{ $exhibit->recommended ? 'checked' : '' }}>
+                    <label class="custom-control-label" for="recommended">Recommended</label>
+                </div>
             </div>
         </form>
     </section>

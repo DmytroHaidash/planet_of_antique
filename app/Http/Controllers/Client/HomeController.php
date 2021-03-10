@@ -26,11 +26,11 @@ class HomeController extends Controller
         $new = Product::latest()->take(20)->get();
         $recommended = Product::where('recommended', 1)->where('is_published', 1)->take(20)->get();
         $sellers = Shop::where('partner', 1)->where('published', 1)->get();
-        $popular = Category::inRandomOrder()->take(9)->get();
+        $popular = Category::where('recommended', 1)->inRandomOrder()->take(9)->get();
         $benefits = Benefit::all();
         $articles = Article::inRandomOrder()->take(4)->get();
         $museums = Museum::where('published', 1)->where('recommended', 1)->latest()->take(20)->get();
-        $exhibits = Exhibit::inRandomOrder()->where('published', 1)->take(20)->get();
+        $exhibits = Exhibit::where('recommended', 1)->where('published', 1)->inRandomOrder()->take(20)->get();
 
         return view('client.home.index', compact('banners', 'new', 'recommended', 'sellers', 'popular',
             'benefits', 'articles', 'museums', 'exhibits'));

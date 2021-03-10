@@ -33,6 +33,7 @@ class Category extends Model implements HasMedia, Sortable
         'title',
         'parent_id',
         'sort_order',
+        'recommended',
     ];
 
     /**

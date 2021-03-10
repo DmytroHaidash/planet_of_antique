@@ -36,6 +36,7 @@ class ExhibitController extends Controller
             'body' => $request->input('body'),
             'published' => $request->has('published'),
             'bargain' => $request->has('bargain'),
+            'recommended' => $request->has('recommended'),
         ]);
         $exhibit->categories()->sync($request->input('categories'));
         $this->handleMedia($request, $exhibit);

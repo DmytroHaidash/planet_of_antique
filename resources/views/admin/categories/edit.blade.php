@@ -36,7 +36,14 @@
             </div>
 
             <div class="mt-4">
-                <button class="btn btn-primary">Save</button>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-primary">Save</button>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input"
+                               id="recommended" name="recommended" {{ $category->recommended ? 'checked' : '' }}>
+                        <label class="custom-control-label" for="recommended">Recommended</label>
+                    </div>
+                </div>
             </div>
         </form>
     </section>
