@@ -27,7 +27,7 @@ class CatalogController extends Controller
             'search' => $request->input('search'),
             'search_category' => $request->input('category'),
             'category' => Category::where('slug', $request->input('category'))->first(),
-            'categories' => Category::get(),
+            'categories' => Category::whereHas('products')->get(),
             'products' => $products->paginate(20),
         ]);
     }
@@ -41,7 +41,7 @@ class CatalogController extends Controller
             'search' => $request->input('search'),
             'search_category' => $request->input('category'),
             'category' => Category::where('slug', $request->input('category'))->first(),
-            'categories' => Category::get(),
+            'categories' => Category::whereHas('products')->get(),
             'products' => $products->latest()->paginate(20),
         ]);
     }
@@ -55,7 +55,7 @@ class CatalogController extends Controller
             'search' => $request->input('search'),
             'search_category' => $request->input('category'),
             'category' => Category::where('slug', $request->input('category'))->first(),
-            'categories' => Category::get(),
+            'categories' => Category::whereHas('products')->get(),
             'products' => $products->where('recommended', 1)->latest()->paginate(20),
         ]);
     }
@@ -72,7 +72,7 @@ class CatalogController extends Controller
         return \view('client.catalog.all', [
             'search' => $request->input('search'),
             'search_category' => $request->input('category'),
-            'categories' => Category::get(),
+            'categories' => Category::whereHas('products')->get(),
             'products' => $products->get(),
         ]);
     }

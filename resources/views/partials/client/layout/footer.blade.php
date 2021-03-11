@@ -83,6 +83,6 @@
             </ul>
         </nav>
 
-        <p>@lang('common.footer.copy')</p>
+        <p class="copy">@lang('common.footer.copy-1') {{ date('Y') }} @lang('common.footer.copy-2')</p>
     </div>
 </footer>

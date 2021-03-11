@@ -13,6 +13,11 @@
                           style="display: inline-flex">
                         <input type="text" class="search-input" name="search"
                                placeholder="...">
+                        <a class="search-btn mt-1 d-none" onclick="toggleSearch()">
+                            <svg width="24" height="24" fill="#000">
+                                <use xlink:href="#close"></use>
+                            </svg>
+                        </a>
                         <button class="search-btn mt-1 d-none">@lang('nav.search')</button>
                     </form>
                     <button class="search-btn icon bg-search" onclick="toggleSearch()"></button>
@@ -54,7 +59,8 @@
                 <li class="link"><a href="{{route('client.shops.index')}}">@lang('pages.sellers.title')</a></li>
                 <li class="link"><a href="{{route('client.catalog.recommended')}}">@lang('pages.recommended.title')</a>
                 </li>
-                <li class="link hidden lg:inline-block"><a href="{{route('client.catalog.new')}}">@lang('pages.new.title')</a></li>
+                <li class="link hidden lg:inline-block"><a
+                            href="{{route('client.catalog.new')}}">@lang('pages.new.title')</a></li>
                 <li class="link"><a href="{{route('client.blog.index')}}">@lang('nav.blog')</a></li>
                 <li class="link hidden lg:inline-block">
                     <a href="#">@lang('nav.categories')
@@ -87,7 +93,12 @@
                     <a href="{{route('admin.shops.index')}}" class="link store-link">@lang('nav.admin')</a>
                 @endif
             @else
-                <a href="/story" class="link store-link">@lang('nav.create')</a>
+                <p class="store-title">
+                    @lang('nav.create.title')
+                    <a href="/story" class="link">@lang('nav.create.store')</a>
+
+                    / <a href="/new-museum" class="link">@lang('nav.create.museum')</a>
+                </p>
             @endif
         </nav>
     </div>

@@ -20,7 +20,7 @@ Route::group([
     });
 
     Route::get('{page}', 'PagesController@show')
-        ->where('page', '(about|sellers|buyers|contacts|faq|story)');
+        ->where('page', '(about|sellers|buyers|contacts|faq|story|new-museum)');
 
     Route::group([
         'as' => 'catalog.',

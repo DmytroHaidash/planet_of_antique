@@ -29,7 +29,22 @@
 
                 <div class="lg:w-1/2 order-1 md:order-2">
                     <div class="flex align-items-center align-items-lg-end mb-4 ml-4">
-                        <div class="lg:w-1/6 order-1 md:order-2">
+                        <div class="lg:w-5/6">
+                            <h4 class="price text-2xl">
+                                <small class="text-muted">@lang('pages.product.shop'):</small>
+                                <a href="{{route('client.shops.show', $product->shop) }}">{{$product->shop->title}}</a>
+                            </h4>
+                            @if($product->publish_price && $product->in_stock == 'stock')
+                                <h4 class="price text-2xl">
+                                    <small class="text-muted">@lang('pages.product.price'):</small>
+                                    {{ number_format($product->price, 0, ',', ' ') }}
+                                    @lang('common.currency')
+                                </h4>
+                            @endif
+                            <p class="lead mb-2">{{ $product->description }}</p>
+                            {!! $product->body !!}
+                        </div>
+                        <div class="hidden lg:flex lg:w-1/6">
                             <div class="text-right">
                                 @if ($product->in_stock == 'sold')
                                     <p class="text-success">@lang('pages.product.sold')</p>
@@ -61,26 +76,44 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="lg:w-5/6 order-2 md:order-1">
-                            <h4 class="price text-2xl">
-                                <small class="text-muted">@lang('pages.product.shop'):</small>
-                                <a href="{{route('client.shops.show', $product->shop) }}">{{$product->shop->title}}</a>
-                            </h4>
-                            @if($product->publish_price && $product->in_stock == 'stock')
-                                <h4 class="price text-2xl">
-                                    <small class="text-muted">@lang('pages.product.price'):</small>
-                                    {{ number_format($product->price, 0, ',', ' ') }}
-                                    @lang('common.currency')
-                                </h4>
-                            @endif
-                            <p class="lead mb-2">{{ $product->description }}</p>
-                            {!! $product->body !!}
-                        </div>
+
 
                     </div>
 
                     <div class="ml-4">
-                        <div class="mt-4">
+                        <div class="flex lg:hidden">
+                            <div class="text-right">
+                                @if ($product->in_stock == 'sold')
+                                    <p class="text-success">@lang('pages.product.sold')</p>
+                                @elseif($product->in_stock == 'reserved')
+                                    <p class="text-danger">@lang('pages.product.reserved')</p>
+                                @endif
+                                @if(!$product->publish_price)
+                                    <div class="ml-auto mt-4">
+                                        <button class="button button--primary modal-btn-3"
+                                                data-open-price="askPrice">
+                                            @lang('pages.product.ask_price')
+                                        </button>
+                                    </div>
+                                @else
+                                    <div class="ml-auto mt-4">
+                                        <button class="button button--primary modal-btn"
+                                                data-modal-open="buyModal">
+                                            @lang('pages.product.buy')
+                                        </button>
+                                    </div>
+                                @endif
+                                @if($product->bargain)
+                                    <div class="ml-auto mt-4">
+                                        <button class="button button--primary modal-btn-4"
+                                                data-open-barg="bargain">
+                                            @lang('pages.product.bargain')
+                                        </button>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="mt-4 mb-4">
                             <button class="button button--primary modal-button"
                                     data-modal-opened="question">
                                 @lang('pages.product.question')
@@ -88,7 +121,7 @@
                         </div>
                         @if(Auth::user() && (Auth::user()->hasRole('admin') || (Auth::user()->hasRole('admin') && Auth::user()->shop->id == $product->shop->id)))
                             <a href="{{route('client.catalog.pdf', $product)}}"
-                               class=" button button--primary-outline mt-4">
+                               class=" button button--primary-outline xl:mt-4 mb-4">
                                 @lang('pages.product.pdf')
                             </a>
                         @endif

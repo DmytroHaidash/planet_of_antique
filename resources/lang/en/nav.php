@@ -12,7 +12,11 @@ return [
     'sellers' => 'To Sell',
     'buyers' => 'To Buy',
     'search' => 'Search',
-    'create' => 'create your store',
+    'create' => [
+        'title' => 'create your',
+        'store' => 'store',
+        'museum' => 'museum'
+    ],
     'shop' => 'Store management',
     'admin' => 'Admin panel',
     'categories' => 'Categories',

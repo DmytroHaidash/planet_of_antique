@@ -11,7 +11,15 @@
     <link rel="stylesheet" href="{{ asset('css/client.css') }}">
 </head>
 <body>
-
+<header class="header">
+    <div class="content-wrapper">
+        <nav class="main-nav">
+            <div class="main-nav__menu-wrapper">
+                <a href="/" class="logo-link">{{config('app.name')}}</a>
+            </div>
+        </nav>
+    </div>
+</header>
 <section id='app' class="min-h-screen flex flex-column justify-center items-center py-10">
     @yield('content')
 </section>

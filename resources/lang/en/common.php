@@ -10,7 +10,8 @@ return [
     'footer' => [
         'info' => 'Information',
         'follow' => 'Follow us',
-        'copy' => 'Copyright &#169 2020 All rights reserved'
+        'copy-1' => 'Copyright &#169 ',
+        'copy-2' => 'All rights reserved'
     ],
     'currency' => 'EUR',
     'information' => [

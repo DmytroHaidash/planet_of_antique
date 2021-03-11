@@ -112,12 +112,13 @@ new Swiper(".section-exhibit__slider", {
   slidesPerView: 'auto',
 });
 
-function toggleSearch() {
+function toggleSearch(e) {
   const searchInput = document.getElementsByClassName("search-input")[0];
   const customerLink = document.getElementsByClassName("customers-link")[0];
   let btns = document.getElementsByClassName('search-btn');
   btns[0].classList.toggle("d-none");
   btns[1].classList.toggle("d-none");
+  btns[2].classList.toggle("d-none");
   searchInput.classList.toggle("search-input_active");
   searchInput.classList.toggle("inputFocused");
   if(searchInput.classList.contains('inputFocused')){

@@ -1,5 +1,5 @@
 .pagination {
-  @apply flex justify-center font-bold;
+  @apply flex justify-center font-normal;
 }
 
 .page-item {
@@ -9,7 +9,7 @@
 
   &.active {
     .page-link {
-      @apply italic text-yellow-500;
+      @apply font-black text-yellow-500;
     }
   }
 }

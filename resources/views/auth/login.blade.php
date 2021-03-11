@@ -47,7 +47,7 @@
                     </button>
                 </div>
                 <div class="px-4 whitespace-no-wrap flex">
-                    <input class="form-checkbox text-purple-900" type="checkbox" name="remember"
+                    <input class="form-checkbox text-purple-900 cursor-pointer" type="checkbox" name="remember"
                            id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                     <label for="remember" class="ml-2">

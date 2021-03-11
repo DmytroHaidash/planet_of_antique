@@ -2,7 +2,7 @@
   @apply border-2 rounded p-1 flex;
 
   label {
-    @apply p-3 block rounded-sm bg-transparent transition duration-300;
+    @apply p-3 block rounded-sm bg-transparent transition duration-300 cursor-pointer;
   }
 
   [type="radio"] {
