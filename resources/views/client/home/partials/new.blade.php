@@ -5,10 +5,11 @@
             <a class="section__btn link-btn" href="{{route('client.catalog.new')}}">@lang('common.view')</a>
         </div>
 
-        <div class="section-new__slider swiper-container">
+        <div class="section-new__slider swiper-container hidden xl:flex">
             <div class="swiper-wrapper">
                 @foreach($new as $item)
-                    <a href="{{ route('client.catalog.show', $item) }}" class="section-new__slide swiper-slide slider-2">
+                    <a href="{{ route('client.catalog.show', $item) }}"
+                       class="section-new__slide swiper-slide slider-2">
                         <img src="{{$item->firstImage}}" alt="slide image" class="image">
                     </a>
                 @endforeach
@@ -20,7 +21,17 @@
                 <button class="swiper-button-next section-new__slider__button-next">
                 </button>
             </div>
-
         </div>
+
+        <div class="popular-section__item-row-wrapper xl:hidden">
+            <a href="{{route('client.catalog.new')}}" class="popular-item"
+               style="background-image: url({{$new_banner->image}});
+                       background-size: cover;
+                       background-repeat: no-repeat;
+                       background-position: center;
+                       margin: auto;">
+            </a>
+        </div>
+
     </div>
 </section>

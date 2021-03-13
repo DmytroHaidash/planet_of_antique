@@ -38,6 +38,13 @@ class Page extends Model implements HasMedia
                     ->sharpen(10);
             });
     }
+
+    public function getImageAttribute()
+    {
+        return $this->hasMedia('page')
+            ? $this->getFirstMediaUrl('page')
+            : asset('images/no-image.png');
+    }
     /**
      * @return MorphMany
      */
