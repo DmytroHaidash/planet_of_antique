@@ -7,6 +7,7 @@ use App\Mail\AskProductPrice;
 use App\Mail\AskProductQuestion;
 use App\Mail\BargainProductPrice;
 use App\Models\Category;
+use App\Models\Page;
 use App\Models\Product;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Database\Eloquent\Builder;
@@ -29,6 +30,7 @@ class CatalogController extends Controller
             'category' => Category::where('slug', $request->input('category'))->first(),
             'categories' => Category::whereHas('products')->get(),
             'products' => $products->paginate(20),
+            'page' => Page::where('slug', 'new-items')->first(),
         ]);
     }
 
@@ -43,6 +45,7 @@ class CatalogController extends Controller
             'category' => Category::where('slug', $request->input('category'))->first(),
             'categories' => Category::whereHas('products')->get(),
             'products' => $products->latest()->paginate(20),
+            'page' => Page::where('slug', 'new-items')->first(),
         ]);
     }
 
@@ -57,6 +60,7 @@ class CatalogController extends Controller
             'category' => Category::where('slug', $request->input('category'))->first(),
             'categories' => Category::whereHas('products')->get(),
             'products' => $products->where('recommended', 1)->latest()->paginate(20),
+            'page' => Page::where('slug', 'recommended')->first()
         ]);
     }
 
@@ -74,6 +78,7 @@ class CatalogController extends Controller
             'search_category' => $request->input('category'),
             'categories' => Category::whereHas('products')->get(),
             'products' => $products->get(),
+            'page' => Page::where('slug', 'new-items')->first(),
         ]);
     }
 

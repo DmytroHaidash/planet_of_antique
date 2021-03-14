@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Museum;
+use App\Models\Page;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -30,7 +31,8 @@ class MuseumController extends Controller
         return view('client.museums.index',[
             'museums' => $museums->paginate(20),
             'search' => $search,
-            'search_letter' => $request->input('search')
+            'search_letter' => $request->input('search'),
+            'page' => Page::where('slug', 'museums')->first(),
         ]);
     }
 

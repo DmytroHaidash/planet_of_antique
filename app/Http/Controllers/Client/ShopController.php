@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Page;
 use App\Models\Shop;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -31,7 +32,8 @@ class ShopController extends Controller
         return view('client.shops.index', [
             'shops' => $shops->paginate(30),
             'search' => $search,
-            'search_letter' => $request->input('search')
+            'search_letter' => $request->input('search'),
+            'page' => Page::where('slug', 'sellers')->first(),
         ]);
     }
 

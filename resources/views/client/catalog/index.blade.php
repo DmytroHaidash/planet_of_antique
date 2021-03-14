@@ -1,7 +1,9 @@
 @extends('layouts.app', ['page_title' => 'Catalog'])
 
 @section('content')
-    <section class="mb-12 container">
+    <section class="lozad page-header" data-background-image="{{ $page->image }}"></section>
+
+    <section class="-mt-24 mb-12 container">
         <h1 class="text-5xl font-thin leading-none text-center font-heading">
             <span>
                 @if(\Route::current()->getName() == 'client.catalog.index')

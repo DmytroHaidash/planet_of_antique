@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\AskExhibitQuestion;
 use App\Models\Category;
 use App\Models\Exhibit;
+use App\Models\Page;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -26,6 +27,7 @@ class ExhibitController extends Controller
             'category' => Category::where('slug', $request->input('category'))->first(),
             'categories' => Category::get(),
             'exhibits' => $exhibits->paginate(20),
+            'page' => Page::where('slug', 'museum-items')->first(),
         ]);
     }
 
