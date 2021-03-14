@@ -78,12 +78,12 @@
                 <div class="mt-4 mb-4">
                     <input id="shop_name"
                            type="text"
-                           class="form-control @error('shop_name') is-invalid @enderror"
+                           class="form-control @error('title') is-invalid @enderror"
                            name="title[{{app()->getLocale()}}]"
                            value="{{ old('title.'.app()->getLocale()) }}"
                            placeholder="{{ __('Shop name') }}">
 
-                    @error('shop_name')
+                    @error('title')
                     <div class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
