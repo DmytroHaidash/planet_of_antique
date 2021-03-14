@@ -81,8 +81,6 @@
                            class="form-control @error('shop_name') is-invalid @enderror"
                            name="title[{{app()->getLocale()}}]"
                            value="{{ old('title') }}"
-                           required
-                           autofocus
                            placeholder="{{ __('Shop name') }}">
 
                     @error('shop_name')
