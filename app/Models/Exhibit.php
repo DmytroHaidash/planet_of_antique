@@ -30,6 +30,10 @@ class Exhibit extends Model implements HasMedia
         'published',
         'museum_id',
         'recommended',
+        'date',
+        'source',
+        'price',
+        'comment',
     ];
 
     /**

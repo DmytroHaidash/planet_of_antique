@@ -69,6 +69,31 @@
                     <label class="custom-control-label" for="published">Published</label>
                 </div>
             </div>
+            <h2 class="mt-4">Accounting department</h2>
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label for="date">Receipt date</label>
+                    <input type="date" id="date" class="form-control" name="date"
+                           value="{{date("Y-m-d")}}">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="source">Source of income</label>
+                    <input type="text" class="form-control" id="source" name="source">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="price">Price</label>
+                    <input type="number" min="0" step="0.01" id="price" class="form-control" name="price">
+                </div>
+                <div class="form-group col-12">
+                    <label for="comment">Comment</label>
+                    <textarea name="comment" class="form-control" id="comment"></textarea>
+                </div>
+            </div>
+            <multi-uploader name="accounting" class="mt-4"></multi-uploader>
+            <div class="d-flex align-items-center mt-4">
+                <button class="btn btn-primary">Save</button>
+            </div>
+
         </form>
     </section>
 

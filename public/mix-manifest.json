@@ -2,6 +2,6 @@
     "/js/admin.js": "/js/admin.js",
     "/js/client.js": "/js/client.js",
     "/css/admin.css": "/css/admin.css",
-    "/css/client.css": "/css/client.css",
-    "/js/editor.js": "/js/editor.js"
+    "/js/editor.js": "/js/editor.js",
+    "/css/client.css": "/css/client.css"
 }

@@ -36,6 +36,10 @@ class ExhibitController extends Controller
             'title' => $request->input('title'),
             'body' => $request->input('body'),
             'published' => $request->has('published'),
+            'date' => $request->input('date'),
+            'source' => $request->input('source'),
+            'price' => $request->input('price'),
+            'comment' => $request->input('comment')
         ]);
         $exhibit->categories()->attach($request->input('categories', []));
         $this->handleMedia($request, $exhibit);
@@ -62,7 +66,10 @@ class ExhibitController extends Controller
             'title' => $request->input('title'),
             'body' => $request->input('body'),
             'published' => $request->has('published'),
-            'bargain' => $request->has('bargain'),
+            'date' => $request->input('date'),
+            'source' => $request->input('source'),
+            'price' => $request->input('price'),
+            'comment' => $request->input('comment')
         ]);
         $exhibit->categories()->sync($request->input('categories'));
         $this->handleMedia($request, $exhibit);
@@ -99,6 +106,16 @@ class ExhibitController extends Controller
             }
 
             Media::setNewOrder($request->input('uploads'));
+        }
+        if ($request->has('accounting')) {
+            foreach ($request->accounting as $media) {
+                Media::find($media)->update([
+                    'model_type' => Exhibit::class,
+                    'model_id' => $exhibit->id,
+                    'collection_name' => 'accounting',
+                ]);
+            }
+            Media::setNewOrder($request->input('accounting'));
         }
 
         if ($request->filled('deletion')) {
