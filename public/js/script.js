@@ -133,6 +133,7 @@ function toggleSearch(e) {
 
 
 function toggleMenu(e) {
+  const btn = document.getElementById("menu-btn");
   const linkMenu = document.getElementById("link-menu");
   if (linkMenu.classList.contains("active")) {
     e.target.innerHTML = '&#8801';
@@ -140,4 +141,6 @@ function toggleMenu(e) {
     e.target.innerHTML = "&#88";
   }
   linkMenu.classList.toggle('active');
+  btn.classList.toggle('link-menu-btn');
+  btn.classList.toggle('link-menu-btn-close');
 }

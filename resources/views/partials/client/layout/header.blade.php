@@ -53,13 +53,13 @@
         </nav>
 
         <nav class="sub-nav">
-            <button class="link-menu-btn" onclick="toggleMenu(event)">&#8801</button>
+            <button class="link-menu-btn" id="menu-btn" onclick="toggleMenu(event)">&#8801</button>
             <ul class="link-menu" id="link-menu">
                 <li class="link"><a href="{{route('client.catalog.index')}}">@lang('pages.catalog.title')</a></li>
                 <li class="link"><a href="{{route('client.shops.index')}}">@lang('pages.sellers.title')</a></li>
                 <li class="link"><a href="{{route('client.catalog.recommended')}}">@lang('pages.recommended.title')</a>
                 </li>
-                <li class="link hidden lg:inline-block"><a
+                <li class="link"><a
                             href="{{route('client.catalog.new')}}">@lang('pages.new.title')</a></li>
                 <li class="link"><a href="{{route('client.blog.index')}}">@lang('nav.blog')</a></li>
                 <li class="link hidden lg:inline-block">

@@ -5,7 +5,8 @@
   flex: 0 0 auto;
   background-color: var(--background-primary-color);
 }
-.d-none{
+
+.d-none {
   display: none;
 }
 
@@ -44,12 +45,14 @@
   justify-content: space-between;
   width: 100%;
 }
+
 .store-title {
   font-size: var(--subtitle-font-size);
   font-weight: 600;
   text-transform: uppercase;
 
 }
+
 .link {
   font-size: var(--subtitle-font-size);
   font-weight: 600;
@@ -83,20 +86,21 @@
       height: 90vh;
       overflow-y: auto;
     }
-    .close{
+    .close {
       display: flex;
       justify-content: flex-end;
       padding-right: 20px;
       margin-top: 10px;
 
       svg {
-        fill: #000
-      ;
+        fill: #000;
+
         &:hover {
           fill: theme('colors.yellow.500');
         }
       }
     }
+
     ul {
       @apply p-3;
     }
@@ -171,6 +175,13 @@
   font-size: var(--title-font-size);
   line-height: 42px;
 }
+.link-menu-btn-close  {
+  display: none;
+  transition: 0.2s ease-in-out;
+  background: none;
+  font-size: var(--title-font-size);
+  line-height: 42px;
+}
 
 .link-menu-btn.toClose {
   font-style: var(--subtitle-font-size);
@@ -189,6 +200,7 @@
     width: 100%;
     height: 100%;
     left: 0;
+    bottom: 0;
     background: #ffff;
     z-index: -2;
     display: flex;
@@ -201,6 +213,8 @@
   &.active {
 
     @media (max-width: 1199px) {
+      position: fixed;
+      z-index: 10;
       transform: translateX(0%);
     }
   }
@@ -209,11 +223,13 @@
 .store-link {
   font-size: calc(var(--subtitle-font-size) + 2px);
 }
+
 @media (max-width: 1400px) {
   .main-nav__menu-wrapper {
     max-width: 65%;
   }
 }
+
 @media (max-width: 1199px) {
   .main-nav__links-list {
     line-height: 50px;
@@ -247,11 +263,11 @@
 
 @media (max-width: 1199px) {
   .link-menu {
-   display: none;
+    display: none;
   }
 
   .link-menu.active {
-    @apply relative flex w-full;
+    @apply flex w-full;
     opacity: 1;
     transition: 0.4s ease-in-out;
   }
@@ -262,7 +278,16 @@
 
   .link-menu-btn {
     display: block;
+    z-index: 11;
   }
+  .link-menu-btn-close {
+    display: block;
+    z-index: 11;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+  }
+
 }
 
 @media (max-width: 575px) {
