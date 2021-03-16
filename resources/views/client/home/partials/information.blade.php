@@ -6,12 +6,12 @@
         </div>
 
         <div class="section-information__wrapper">
-            <a href="/sellers" class="section-information__link-wrapper" style="background-image: url(../../img/content-part/castle-1.png)">
+            <a href="/sellers" class="section-information__link-wrapper">
                 <p class="section-information__link">@lang('common.information.sellers')</p>
                 {{--<div class="section-information__link-background"></div>--}}
             </a>
 
-            <a href="/buyers" class="section-information__link-wrapper" style="background-image: url(../../img/content-part/castle-2.png)">
+            <a href="/buyers" class="section-information__link-wrapper">
                 <p  class="section-information__link">@lang('common.information.buyers')</p>
                 {{--<div class="section-information__link-background"></div>--}}
             </a>

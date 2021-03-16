@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <single-uploader name="article"
+                    <single-uploader name="page"
                                      src="{{ optional($page->getFirstMedia('page'))->getFullUrl() }}"></single-uploader>
                 </div>
             </div>
