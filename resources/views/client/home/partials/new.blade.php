@@ -11,6 +11,7 @@
                     <a href="{{ route('client.catalog.show', $item) }}"
                        class="section-new__slide swiper-slide slider-2">
                         <img src="{{$item->firstImage}}" alt="slide image" class="image">
+                        <span class="popular-item__link">{{ $item->title }}</span>
                     </a>
                 @endforeach
             </div>
