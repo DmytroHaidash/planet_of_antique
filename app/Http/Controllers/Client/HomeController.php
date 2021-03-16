@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index(): View
     {
         $banners = Banner::all();
-        $new = Product::latest()->take(20)->get();
+        $new = Product::where('new', 1)->latest()->take(20)->get();
         $new_banner = Page::where('slug', 'new-items')->first();
         $recommended = Product::where('recommended', 1)->where('is_published', 1)->take(20)->get();
         $recommended_banner = Page::where('slug', 'recommended')->first();
