@@ -44,6 +44,10 @@ class Category extends Model implements HasMedia, Sortable
         return $this->belongsToMany(Product::class, 'category_product', 'category_id', 'product_id');
     }
 
+    public function exhibits():BelongsToMany
+    {
+        return $this->belongsToMany(Product::class, 'category_exhibit', 'category_id', 'exhibit_id');
+    }
     /**
      * @return MorphMany
      */
