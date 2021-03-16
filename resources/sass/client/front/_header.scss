@@ -76,7 +76,7 @@
       //top: 30px;
       font-size: 1rem;
       position: fixed;
-      margin-top: 90px;
+      margin-top: 80px;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
@@ -208,6 +208,9 @@
     align-items: center;
     justify-content: center;
     transform: translateX(-100%);
+    .link{
+      font-size: var(--title-font-size);
+    }
   }
 
   &.active {
