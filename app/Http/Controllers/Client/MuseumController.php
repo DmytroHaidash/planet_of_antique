@@ -38,7 +38,17 @@ class MuseumController extends Controller
 
     public function show(Request $request, Museum $museum): View
     {
+        $categories = [];
         $exhibits = $museum->exhibits();
+        foreach($museum->exhibits as $exhibit){
+            foreach ($exhibit->categories as $category)
+            {
+
+                if(!in_array_field($category->id, 'id',  $categories)){
+                    $categories[] = $category;
+                }
+            }
+        }
 
         if ($request->filled('category')) {
             $ids = Category::whereIn('slug', explode(',', $request->input('category')))
@@ -51,7 +61,7 @@ class MuseumController extends Controller
         return view('client.museums.show', [
             'museum' => $museum,
             'exhibits' => $exhibits->paginate(20),
-            'categories' => Category::whereHas('exhibits')->get(),
+            'categories' => $categories,
             'category' => $request->input('category'),
         ]);
     }
