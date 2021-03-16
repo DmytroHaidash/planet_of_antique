@@ -95,7 +95,7 @@
             @else
                 <p class="store-title">
                     @lang('nav.create.title')
-                    <a href="/story" class="link">@lang('nav.create.store')</a>
+                    <a href="/story" class="link ml-4">@lang('nav.create.store')</a>
 
                     / <a href="/new-museum" class="link">@lang('nav.create.museum')</a>
                 </p>
