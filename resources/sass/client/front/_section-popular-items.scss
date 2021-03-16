@@ -6,6 +6,23 @@
   height: 345px;
 
   &__link {
+     position: absolute;
+     bottom: 0;
+     display: block;
+     width: 100%;
+     background-color: var(--UI-background-color);
+     font-size: var(--title-font-size);
+     font-weight: 600;
+     line-height: 73px;
+     text-align: center;
+
+     &:hover {
+       background-color: var(--hover-color);
+       color: var(--white-color);
+       transition: 0.2s ease-in-out;
+     }
+   }
+  &__link-2{
     position: absolute;
     bottom: 0;
     display: block;
@@ -13,7 +30,6 @@
     background-color: var(--UI-background-color);
     font-size: var(--title-font-size);
     font-weight: 600;
-    line-height: 73px;
     text-align: center;
 
     &:hover {
