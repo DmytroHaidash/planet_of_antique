@@ -11,7 +11,7 @@
      display: block;
      width: 100%;
      background-color: var(--UI-background-color);
-     font-size: 24px;
+     font-size: var(--title-font-size);
      font-weight: 600;
      line-height: 73px;
      text-align: center;
@@ -24,16 +24,33 @@
    }
 
   &__link-2{
+     position: absolute;
+     bottom: 0;
+     display: block;
+     width: 100%;
+     background-color: var(--UI-background-color);
+     font-size: 24px;
+     font-weight: 600;
+     text-align: center;
+
+     &:hover {
+       background-color: var(--hover-color);
+       color: var(--white-color);
+       transition: 0.2s ease-in-out;
+     }
+   }
+  &__link-3{
     position: absolute;
     bottom: 0;
-    display: block;
+    display: none;
     width: 100%;
     background-color: var(--UI-background-color);
-    font-size: var(--title-font-size);
+    font-size: 24px;
     font-weight: 600;
     text-align: center;
 
     &:hover {
+      display: block;
       background-color: var(--hover-color);
       color: var(--white-color);
       transition: 0.2s ease-in-out;
