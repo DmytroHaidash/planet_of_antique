@@ -36,20 +36,12 @@
                         <p class="lead mb-2">
                             {!! $exhibit->body !!}
                         </p>
-                        <div class="mt-4">
-                            <button class="button button--primary modal-button"
-                                    data-modal-opened="exhibitsQuestion">
-                                @lang('pages.product.question')
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-
-    @include('client.exhibits.question-modal')
 @endsection
 
 @push('styles')

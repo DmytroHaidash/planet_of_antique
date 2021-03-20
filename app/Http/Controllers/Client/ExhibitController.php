@@ -25,7 +25,7 @@ class ExhibitController extends Controller
             'search' => $request->input('search'),
             'search_category' => $request->input('category'),
             'category' => Category::where('slug', $request->input('category'))->first(),
-            'categories' => Category::get(),
+            'categories' => Category::whereHas('exhibits')->get(),
             'exhibits' => $exhibits->paginate(20),
             'page' => Page::where('slug', 'museum-items')->first(),
         ]);
