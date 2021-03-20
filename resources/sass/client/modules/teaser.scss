@@ -21,7 +21,6 @@
   &__thumbnail {
     @apply absolute inset-0 bg-cover bg-no-repeat bg-center;
     z-index: -2;
-    transform: scale(1.1);
     transition: 1s;
   }
 
