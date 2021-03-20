@@ -37,6 +37,7 @@ return [
     'url' => 'shop now',
     'about' => 'About',
     'delivery' => 'Payment and shipping',
-    'contacts' => 'Contacts'
+    'contacts' => 'Contacts',
+    'popular_product' => 'Most popular products'
 
 ];

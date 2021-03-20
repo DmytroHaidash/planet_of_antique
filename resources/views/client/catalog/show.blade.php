@@ -130,14 +130,16 @@
             </div>
         </div>
         @if ($popular->count())
-            <div class="hidden xl:flex"></div>
-            <div class="container mt-10">
-                <div class="flex flex-wrap justify-center mt-6">
-                    @foreach($popular as $item)
-                        @include('partials.client.catalog.prev', ['product' => $item])
-                    @endforeach
+            <div class="hidden xl:flex mt-10">
+
+                <div class="container">
+                        <h2 class="section__title ">@lang('common.popular_product')</h2>
+                    <div class="flex flex-wrap justify-center mt-6">
+                        @foreach($popular as $item)
+                            @include('partials.client.catalog.prev', ['product' => $item])
+                        @endforeach
+                    </div>
                 </div>
-            </div>
             </div>
         @endif
     </section>
