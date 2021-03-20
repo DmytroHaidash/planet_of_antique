@@ -11,7 +11,7 @@
                 @foreach($recommended as $item)
                     <a href="{{ route('client.catalog.show', $item) }}" class="section-recommended__slide swiper-slide slider-2">
                         <img src="{{$item->firstImage}}" alt="slide image" class="image">
-                        <span class="popular-item__link-2">{{ $item->title }}</span>
+                        <span class="popular-item__link-3">{{ $item->title }}</span>
                     </a>
                 @endforeach
             </div>
