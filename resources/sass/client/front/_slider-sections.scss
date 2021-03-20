@@ -34,7 +34,7 @@
 
 .swiper-wrapper {
   .slider {
-    max-width: 33%;
+    max-width: 32.7%;
     min-width: 305px;
     height: 400px;
     display: block;
@@ -59,7 +59,7 @@
 
   .slider-2 {
     width: 33%;
-    height: 300px;
+    height: 350px;
     display: block;
     position: relative;
     @media (max-width: 1200px){
@@ -129,18 +129,22 @@
 }
 
 .swiper-slide{
+  .popular-item__link-3{
+    display:none;
+  }
   &:hover{
     .popular-item__link-3{
       position: absolute;
+      padding: 10px;
       bottom: 0;
       display: block;
       width: 100%;
-      background-color: var(--hover-color);
+      background-color: var(--hover-color-2);
       font-size: 24px;
       font-weight: 600;
       text-align: center;
       color: var(--white-color);
-      transition: 0.2s ease-in-out;
+      transition: 0.25s;
     }
 
   }
