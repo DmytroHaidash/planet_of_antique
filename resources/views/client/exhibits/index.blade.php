@@ -10,7 +10,7 @@
         <div class="mt-12 mb-12">
             <div class="container mx-0">
                 @include('partials.client.catalog.search')
-                <div class="mb-2">
+                <div class="mb-4">
                     @include('partials.client.catalog.filters')
                 </div>
                 <div class="exhibits {{ $exhibits->count() ? 'grid' : '' }}">
