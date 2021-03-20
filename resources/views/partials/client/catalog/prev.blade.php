@@ -11,7 +11,7 @@
 
         @if($product->publish_price && $product->in_stock == 'stock' && !$product->ask_price)
             <div class="flex -mx-2 font-sm">
-                <div class="px-2 w-1/3">{{ $product->price }} @lang('common.currency')</div>
+                <div class="px-2 w-1/3">{{ $product->price }} {{$product->shop->currency}}</div>
             </div>
         @endif
         @if ($product->in_stock == 'sold')

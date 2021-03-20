@@ -61,6 +61,14 @@
                             </fieldset>
                         @endforeach
                     </block-editor>
+                    <div class="form-group mt-2">
+                        <label for="currency">Currency</label>
+                        <select name="currency" id="currency" class="form-control">
+                            <option value="EUR" {{ $shop->currency === 'EUR' ? 'selected' : '' }}>EUR</option>
+                            <option value="USD" {{ $shop->currency === 'USD' ? 'selected' : '' }}>USD</option>
+                            <option value="GBP" {{ $shop->currency === 'GBP' ? 'selected' : '' }}>GBP</option>
+                        </select>
+                    </div>
                     @includeIf('partials.admin.meta', ['meta' => $shop->meta()->first()])
 
                     <div class="form-group">

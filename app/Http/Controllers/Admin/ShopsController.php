@@ -30,7 +30,8 @@ class ShopsController extends Controller
             'delivery' => $request->input('delivery'),
             'contacts' => $request->input('contacts'),
             'published' => $request->has('published'),
-            'partner' => $request->has('partner')
+            'partner' => $request->has('partner'),
+            'currency' => $request->input('currency'),
         ]);
         if($request->has('premium')){
             $shop->user->update(['premium' => $request->input('premium')]);

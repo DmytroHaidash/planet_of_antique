@@ -38,7 +38,7 @@
                                 <h4 class="price text-2xl">
                                     <small class="text-muted">@lang('pages.product.price'):</small>
                                     {{ number_format($product->price, 0, ',', ' ') }}
-                                    @lang('common.currency')
+                                    {{$product->shop->currency}}
                                 </h4>
                             @endif
                             <p class="lead mb-2">{{ $product->description }}</p>

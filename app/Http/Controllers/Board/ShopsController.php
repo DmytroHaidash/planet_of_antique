@@ -26,6 +26,7 @@ class ShopsController extends Controller
             'delivery' => $request->input('delivery'),
             'contacts' => $request->input('contacts'),
             'published' => $request->has('published'),
+            'currency' => $request->input('currency'),
         ]);
         if ($request->hasFile('logo')) {
             $shop->clearMediaCollection('logo');

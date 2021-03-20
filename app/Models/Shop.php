@@ -22,7 +22,7 @@ class Shop extends Model implements HasMedia
         'title', 'description', 'delivery', 'contacts'
     ];
     protected $fillable = [
-        'user_id', 'slug', 'title', 'description', 'delivery', 'published', 'partner', 'contacts'
+        'user_id', 'slug', 'title', 'description', 'delivery', 'published', 'partner', 'contacts', 'currency'
     ];
 
 
