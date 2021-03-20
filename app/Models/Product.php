@@ -78,7 +78,7 @@ class Product extends Model implements HasMedia, Sortable
     public function getFirstImageAttribute()
     {
         return $this->hasMedia('uploads')
-            ? $this->getFirstMedia('uploads')->getFullUrl()
+            ? $this->getFirstMedia('uploads')->getFullUrl('banner')
             : asset('images/no-image.png');
     }
 
