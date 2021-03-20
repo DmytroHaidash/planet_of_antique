@@ -129,6 +129,9 @@
 }
 
 .swiper-slide{
+  .popular-item__link-3{
+    display: none;
+  }
   &:hover{
     .popular-item__link-3{
       position: absolute;
