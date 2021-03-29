@@ -11,7 +11,7 @@
                 {{--<div class="section-information__link-background"></div>--}}
             </a>
 
-            <a href="/buyers" class="section-information__link-wrapper">
+            <a href="/buyers" class="section-information__link-wrapper" style="background-image: url('/img/content-part/castle-3.png')">
                 <p  class="section-information__link">@lang('common.information.buyers')</p>
                 {{--<div class="section-information__link-background"></div>--}}
             </a>
