@@ -10,6 +10,7 @@
                 @foreach($exhibits as $item)
                     <a href="{{ route('client.exhibits.show', $item) }}" class="section-exhibit__slide swiper-slide slider-3">
                         <img src="{{$item->firstImage}}" alt="slide image">
+                        <span class="popular-item__link-3">{{ $item->title }}</span>
                     </a>
                 @endforeach
             </div>

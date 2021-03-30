@@ -11,6 +11,7 @@
                 @foreach($museums as $item)
                     <a href="{{route('client.museums.show', $item)}}" class="section-museums__slide swiper-slide slider">
                         <img src="{{$item->logo}}" alt="slide image">
+                        <span class="popular-item__link-3">{{ $item->title }}</span>
                     </a>
                 @endforeach
             </div>
